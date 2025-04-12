@@ -1,0 +1,71 @@
+.contactUsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    background-color: #f9f9f9;
+    gap: 8rem;
+}
+
+.contactUsImageContainer {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactUsImage {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactUsDetails {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.contactUsTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin-bottom: 1rem;
+}
+
+.contactBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.contactHeading {
+    font-weight: bold;
+    color: #444;
+    font-size: 1.1rem;
+}
+
+.viewJobsBtn {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.viewJobsBtn:hover {
+    background-color: #155ab6;
+}

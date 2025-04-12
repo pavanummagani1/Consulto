@@ -5,7 +5,14 @@ class LoginRegister extends Component {
     state = {
         register: false,
         login: true,
-        doctorLogin:false
+        doctorLogin:false,
+        username:'',
+        email:'',
+        password:'',
+        age:0,
+        gender:'',
+        mobileNumber:''
+
     }
     showRegister = () => {
         this.setState({ login: false, register: true , doctorLogin:false})
@@ -20,6 +27,39 @@ class LoginRegister extends Component {
             register: false
         }));
     };
+    onChangeInput = (e)=>{
+        this.setState({[e.target.name]:e.target.value})
+
+    }
+    registerFrom = async(e)=>{
+        e.preventDefault()
+        const {username,email,password,age,gender,mobileNumber} = this.state
+        // console.log(username,email,password,age,gender)
+        let body = {
+            username,
+            email,
+            password,
+            age,
+            gender,
+            mobileNumber
+        }
+        console.log(body)
+        try {
+            let response = await fetch('http://localhost:3210/register',{
+                'method':'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+            if(!response.ok){
+                throw new Error
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     render() {
         const { login, register,doctorLogin } = this.state
         return (
@@ -52,29 +92,45 @@ class LoginRegister extends Component {
                             </div>)}
                             {/* REGISTER */}
                             {register && !doctorLogin && (<div className="Container">
-                                <form action="" id='registerForm'>
+                                <form action="" id='registerForm' onSubmit={this.registerFrom}>
                                     <TextField
                                         required
                                         id="outlined-required"
                                         label="UserName"
                                         type='text'
+                                        name='username'
+                                        onChange={this.onChangeInput}
+                                    />
+                                    <TextField
+                                        required
+                                        id="outlined-required"
+                                        label="Mobile Number"
+                                        type='telephone'
+                                        name='mobileNumber'
+                                        onChange={this.onChangeInput}
                                     />
                                     <TextField
                                         required
                                         id="outlined-required"
                                         label="Email"
                                         type='email'
+                                        name='email'
+                                        onChange={this.onChangeInput}
                                     />
                                     <TextField
                                         id="outlined-password-input"
                                         label="Password"
                                         type="password"
                                         autoComplete="current-password"
+                                        name='password'
+                                        onChange={this.onChangeInput}
                                     />
                                     <TextField
                                         id="outlined-number"
                                         label="Age"
                                         type="number"
+                                        name='age'
+                                        onChange={this.onChangeInput}
                                         slotProps={{
                                             inputLabel: {
                                                 shrink: true,
@@ -85,13 +141,14 @@ class LoginRegister extends Component {
                                     <RadioGroup
                                         row
                                         aria-labelledby="demo-row-radio-buttons-group-label"
-                                        name="row-radio-buttons-group"
+                                        name="gender"
+                                        onChange={this.onChangeInput}
                                     >
                                         <FormControlLabel value="female" control={<Radio />} label="Female" />
                                         <FormControlLabel value="male" control={<Radio />} label="Male" />
                                         <FormControlLabel value="other" control={<Radio />} label="Other" />
                                     </RadioGroup>
-                                    <Button variant="contained">Register Now</Button>
+                                    <Button type='submit' variant="contained">Register Now</Button>
                                 </form>
                                 <Button variant="contained" onClick={this.showLogin}>Already Registered? Login Now</Button>
                             </div>)}

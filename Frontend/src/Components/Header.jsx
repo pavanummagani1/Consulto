@@ -24,7 +24,7 @@ class Navbar extends Component {
             <>
                 <navbar>
                     <div className="iconContainer">
-                        <span className="hamIcon"  onClick={this.displaySidebar} ><i class="fa-solid fa-bars"></i></span>
+                        <span className="hamIcon"  onClick={this.displaySidebar} ><i className="fa-solid fa-bars"></i></span>
                         <img src="/Consulto_Logo.png" className="navLogo" />
                     </div>
                     <div className="navLinks">

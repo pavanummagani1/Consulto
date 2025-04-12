@@ -1,0 +1,91 @@
+.bannerSection {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 100px;
+    background-color: #f8fafc;
+    gap: 40px;
+}
+
+.aboutImageContainer {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutImage {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.aboutDetails {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.aboutTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.aboutPara {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+/* Vision Section */
+.vision {
+    background-color: #e0f2fe;
+    padding: 20px;
+    border-left: 5px solid #1e40af;
+    border-radius: 8px;
+}
+
+/* Why Choose Us Section */
+.chooseUs {
+    padding: 60px 100px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #f1f5f9;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #475569;
+    margin-top: 10px;
+}
