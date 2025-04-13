@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Footer from "../Components/footer"
 import Navbar from "../Components/Header"
 import '../Styles/landing.css'
-import Doctor from "../Components/doctor"
+import {TopDoctor} from "../Components/doctor"
 const LandingPage = ()=>{
     const [categories, setCategories] = useState([]); 
     const[doctors, setDoctors] = useState([])
@@ -72,7 +72,7 @@ const LandingPage = ()=>{
                         <h3 className="departmentsContainerTitle">TOP DOCTORS TO BOOK</h3>
                         <span className="departmentsContainerAbout">Simply browse through our extensive list of trusted doctors.</span>
                         <div className="doctorsContainer">
-                            <Doctor doctors = {doctors}/>
+                            <TopDoctor doctors = {doctors}/>
                         </div>
                         <button className="moreBtn">More Doctors</button>
                     </div>

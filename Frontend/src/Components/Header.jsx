@@ -18,13 +18,13 @@ class Navbar extends Component {
         }))
     }
     render() {
-        const { isSidebarOpened, isProfileOpened } = this.state
-        const departments = ["Cardiology", "Neurology", "Orthopedics", "Pediatrics", "Dermatology", "Gynecology", "Oncology", "Psychiatry"];
+        const {  isProfileOpened } = this.state
+        // const departments = ["Cardiology", "Neurology", "Orthopedics", "Pediatrics", "Dermatology", "Gynecology", "Oncology", "Psychiatry"];
         return (
             <>
                 <navbar>
                     <div className="iconContainer">
-                        <span className="hamIcon"  onClick={this.displaySidebar} ><i className="fa-solid fa-bars"></i></span>
+                        {/* <span className="hamIcon"  onClick={this.displaySidebar} ><i className="fa-solid fa-bars"></i></span> */}
                         <img src="/Consulto_Logo.png" className="navLogo" />
                     </div>
                     <div className="navLinks">
@@ -33,12 +33,12 @@ class Navbar extends Component {
                         <span className="navItems">ALL DOCTORS</span>
                         <span className="navItems">CONTACT US</span>
                     </div>
-                    <div className="profileIcon" onClick={this.displayProfile}>
-                        <img src="/profile.png" />
+                    <div className="profileIcon">
+                        <img src="/profile.png" /><ion-icon name="chevron-down-outline" onClick={this.displayProfile}></ion-icon>
                     </div>
                 </navbar>
-                {isSidebarOpened &&(<List departments={departments}/>)}
                 {isProfileOpened && (<Profile/>)}
+                {/* {isSidebarOpened &&(<List departments={departments}/>)} */}
             </>
         )
     }

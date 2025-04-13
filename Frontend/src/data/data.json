@@ -27,27 +27,27 @@
     {
       "id": 6,
       "category": "Gastroenterologist",
-      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+      "categoryImage": "https://cdn-icons-png.flaticon.com/512/846/846994.png"
     },
     {
       "id": 7,
       "category": "Cardiologist",
-      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+      "categoryImage": "https://img.freepik.com/premium-vector/cardiologist-icon-vector-image-can-be-used-cardiology_120816-189805.jpg"
     },
     {
       "id": 8,
       "category": "Orthopedist",
-      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+      "categoryImage": "https://cdn-icons-png.flaticon.com/512/9340/9340043.png"
     },
     {
       "id": 9,
       "category": "Psychiatrist",
-      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+      "categoryImage": "https://cdn-icons-png.freepik.com/512/8520/8520012.png"
     },
     {
       "id": 10,
       "category": "Endocrinologist",
-      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+      "categoryImage": "https://cdn-icons-png.flaticon.com/512/6235/6235256.png"
     }
   ],
     "doctors":[
