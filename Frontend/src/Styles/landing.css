@@ -190,32 +190,242 @@ navbar {
   background-color: #1258a8;
 }
 
-.bannaerContainer {
-  width: 100%;
-  /* height: 100vh; full screen height */
-  overflow: hidden;
-  position: relative;
+
+/* General Reset */
+.bannerContainer, .appointmentContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #f5f8fa;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 60px 80px;
+  border-radius: 16px;
+  margin: 4rem 7rem;
+  flex-wrap: wrap;
+  background-color: #2d9cdb;
+}
+
+/* BANNER SECTION */
+.bannerContainer {
+  /* margin-top: 60px; */
+  color: white;
+}
+
+.bannerDetails {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mainText {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.bannerDetails div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.groupImage {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.createAccountBtn {
+  width: 13rem;
+  background-color: white;
+  color: #2d2d2d;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.createAccountBtn i {
+  font-size: 14px;
+}
+
+.createAccountBtn:hover {
+  background-color: #f0f0f0;
 }
 
 .bannerImage {
-  width: 100%;
-  max-width: 1200px;
+  width: 420px;
   height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease;
+}
+.categoryContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px 30px;
+  justify-items: center;
+  padding: 0 20px;
 }
 
-.bannerImage:hover {
-  transform: scale(1.02);
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
+.category img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background: radial-gradient(circle, #dee8f9, #c9dbf0);
+  border-radius: 50%;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.categoryName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+}
+
+
+/* APPOINTMENT SECTION */
+.appointmentContainer {
+  background-color: #2d9cdb;
+  margin-top: 60px;
+}
+
+.appointmentDetails {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.mainText{
+  color: #fff;
+}
+.subText {
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.appointmentImage {
+  width: 420px;
+  height: auto;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .bannerContainer,
+  .appointmentContainer {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .bannerDetails,
+  .appointmentDetails {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .bannerImage,
+  .appointmentImage {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .groupImage {
+    width: 60px;
+  }
+}
+
+
+/* SHARED STYLES */
+.departmentsContainer {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.departmentsContainerDetails {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.departmentsContainerTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.departmentsContainerAbout {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+/* CATEGORY SECTION - SPECIALITIES */
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+.categoryItem img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #e0e7ff 0%, #c7d2fe 100%);
+  padding: 12px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
+.categoryItem span {
+  font-size: 14px;
+  color: #111;
+  font-weight: 500;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* DOCTOR SECTION */
+.doctorsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.doctorCard {
+  width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background-color: white;
+  text-align: center;
+}
+
 
 .footerContainer {
   background-color: #ffffff;

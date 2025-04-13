@@ -1,0 +1,489 @@
+{  "categories": [
+    {
+      "id": 1,
+      "category": "General Physician",
+      "categoryImage": "https://cdn.apollohospitals.com/health-library-prod/2019/06/7-things-your-general-physician-wants-you-to-know.jpg"
+    },
+    {
+      "id": 2,
+      "category": "Gynecologist",
+      "categoryImage": "https://cdn.vectorstock.com/i/1000x1000/51/56/pregnant-woman-and-doctor-vector-33325156.webp"
+    },
+    {
+      "id": 3,
+      "category": "Dermatologist",
+      "categoryImage": "https://img.freepik.com/premium-vector/vector-design-dermatology-icon-style_822882-230020.jpg"
+    },
+    {
+      "id": 4,
+      "category": "Pediatrician",
+      "categoryImage": "https://cdn-icons-png.freepik.com/256/17941/17941963.png?semt=ais_hybrid"
+    },
+    {
+      "id": 5,
+      "category": "Neurologist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 6,
+      "category": "Gastroenterologist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 7,
+      "category": "Cardiologist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 8,
+      "category": "Orthopedist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 9,
+      "category": "Psychiatrist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 10,
+      "category": "Endocrinologist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    }
+  ],
+    "doctors":[
+      {
+        "id": 1,
+        "doctorName": "Dr. Ananya Rao",
+        "doctorImage": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Interventional Cardiologist",
+        "yearsOfExperience": 15,
+        "department": "Cardiology",
+        "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Cardiology), DM (Cardiology) from AIIMS. Fellowship in Interventional Cardiology from Cleveland Clinic. Specializes in complex coronary interventions and structural heart diseases. Published over 50 research papers in international journals.",
+        "fee": 1500,
+        "isAvailable": true
+      },
+      {
+        "id": 2,
+        "doctorName": "Dr. Rajesh Kumar",
+        "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Cardiac Electrophysiologist",
+        "yearsOfExperience": 12,
+        "department": "Cardiology",
+        "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Medicine), DM (Cardiology) from PGIMER. Advanced training in cardiac rhythm disorders. Expert in pacemaker implantation and cardiac ablation procedures.",
+        "fee": 1300,
+        "isAvailable": true
+      },
+      {
+        "id": 3,
+        "doctorName": "Dr. Sarah Matthews",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Cardiologist",
+        "yearsOfExperience": 10,
+        "department": "Cardiology",
+        "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology). Fellowship from Boston Children's Hospital. Specializes in congenital heart defects and pediatric heart surgeries.",
+        "fee": 1400,
+        "isAvailable": true
+      },
+      {
+        "id": 4,
+        "doctorName": "Dr. Vikram Mehta",
+        "doctorImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Preventive Cardiologist",
+        "yearsOfExperience": 8,
+        "department": "Cardiology",
+        "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Cardiology). Expert in preventive cardiology and cardiac rehabilitation. Focuses on lifestyle modifications and heart disease prevention.",
+        "fee": 1200,
+        "isAvailable": true
+      },
+      {
+        "id": 5,
+        "doctorName": "Dr. Lisa Chen",
+        "doctorImage": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Nuclear Cardiologist",
+        "yearsOfExperience": 14,
+        "department": "Cardiology",
+        "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD, Fellowship in Nuclear Cardiology. Expertise in cardiac imaging and stress testing. Pioneer in implementing new imaging technologies.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 6,
+        "doctorName": "Dr. Arun Sharma",
+        "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Neurologist",
+        "yearsOfExperience": 20,
+        "department": "Neurology",
+        "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Neurology), Fellowship in Movement Disorders from UCL. Expert in Parkinson's disease and movement disorders. Research focus on neurodegenerative diseases.",
+        "fee": 1800,
+        "isAvailable": true
+      },
+      {
+        "id": 7,
+        "doctorName": "Dr. Emily Wilson",
+        "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Neurologist",
+        "yearsOfExperience": 15,
+        "department": "Neurology",
+        "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), DM (Neurology). Specializes in pediatric epilepsy and neurodevelopmental disorders. Trained at Johns Hopkins.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 8,
+        "doctorName": "Dr. Michael Chang",
+        "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Neuro-oncologist",
+        "yearsOfExperience": 18,
+        "department": "Neurology",
+        "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD, DM (Neuro-oncology). Expert in brain tumors and neurological complications of cancer. Research published in leading oncology journals.",
+        "fee": 2000,
+        "isAvailable": true
+      },
+      {
+        "id": 9,
+        "doctorName": "Dr. Priya Nair",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Stroke Specialist",
+        "yearsOfExperience": 12,
+        "department": "Neurology",
+        "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Neurology). Fellowship in Stroke Medicine. Pioneer in implementing acute stroke protocols and rehabilitation programs.",
+        "fee": 1500,
+        "isAvailable": true
+      },
+      {
+        "id": 10,
+        "doctorName": "Dr. Suresh Reddy",
+        "doctorImage": "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Joint Replacement Surgeon",
+        "yearsOfExperience": 22,
+        "department": "Orthopedics",
+        "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Joint Replacement from Germany. Expert in minimally invasive joint replacement surgery. Over 5000 successful surgeries.",
+        "fee": 2000,
+        "isAvailable": false
+      },
+      {
+        "id": 11,
+        "doctorName": "Dr. Jessica Brown",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Sports Medicine Specialist",
+        "yearsOfExperience": 14,
+        "department": "Orthopedics",
+        "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Sports Medicine. Former team doctor for national sports teams. Expert in arthroscopic surgery and sports injuries.",
+        "fee": 1800,
+        "isAvailable": true
+      },
+      {
+        "id": 12,
+        "doctorName": "Dr. Ravi Menon",
+        "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Spine Surgeon",
+        "yearsOfExperience": 16,
+        "department": "Orthopedics",
+        "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Spine Surgery. Specializes in complex spine surgeries and minimally invasive techniques. Pioneer in robotic spine surgery.",
+        "fee": 2200,
+        "isAvailable": true
+      },
+      {
+        "id": 13,
+        "doctorName": "Dr. Amanda Lee",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Orthopedist",
+        "yearsOfExperience": 12,
+        "department": "Orthopedics",
+        "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics. Expert in treating congenital deformities and pediatric fractures.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 14,
+        "doctorName": "Dr. Neha Gupta",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Cosmetic Dermatologist",
+        "yearsOfExperience": 10,
+        "department": "Dermatology",
+        "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology from Paris. Expert in advanced skin treatments and anti-aging procedures.",
+        "fee": 1500,
+        "isAvailable": true
+      },
+      {
+        "id": 15,
+        "doctorName": "Dr. David Wilson",
+        "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Dermatologist",
+        "yearsOfExperience": 15,
+        "department": "Dermatology",
+        "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology. Specializes in childhood skin conditions and genetic skin disorders.",
+        "fee": 1400,
+        "isAvailable": true
+      },
+      {
+        "id": 16,
+        "doctorName": "Dr. Meera Patel",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Surgical Dermatologist",
+        "yearsOfExperience": 12,
+        "department": "Dermatology",
+        "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery. Expert in skin cancer treatment and reconstructive procedures.",
+        "fee": 1800,
+        "isAvailable": true
+      },
+      {
+        "id": 17,
+        "doctorName": "Dr. James Thompson",
+        "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Clinical Dermatologist",
+        "yearsOfExperience": 8,
+        "department": "Dermatology",
+        "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Dermatology). Specializes in chronic skin conditions and allergic disorders. Research focus on autoimmune skin diseases.",
+        "fee": 1300,
+        "isAvailable": true
+      },
+      {
+        "id": 18,
+        "doctorName": "Dr. Kavita Sharma",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "General Pediatrician",
+        "yearsOfExperience": 18,
+        "department": "Pediatrics",
+        "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics) from AIIMS. Expert in newborn care and childhood development. Established pediatric emergency protocols.",
+        "fee": 1200,
+        "isAvailable": true
+      },
+      {
+        "id": 19,
+        "doctorName": "Dr. Robert Chen",
+        "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Pulmonologist",
+        "yearsOfExperience": 14,
+        "department": "Pediatrics",
+        "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pulmonology). Specializes in childhood asthma and respiratory disorders. Research in cystic fibrosis.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 20,
+        "doctorName": "Dr. Anjali Desai",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Endocrinologist",
+        "yearsOfExperience": 12,
+        "department": "Pediatrics",
+        "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), DM (Endocrinology). Expert in childhood diabetes and growth disorders. Fellowship from Toronto.",
+        "fee": 1500,
+        "isAvailable": true
+      },
+      {
+        "id": 21,
+        "doctorName": "Dr. William Parker",
+        "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric Gastroenterologist",
+        "yearsOfExperience": 10,
+        "department": "Pediatrics",
+        "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology. Specializes in childhood digestive disorders and nutrition.",
+        "fee": 1400,
+        "isAvailable": true
+      },
+      {
+        "id": 22,
+        "doctorName": "Dr. Sanya Malhotra",
+        "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Developmental Pediatrician",
+        "yearsOfExperience": 15,
+        "department": "Pediatrics",
+        "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics. Expert in autism spectrum disorders and ADHD.",
+        "fee": 1300,
+        "isAvailable": true
+      },
+      {
+        "id": 23,
+        "doctorName": "Dr. Rahul Verma",
+        "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Cataract Surgeon",
+        "yearsOfExperience": 20,
+        "department": "Ophthalmology",
+        "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification. Pioneer in micro-incision cataract surgery. Over 10,000 successful surgeries.",
+        "fee": 1500,
+        "isAvailable": true
+      },
+      {
+        "id": 24,
+        "doctorName": "Dr. Maria Rodriguez",
+        "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Retina Specialist",
+        "yearsOfExperience": 15,
+        "department": "Ophthalmology",
+        "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery. Expert in diabetic retinopathy and macular degeneration.",
+        "fee": 1800,
+        "isAvailable": true
+      },
+      {
+        "id": 25,
+        "doctorName": "Dr. Arjun Kapoor",
+        "doctorImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Glaucoma Specialist",
+        "yearsOfExperience": 18,
+        "department": "Ophthalmology",
+        "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma. Pioneering work in minimally invasive glaucoma surgery.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 26,
+        "doctorName": "Dr. Pradeep Kumar",
+        "doctorImage": "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "ENT Surgeon",
+        "yearsOfExperience": 22,
+        "department": "ENT",
+        "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery. Expert in complex ear surgeries and cochlear implants.",
+        "fee": 1400,
+        "isAvailable": true
+      },
+      {
+        "id": 27,
+        "doctorName": "Dr. Sophie Anderson",
+        "doctorImage": "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Pediatric ENT",
+        "yearsOfExperience": 14,
+        "department": "ENT",
+        "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology. Specializes in childhood hearing disorders and airway problems.",
+        "fee": 1300,
+        "isAvailable": true
+      },
+      {
+        "id": 28,
+        "doctorName": "Dr. Vinod Shetty",
+        "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Rhinologist",
+        "yearsOfExperience": 16,
+        "department": "ENT",
+        "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (ENT), Fellowship in Rhinology. Expert in endoscopic sinus surgery and skull base procedures.",
+        "fee": 1600,
+        "isAvailable": true
+      },
+      {
+        "id": 29,
+        "doctorName": "Dr. Rachel Green",
+        "doctorImage": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Voice Specialist",
+        "yearsOfExperience": 12,
+        "department": "ENT",
+        "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (ENT), Fellowship in Laryngology. Specializes in voice disorders and professional voice care.",
+        "fee": 1200,
+        "isAvailable": true
+      },
+      {
+        "id": 30,
+        "doctorName": "Dr. Karthik Menon",
+        "doctorImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
+        "specialization": "Neurotologist",
+        "yearsOfExperience": 18,
+        "department": "ENT",
+        "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+        "aboutDoctor": "MBBS, MS (ENT), Fellowship in Neurotology. Expert in balance disorders and skull base surgery.",
+        "fee": 1500,
+        "isAvailable": true
+      }
+    ],
+    "topDoctors":[
+        {
+          "id": 1,
+          "name": "Dr. Suresh Reddy",
+          "image": "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Joint Replacement Surgeon",
+          "experience": 22,
+          "department": "Orthopedics",
+          "fee": 2000
+        },
+        {
+          "id": 2,
+          "name": "Dr. Pradeep Kumar",
+          "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "ENT Surgeon",
+          "experience": 22,
+          "department": "ENT",
+          "fee": 1400
+        },
+        {
+          "id": 3,
+          "name": "Dr. Arun Sharma",
+          "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Neurologist",
+          "experience": 20,
+          "department": "Neurology",
+          "fee": 1800
+        },
+        {
+          "id": 4,
+          "name": "Dr. Rahul Verma",
+          "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Cataract Surgeon",
+          "experience": 20,
+          "department": "Ophthalmology",
+          "fee": 1500
+        },
+        {
+          "id": 5,
+          "name": "Dr. Kavita Sharma",
+          "image": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "General Pediatrician",
+          "experience": 18,
+          "department": "Pediatrics",
+          "fee": 1200
+        },
+        {
+          "id": 6,
+          "name": "Dr. Michael Chang",
+          "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Neuro-oncologist",
+          "experience": 18,
+          "department": "Neurology",
+          "fee": 2000
+        },
+        {
+          "id": 7,
+          "name": "Dr. Ravi Menon",
+          "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Spine Surgeon",
+          "experience": 16,
+          "department": "Orthopedics",
+          "fee": 2200
+        },
+        {
+          "id": 8,
+          "name": "Dr. David Wilson",
+          "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+          "specialization": "Pediatric Dermatologist",
+          "experience": 15,
+          "department": "Dermatology",
+          "fee": 1400
+        }
+      ]
+  }

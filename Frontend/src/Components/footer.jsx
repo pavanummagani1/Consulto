@@ -36,10 +36,10 @@ const Footer = () => {
             <div className="footerBottom">
                 <div className="iconsContainer">
                     <h3>Follow us on</h3>
-                    <span className="footerIcons"><i class="fa-brands fa-instagram"></i></span>
-                    <span className="footerIcons"><i class="fa-brands fa-facebook"></i></span>
-                    <span className="footerIcons"><i class="fa-brands fa-x-twitter"></i></span>
-                    <span className="footerIcons"><i class="fa-brands fa-whatsapp"></i></span>
+                    <span className="footerIcons"><i className="fa-brands fa-instagram"></i></span>
+                    <span className="footerIcons"><i className="fa-brands fa-facebook"></i></span>
+                    <span className="footerIcons"><i className="fa-brands fa-x-twitter"></i></span>
+                    <span className="footerIcons"><i className="fa-brands fa-whatsapp"></i></span>
                 </div>
                 <p>© 2025 Consulto — All Rights Reserved.</p>
             </div>
