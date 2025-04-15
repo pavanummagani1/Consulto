@@ -1,12 +1,36 @@
 /* Full page container */
 .AlldoctorsContainer {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     padding: 40px;
     gap: 40px;
     background-color: #fafafa;
 }
+.inputSearch {
+    align-self: flex-end;
+    padding: 0.75rem 1rem;
+    width: 30vw;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
 
+.inputSearch:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+.inputSearch::placeholder {
+    color: #888;
+}
+
+.doctorList{
+    display: flex;
+    flex-direction: row;
+}
 /* Sidebar sticks to the left */
 .listContainer {
     position: relative;

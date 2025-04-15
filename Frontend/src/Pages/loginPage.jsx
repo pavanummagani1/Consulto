@@ -1,182 +1,172 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Radio, FormLabel, FormControlLabel, RadioGroup } from '@mui/material';
-import '../Styles/login.css'
-class LoginRegister extends Component {
-    state = {
-        register: false,
-        login: true,
-        doctorLogin:false,
-        username:'',
-        email:'',
-        password:'',
-        age:0,
-        gender:'',
-        mobileNumber:''
+import '../Styles/login.css';
+import LandingPage from './landingPage';
 
-    }
-    showRegister = () => {
-        this.setState({ login: false, register: true , doctorLogin:false})
-    }
-    showLogin = () => {
-        this.setState({ register: false, login: true, doctorLogin:false })
-    }
-    toggleDoctorLogin = () => {
-        this.setState((prevState) => ({
-            doctorLogin: !prevState.doctorLogin,
-            login: prevState.doctorLogin, // if already in doctorLogin, go to login
-            register: false
+const LoginRegister = () => {
+    const [register, setRegister] = useState(false);
+    const [login, setLogin] = useState(true);
+    const [doctorLogin, setDoctorLogin] = useState(false);
+
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: '',
+        age: 0,
+        gender: '',
+        mobileNumber: ''
+    });
+
+    const showRegister = () => {
+        setRegister(true);
+        setLogin(false);
+        setDoctorLogin(false);
+    };
+
+    const showLogin = () => {
+        setRegister(false);
+        setLogin(true);
+        setDoctorLogin(false);
+    };
+
+    const toggleDoctorLogin = () => {
+        setDoctorLogin(prev => !prev);
+        setLogin(prev => prev ? false : true);
+        setRegister(false);
+    };
+
+    const onChangeInput = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
         }));
     };
-    onChangeInput = (e)=>{
-        this.setState({[e.target.name]:e.target.value})
 
-    }
-    registerFrom = async(e)=>{
-        e.preventDefault()
-        const {username,email,password,age,gender,mobileNumber} = this.state
-        // console.log(username,email,password,age,gender)
-        let body = {
-            username,
-            email,
-            password,
-            age,
-            gender,
-            mobileNumber
-        }
-        console.log(body)
+    const registerForm = async (e) => {
+        e.preventDefault();
+        const { username, email, password, age, gender, mobileNumber } = formData;
+        const body = { username, email, password, age, gender, mobileNumber };
+
+        console.log(body);
         try {
-            let response = await fetch('http://localhost:3210/register',{
-                'method':'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
+            const response = await fetch('http://localhost:3143/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
-            })
-            if(!response.ok){
-                throw new Error
-            }
+            });
+            if (!response.ok) throw new Error('Registration failed');
+            console.log(response)
         } catch (err) {
-            console.log(err)
+            console.error(err);
+        }
+    };
+
+
+    const loginForm = async(e)=>{
+        e.preventDefault()
+        const { email, password } = formData;
+        const body = {email, password };
+        console.log(email,password)
+        try {
+            const response = await fetch('http://localhost:3143/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            if (response.ok){
+                window.location.href=<LandingPage/>
+            }else{
+                throw new Error('Login failed');
+            }
+            console.log(response)
+        } catch (err) {
+            console.error(err);
         }
     }
+    return (
+        <div className='LoginPage'>
+            <button onClick={toggleDoctorLogin}>
+                {doctorLogin ? "User Login" : "Doctor's Login"}
+            </button>
 
-    render() {
-        const { login, register,doctorLogin } = this.state
-        return (
-            <>
-                <div className='LoginPage'>
-                    <button onClick={this.toggleDoctorLogin}>{doctorLogin ? "User Login" : "Doctor's Login"}</button>
-                    <div className='mainContainer'>
-                        <div className="imageContainer">
-                            <img src="/Consulto_Logo.png" className="Image" />
-                        </div>
-                        <div className="container">
-                            {/* LOGIN */}
-                            {login && !doctorLogin && (<div className="loginContainer">
-                                <form id='loginForm' >
-                                    <TextField
-                                        required
-                                        id="outlined-required"
-                                        label="Email/UserName"
-                                        type='text'
-                                    />
-                                    <TextField
-                                        id="outlined-password-input"
-                                        label="Password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                    />
-                                    <Button variant="contained">Login Now</Button>
-                                </form>
-                                <Button variant="contained" onClick={this.showRegister}>New User? Register Now</Button>
-                            </div>)}
-                            {/* REGISTER */}
-                            {register && !doctorLogin && (<div className="Container">
-                                <form action="" id='registerForm' onSubmit={this.registerFrom}>
-                                    <TextField
-                                        required
-                                        id="outlined-required"
-                                        label="UserName"
-                                        type='text'
-                                        name='username'
-                                        onChange={this.onChangeInput}
-                                    />
-                                    <TextField
-                                        required
-                                        id="outlined-required"
-                                        label="Mobile Number"
-                                        type='telephone'
-                                        name='mobileNumber'
-                                        onChange={this.onChangeInput}
-                                    />
-                                    <TextField
-                                        required
-                                        id="outlined-required"
-                                        label="Email"
-                                        type='email'
-                                        name='email'
-                                        onChange={this.onChangeInput}
-                                    />
-                                    <TextField
-                                        id="outlined-password-input"
-                                        label="Password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        name='password'
-                                        onChange={this.onChangeInput}
-                                    />
-                                    <TextField
-                                        id="outlined-number"
-                                        label="Age"
-                                        type="number"
-                                        name='age'
-                                        onChange={this.onChangeInput}
-                                        slotProps={{
-                                            inputLabel: {
-                                                shrink: true,
-                                            },
-                                        }}
-                                    />
-                                    <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
-                                    <RadioGroup
-                                        row
-                                        aria-labelledby="demo-row-radio-buttons-group-label"
-                                        name="gender"
-                                        onChange={this.onChangeInput}
-                                    >
-                                        <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                        <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                        <FormControlLabel value="other" control={<Radio />} label="Other" />
-                                    </RadioGroup>
-                                    <Button type='submit' variant="contained">Register Now</Button>
-                                </form>
-                                <Button variant="contained" onClick={this.showLogin}>Already Registered? Login Now</Button>
-                            </div>)}
-
-                            {/* Doctor's Login */}
-                            {doctorLogin && (<div className="loginContainer">
-                                <form action="" id='loginForm'>
-                                    <TextField
-                                        required
-                                        id="outlined-required"
-                                        label="Email/UserName"
-                                        type='text'
-                                    />
-                                    <TextField
-                                        id="outlined-password-input"
-                                        label="Password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                    />
-                                    <Button variant="contained">Login Now</Button>
-                                </form>
-                            </div>)}
-                        </div>
-                    </div>
+            <div className='mainContainer'>
+                <div className="imageContainer">
+                    <img src="/Consulto_Logo.png" className="Image" alt="Consulto Logo" />
                 </div>
-            </>
-        )
-    }
 
-}
-export default LoginRegister
+                <div className="container">
+                    {/* Login Section */}
+                    {login && !doctorLogin && (
+                        <div className="loginContainer">
+                            <form id='loginForm'  onSubmit={loginForm} >
+                                <TextField required label="Email/UserName" type='text'name='email' onChange={onChangeInput} />
+                                <TextField label="Password" type="password" autoComplete="current-password" name='password' onChange={onChangeInput} />
+                                <Button variant="contained" type='submit'>Login Now</Button>
+                            </form>
+                            <Button variant="contained" onClick={showRegister}>
+                                New User? Register Now
+                            </Button>
+                        </div>
+                    )}
+
+                    {/* Register Section */}
+                    {register && !doctorLogin && (
+                        <div className="Container">
+                            <form id='registerForm' onSubmit={registerForm}>
+                                <TextField
+                                    required label="UserName" type='text' name='username'
+                                    onChange={onChangeInput}
+                                />
+                                <TextField
+                                    required label="Mobile Number" type='tel' name='mobileNumber'
+                                    onChange={onChangeInput}
+                                />
+                                <TextField
+                                    required label="Email" type='email' name='email'
+                                    onChange={onChangeInput}
+                                />
+                                <TextField
+                                    label="Password" type="password" autoComplete="current-password"
+                                    name='password' onChange={onChangeInput}
+                                />
+                                <TextField
+                                    label="Age" type="number" name='age'
+                                    onChange={onChangeInput}
+                                    InputLabelProps={{ shrink: true }}
+                                />
+                                <FormLabel>Gender</FormLabel>
+                                <RadioGroup
+                                    row name="gender"
+                                    onChange={onChangeInput}
+                                >
+                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                    <FormControlLabel value="other" control={<Radio />} label="Other" />
+                                </RadioGroup>
+                                <Button type='submit' variant="contained">Register Now</Button>
+                            </form>
+                            <Button variant="contained" onClick={showLogin}>
+                                Already Registered? Login Now
+                            </Button>
+                        </div>
+                    )}
+
+                    {/* Doctor Login Section */}
+                    {doctorLogin && (
+                        <div className="loginContainer">
+                        <h2 className='text'>DOCTOR LOGIN</h2>
+                            <form id='loginForm'>
+                                <TextField required label="Email/UserName" type='text' />
+                                <TextField label="Password" type="password" autoComplete="current-password" />
+                                <Button variant="contained">Login Now</Button>
+                            </form>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default LoginRegister;

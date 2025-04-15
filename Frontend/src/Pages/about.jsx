@@ -1,14 +1,11 @@
 import { Component } from "react";
-import Navbar from "../Components/Header";
-import Footer from "../Components/footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/about.css'
-import '../Styles/landing.css'
+
 class About extends Component {
     render() {
         return (
             <>
-                <Navbar />
                 {/* About Container */}
                 <section className="bannerSection">
                     <section className="aboutImageContainer">
@@ -28,14 +25,14 @@ class About extends Component {
                     <h3 className="aboutTitle">Why Choose US</h3>
                     <section className="cardContainer">
                         {/* .card-1 */}
-                        <div className="card"  style={{ width: '18rem' }}>
+                        <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title">PERSONALIZATION:</h5>
                                 <p className="card-text">Tailored recommendations and reminders to help you stay on top of your health.</p>
                             </div>
                         </div>
                         {/* card-2 */}
-                        <div className="card"  style={{ width: '18rem' }}>
+                        <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title">EFFICIENCY:</h5>
                                 <p className="card-text">Streamlined appointment scheduling that fits into your busy lifestyle.</p>
@@ -43,7 +40,7 @@ class About extends Component {
                         </div>
 
                         {/* card-3 */}
-                        <div className="card"  style={{ width: '18rem' }}>
+                        <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title">CONVENIENCE:</h5>
                                 <p className="card-text">Access to a network of trusted healthcare professionals in your area.</p>
@@ -51,7 +48,6 @@ class About extends Component {
                         </div>
                     </section>
                 </section>
-                <Footer />
             </>
         )
     }

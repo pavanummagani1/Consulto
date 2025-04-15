@@ -14,6 +14,7 @@ return(
                 <h3 className="doctorName">{doctor.doctorName}</h3>
                 <p className="doctorcategory">Specalization:{doctor.specialization}</p>
                 <p className="doctorcategory">{doctor.department}</p>
+                <button className='detailsBtn' onClick={(doctor)=><SingleDoctor doctor={doctor}/>}>View Details</button>
             </div>
         )
     })}
@@ -35,7 +36,7 @@ export const AllDoctors =(props)=>{
                 <h3 className="doctorName">{doctor.doctorName}</h3>
                 <p className="doctorcategory">Specalization:{doctor.specialization}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={(doctor)=><SingleDoctor doctor={doctor}/>}>View Details</button>
+                <button className='detailsBtn' onClick={()=><SingleDoctor doctor={doctor} />}>View Details</button>
             </div>
         )
     })}

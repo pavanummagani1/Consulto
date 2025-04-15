@@ -1,14 +1,10 @@
 import { Component } from "react"
-import Navbar from "../Components/Header"
-import Footer from "../Components/footer"
-import '../Styles/landing.css'
 import '../Styles/contactUs.css'
 
 class ContactUs extends Component {
     render() {
         return (
             <>
-                <Navbar />
                 <section className="contactUsContainer">
                     <section className="contactUsImageContainer">
                         <img src="/contact_image.png" className="contactUsImage" alt="Contact Us" />
@@ -30,7 +26,6 @@ class ContactUs extends Component {
                         </div>
                     </section>
                 </section>
-                <Footer />
             </>
         )
     }

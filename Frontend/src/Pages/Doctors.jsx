@@ -28,16 +28,17 @@ const Doctors = () => {
     }, []);
     return (
         <>
-            <Navbar />
             <div className="AlldoctorsContainer">
+                <input className="inputSearch" type="search" placeholder="Search Docotor or Category"/>
+                <div className="doctorList">
                 <div className="listContainer">
                     <List departments={departments} />
                 </div>
                 <div className="doctorsContainer">
                     <AllDoctors doctors={doctors} />
                 </div>
+                </div>
             </div>
-            <Footer />
         </>
     )
 

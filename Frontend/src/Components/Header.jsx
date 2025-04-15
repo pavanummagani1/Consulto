@@ -1,6 +1,7 @@
 import { Component } from "react";
-import List from "./departmentList";
+// import List from "./departmentList";
 import Profile from "./profile";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
     state = {
@@ -28,10 +29,10 @@ class Navbar extends Component {
                         <img src="/Consulto_Logo.png" className="navLogo" />
                     </div>
                     <div className="navLinks">
-                        <span className="navItems">HOME</span>
-                        <span className="navItems">ABOUT US</span>
-                        <span className="navItems">ALL DOCTORS</span>
-                        <span className="navItems">CONTACT US</span>
+                        <span className="navItems"><Link to="/">HOME</Link></span>
+                        <span className="navItems"><Link to="/aboutus">ABOUT US</Link></span>
+                        <span className="navItems"><Link to="/alldoctors">ALL DOCTORS</Link></span>
+                        <span className="navItems"><Link to="/contactus">CONTACT US</Link></span>
                     </div>
                     <div className="profileIcon">
                         <img src="/profile.png" /><ion-icon name="chevron-down-outline" onClick={this.displayProfile}></ion-icon>

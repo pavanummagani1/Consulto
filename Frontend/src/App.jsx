@@ -1,21 +1,33 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Doctors from './Pages/Doctors'
+import SingleDoctor from './Pages/singleDoctor'
+import ContactUs from './Pages/contactUs'
+import About from './Pages/about'
+import LandingPage from './Pages/landingPage'
+import LoginRegister from './Pages/loginPage'
+import Navbar from "./Components/Header"
+import Footer from './Components/footer'
 import './App.css'
-import Doctors from './Pages/allDoctors'
-// import ContactUs from './Pages/contactUs'
-// import About from './Pages/about'
-// import LandingPage from './Pages/landingPage'
-// import LoginRegister from './Pages/loginPage'
+import './Styles/landing.css'
+
 
 function App() {
   return (
     <>
-    {/* <LandingPage/> */}
-    {/* <LoginRegister/> */}
-    {/* <About/> */}
-    {/* <ContactUs/> */}
-    <Doctors/>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/'element={<LandingPage />} />
+          <Route path='/login'element={<LoginRegister />} />
+          <Route path='/aboutus'element={<About />} />
+          <Route path='/contactus'element={<ContactUs />} />
+          <Route path='/alldoctors'element={<Doctors />} />
+          <Route path=''element={<SingleDoctor />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }
 
 export default App
- 

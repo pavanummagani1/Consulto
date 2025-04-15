@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import Footer from "../Components/footer"
-import Navbar from "../Components/Header"
 import '../Styles/landing.css'
 import {TopDoctor} from "../Components/doctor"
 const LandingPage = ()=>{
@@ -44,7 +42,6 @@ const LandingPage = ()=>{
     //   console.log(doctors)
     return(
         <>
-        <Navbar/>
         <div className="bannerContainer">
                     <div className="bannerDetails">
                         <p className="mainText">Book Appointment  <br />With 100+ Trusted <br /> Doctors</p>
@@ -87,7 +84,6 @@ const LandingPage = ()=>{
                     </div>
                     <img src="appointment_img.png" className="appointmentImage" />
                 </div>
-        <Footer/>
         </>
     )
 }
