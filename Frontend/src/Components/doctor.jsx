@@ -1,7 +1,11 @@
 import '../Styles/doctor.css'
-import SingleDoctor from '../Pages/singleDoctor'
+import { useNavigate } from "react-router-dom";
 export const TopDoctor = (props)=>{
     const {doctors} = props
+    const navigate = useNavigate()
+    const showDoctor = (id)=>{
+        navigate(`/doctor/${id}`)
+    }
 return(
     <>
     {doctors.filter(doctor=>doctor.yearsOfExperience>=17).map(doctor=>{
@@ -14,7 +18,8 @@ return(
                 <h3 className="doctorName">{doctor.doctorName}</h3>
                 <p className="doctorcategory">Specalization:{doctor.specialization}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={(doctor)=><SingleDoctor doctor={doctor}/>}>View Details</button>
+                <button className='detailsBtn' onClick={()=>showDoctor(doctor.id)}>View Details</button>
+
             </div>
         )
     })}
@@ -24,6 +29,10 @@ return(
 
 export const AllDoctors =(props)=>{
     const {doctors} = props
+    const navigate = useNavigate()
+    const showDoctor = (id)=>{
+        navigate(`/doctor/${id}`)
+    }
     return(
         <>
         {doctors.map(doctor=>{
@@ -36,7 +45,7 @@ export const AllDoctors =(props)=>{
                 <h3 className="doctorName">{doctor.doctorName}</h3>
                 <p className="doctorcategory">Specalization:{doctor.specialization}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={()=><SingleDoctor doctor={doctor} />}>View Details</button>
+                <button className='detailsBtn' onClick={()=>showDoctor(doctor.id)}>View Details</button>
             </div>
         )
     })}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import '../Styles/landing.css'
 import {TopDoctor} from "../Components/doctor"
+import { Link } from "react-router-dom";
 const LandingPage = ()=>{
     const [categories, setCategories] = useState([]); 
     const[doctors, setDoctors] = useState([])
@@ -71,7 +72,7 @@ const LandingPage = ()=>{
                         <div className="doctorsContainer">
                             <TopDoctor doctors = {doctors}/>
                         </div>
-                        <button className="moreBtn">More Doctors</button>
+                        <button className="moreBtn"><Link className="btnLink" to='/alldoctors'>More Doctors</Link></button>
                     </div>
                 </div>
 

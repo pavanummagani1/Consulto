@@ -29,10 +29,10 @@ class Navbar extends Component {
                         <img src="/Consulto_Logo.png" className="navLogo" />
                     </div>
                     <div className="navLinks">
-                        <span className="navItems"><Link to="/">HOME</Link></span>
-                        <span className="navItems"><Link to="/aboutus">ABOUT US</Link></span>
-                        <span className="navItems"><Link to="/alldoctors">ALL DOCTORS</Link></span>
-                        <span className="navItems"><Link to="/contactus">CONTACT US</Link></span>
+                        <span className="navItems"><Link className="Link" to="/">HOME</Link></span>
+                        <span className="navItems"><Link className="Link" to="/aboutus">ABOUT US</Link></span>
+                        <span className="navItems"><Link className="Link" to="/alldoctors">ALL DOCTORS</Link></span>
+                        <span className="navItems"><Link className="Link" to="/contactus">CONTACT US</Link></span>
                     </div>
                     <div className="profileIcon">
                         <img src="/profile.png" /><ion-icon name="chevron-down-outline" onClick={this.displayProfile}></ion-icon>

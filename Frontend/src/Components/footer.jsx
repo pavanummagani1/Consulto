@@ -6,7 +6,7 @@ const Footer = () => {
                 <div className="footerSection aboutSection">
                     <div className="logoContainer">
                         <img src="/Consulto_Logo.png" alt="Consulto Logo" className="footerLogo" />
-                        <h2 className="footerTitle">Consulto</h2>
+                        <h2 className="footerTitle">CONSULTO</h2>
                     </div>
                     <p className="aboutText">
                         Consulto is your trusted healthcare companion, designed to simplify and enhance the patient-doctor interaction.

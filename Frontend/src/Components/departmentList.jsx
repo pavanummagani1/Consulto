@@ -1,6 +1,5 @@
 const List = (props)=>{
     const {departments} = props
-    console.log(departments)
     return(
         <aside className="sidebar">
             <ul>

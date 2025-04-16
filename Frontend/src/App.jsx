@@ -22,7 +22,7 @@ function App() {
           <Route path='/aboutus'element={<About />} />
           <Route path='/contactus'element={<ContactUs />} />
           <Route path='/alldoctors'element={<Doctors />} />
-          <Route path=''element={<SingleDoctor />} />
+          <Route path='/doctor/:id'element={<SingleDoctor />} />
         </Routes>
         <Footer />
       </BrowserRouter>

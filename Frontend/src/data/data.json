@@ -54,10 +54,10 @@
   "doctors": [
     {
       "id": 1,
-      "doctorName": "Dr. Ananya Rao",
+      "doctorName": "Dr. Bhavitha Chowdary",
       "doctorImage": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Interventional Cardiologist",
-      "yearsOfExperience": 15,
+      "yearsOfExperience": 26,
       "department": "Cardiology",
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Cardiology), DM (Cardiology) from AIIMS. Fellowship in Interventional Cardiology from Cleveland Clinic. Specializes in complex coronary interventions and structural heart diseases. Published over 50 research papers in international journals.",
