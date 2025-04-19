@@ -1,0 +1,240 @@
+/* Base styles */
+.bannerContainer,
+.departmentsContainer,
+.appointmentContainer {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerContainer {
+  background: #f0f8ff;
+}
+
+.bannerDetails {
+  flex: 1;
+  max-width: 600px;
+  padding: 1rem;
+}
+
+.bannerDetails .mainText {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.groupImage {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.bannerDetails span {
+  display: inline-block;
+  max-width: 400px;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+.createAccountBtn {
+  margin-top: 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.createAccountBtn i {
+  margin-left: 10px;
+}
+
+.bannerImage {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.departmentsContainer {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.departmentsContainerTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.departmentsContainerAbout {
+  display: block;
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.categoryContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background-color: #fafafa;
+  transition: all 0.3s;
+}
+
+.category:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.category img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.categoryName {
+  font-weight: 600;
+  color: #333;
+}
+
+.doctorsContainer {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(240px, 4fr)); */
+  grid-template-columns: repeat(4,1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.moreBtn {
+  margin: 2rem auto 0;
+  display: block;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btnLink {
+  color: #fff;
+  text-decoration: none;
+}
+
+.appointmentContainer {
+  background: #e6f7ff;
+  padding: 3rem 2rem;
+  flex-wrap: wrap-reverse;
+  height: 80vh;
+}
+
+.appointmentDetails {
+  flex: 1;
+  text-align: center;
+}
+
+.appointmentDetails .mainText {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.appointmentDetails .subText {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.appointmentImage {
+  flex: 1;
+  max-width: 500px;
+  width: 100%;
+  height: 70vh;
+}
+
+@media (max-width: 360px) {
+  .bannerDetails .mainText,
+  .appointmentDetails .mainText {
+    font-size: 1.5rem;
+  }
+
+  .createAccountBtn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .groupImage {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerContainer,
+  .appointmentContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .bannerImage,
+  .appointmentImage {
+    max-width: 100%;
+  }
+
+  .createAccountBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerContainer,
+  .appointmentContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .departmentsContainerTitle {
+    font-size: 1.75rem;
+  }
+
+  .categoryContainer {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .doctorsContainer {
+    grid-template-columns: repeat(1,1fr);
+    place-items: center center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bannerDetails .mainText {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .bannerDetails .mainText {
+    font-size: 2.2rem;
+  }
+}

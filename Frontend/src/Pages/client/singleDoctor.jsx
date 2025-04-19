@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import '../Styles/singleDoctor.css'
+import '../../Styles/client/singleDoctor.css'
 
 const SingleDoctor = ()=>{
     const [doctor, setDoctor] = useState({})

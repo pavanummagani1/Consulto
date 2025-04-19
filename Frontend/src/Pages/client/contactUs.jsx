@@ -1,5 +1,5 @@
 import { Component } from "react"
-import '../Styles/contactUs.css'
+import '../../Styles/client/contactUs.css'
 
 class ContactUs extends Component {
     render() {
@@ -13,8 +13,8 @@ class ContactUs extends Component {
                         <h3 className="contactUsTitle">CONTACT US</h3>
                         <div className="contactBlock">
                             <span className="contactHeading">OUR OFFICE</span>
-                            <span>00000 Willms Station</span>
-                            <span>Suite 000, Washington, USA</span>
+                            <span>TEAM ABODE, 2nd Floor</span>
+                            <span>500019 Hyderabad,Telangana, INDIA</span>
                         </div>
                         <div className="contactBlock">
                             <span><b>Tel:</b> 9381596405</span>

@@ -1,0 +1,169 @@
+.contactUsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    background-color: #f9f9f9;
+    gap: 8rem;
+}
+
+.contactUsImageContainer {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactUsImage {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactUsDetails {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.contactUsTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin-bottom: 1rem;
+}
+
+.contactBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.contactHeading {
+    font-weight: bold;
+    color: #444;
+    font-size: 1.1rem;
+}
+
+.viewJobsBtn {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.viewJobsBtn:hover {
+    background-color: #155ab6;
+}
+
+@media (max-width: 360px) {
+    .contactUsContainer {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+    .contactUsImage {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    .contactUsTitle {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .contactHeading {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .contactBlock {
+        align-items: center;
+    }
+    .viewJobsBtn {
+        align-self: center;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
+    .contactUsContainer {
+        padding: 2rem 1.5rem;
+        gap: 3rem;
+    }
+    .contactUsImage {
+        max-width: 90%;
+    }
+    .contactUsTitle {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .contactHeading {
+        text-align: center;
+    }
+    .contactBlock {
+        align-items: center;
+    }
+    .viewJobsBtn {
+        align-self: center;
+    }
+}
+@media (min-width: 481px) and (max-width: 991px) {
+    .contactUsContainer {
+        gap: 4rem;
+        padding: 3rem 2rem;
+    }
+    .contactUsImage {
+        max-width: 85%;
+    }
+    .contactUsTitle {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .contactBlock {
+        align-items: center;
+    }
+    .contactHeading {
+        font-size: 1.05rem;
+    }
+    .viewJobsBtn {
+        align-self: center;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .contactUsContainer {
+        gap: 6rem;
+        padding: 3rem 3rem;
+    }
+    .contactUsImage {
+        max-width: 75%;
+    }
+    .contactUsTitle {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contactUsContainer {
+        gap: 8rem;
+        padding: 3rem 5rem;
+    }
+    .contactUsImage {
+        max-width: 80%;
+    }
+    .contactUsTitle {
+        font-size: 2.5rem;
+    }
+}

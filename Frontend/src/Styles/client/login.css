@@ -1,0 +1,131 @@
+/* Base styles */
+.mainContainer {
+  min-height: 100vh;
+  background-color: #f2f6fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2e3a59;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Flex wrapper for form and logo */
+.authWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Logo styling */
+.logo {
+  background-color: white;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Image {
+  width: 200px;
+  height: auto;
+}
+
+/* Form container styling */
+.loginContainer {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  background-color: white;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.loginContainer button {
+  text-transform: none;
+  font-weight: 500;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.loginContainer a {
+  color: white;
+  text-decoration: none;
+}
+
+.loginContainer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Layout */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .authWrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo, .loginContainer {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .Image {
+    width: 150px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .mainContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .Image {
+    width: 120px;
+  }
+}
+
+/* Mini Phones */
+@media (max-width: 480px) {
+  .authWrapper {
+    padding: 1rem 0.5rem;
+  }
+
+  .loginContainer {
+    padding: 1rem;
+  }
+
+  .loginContainer button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .Image {
+    width: 100px;
+  }
+}

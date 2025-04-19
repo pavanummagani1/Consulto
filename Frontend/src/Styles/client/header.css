@@ -1,0 +1,176 @@
+navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 70px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navLogo {
+    height: 60px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.navLinks {
+    display: flex;
+    gap: 30px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.navItems {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navItems:hover {
+    color: #a2c4f7;
+}
+
+.navItems::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #1976d2;
+    transition: width 0.3s ease;
+}
+
+.navItems:hover::after {
+    width: 100%;
+}
+
+.profileIcon {
+    display: flex;
+    align-items: center;
+}
+
+.profileIcon img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hamIcon {
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    margin-left: 15px;
+    display: none;
+    transition: transform 0.2s ease;
+}
+
+.hamIcon:hover {
+    transform: scale(1.1);
+    color: #1976d2;
+}
+
+.sidebar {
+    position: fixed;
+    top: 70px;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.sidebar.open {
+    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobileNavItems {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.mobileNavItems:hover {
+    color: #1976d2;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    opacity: 0;
+    transition: background 0.4s ease, opacity 0.4s ease;
+    z-index: 998;
+}
+
+.backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+}
+@media (max-width: 991px) {
+    .navLinks {
+        display: none;
+    }
+
+    .profileIcon {
+        display: none;
+    }
+
+    .hamIcon {
+        display: block;
+    }
+
+    .navLogo {
+        height: 40px;
+        width: 60px;
+    }
+}
+@media (min-width: 992px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .profileIcon {
+        display: flex;
+    }
+
+    .hamIcon {
+        display: none;
+    }
+
+    .navLinks {
+        display: flex;
+    }
+}

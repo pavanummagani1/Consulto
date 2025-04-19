@@ -39,16 +39,6 @@
       "id": 8,
       "category": "Orthopedist",
       "categoryImage": "https://cdn-icons-png.flaticon.com/512/9340/9340043.png"
-    },
-    {
-      "id": 9,
-      "category": "Psychiatrist",
-      "categoryImage": "https://cdn-icons-png.freepik.com/512/8520/8520012.png"
-    },
-    {
-      "id": 10,
-      "category": "Endocrinologist",
-      "categoryImage": "https://cdn-icons-png.flaticon.com/512/6235/6235256.png"
     }
   ],
   "doctors": [
@@ -78,7 +68,7 @@
     },
     {
       "id": 3,
-      "doctorName": "Dr. Sarah Matthews",
+      "doctorName": "Dr. Sarika Joshi",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Cardiologist",
       "yearsOfExperience": 10,
@@ -102,7 +92,7 @@
     },
     {
       "id": 5,
-      "doctorName": "Dr. Lisa Chen",
+      "doctorName": "Dr. Leela Sharma",
       "doctorImage": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Nuclear Cardiologist",
       "yearsOfExperience": 14,
@@ -126,7 +116,7 @@
     },
     {
       "id": 7,
-      "doctorName": "Dr. Emily Wilson",
+      "doctorName": "Dr. Esha Malhotra",
       "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Neurologist",
       "yearsOfExperience": 15,
@@ -138,7 +128,7 @@
     },
     {
       "id": 8,
-      "doctorName": "Dr. Michael Chang",
+      "doctorName": "Dr. Mihir Choudhury",
       "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Neuro-oncologist",
       "yearsOfExperience": 18,
@@ -174,7 +164,7 @@
     },
     {
       "id": 11,
-      "doctorName": "Dr. Jessica Brown",
+      "doctorName": "Dr. Jhanvi Bhatia",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Sports Medicine Specialist",
       "yearsOfExperience": 14,
@@ -198,7 +188,7 @@
     },
     {
       "id": 13,
-      "doctorName": "Dr. Amanda Lee",
+      "doctorName": "Dr. Amrita Desai",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Orthopedist",
       "yearsOfExperience": 12,
@@ -222,7 +212,7 @@
     },
     {
       "id": 15,
-      "doctorName": "Dr. David Wilson",
+      "doctorName": "Dr. Dev Verma",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Dermatologist",
       "yearsOfExperience": 15,
@@ -246,7 +236,7 @@
     },
     {
       "id": 17,
-      "doctorName": "Dr. James Thompson",
+      "doctorName": "Dr. Jayant Thakur",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Clinical Dermatologist",
       "yearsOfExperience": 8,
@@ -270,7 +260,7 @@
     },
     {
       "id": 19,
-      "doctorName": "Dr. Robert Chen",
+      "doctorName": "Dr. Rohit Chandra",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Pulmonologist",
       "yearsOfExperience": 14,
@@ -390,13 +380,13 @@
     },
     {
       "id": 29,
-      "doctorName": "Dr. Rachel Green",
-      "doctorImage": "https://www.shutterstock.com/image-photo/profile-photo-attractive-family-doc-600nw-1724693776.jpg",
-      "specialization": "Voice Specialist",
+      "doctorName": "Dr. Pranathi Reddy",
+      "doctorImage": "https://www.shutterstock.com/image-photo/confident-woman-doctor-wearing-medical-600nw-1670852902.jpg",
+      "specialization": "Joint Replacement Surgeon",
       "yearsOfExperience": 12,
-      "department": "ENT",
+      "department": "Orthopedics",
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
-      "aboutDoctor": "MBBS, MS (ENT), Fellowship in Laryngology. Specializes in voice disorders and professional voice care.",
+      "aboutDoctor": "Dr. Pranathi Reddy is a highly skilled Joint Replacement Surgeon with over 12 years of experience in the field of Orthopedics. She specializes in the diagnosis and treatment of joint disorders, including hip, knee, and shoulder replacements. With a focus on providing patients with the best care through advanced surgical techniques and personalized rehabilitation plans, Dr. Reddy is committed to improving the quality of life for those suffering from joint pain and mobility issues",
       "fee": 1200,
       "isAvailable": true
     },
@@ -485,6 +475,425 @@
       "experience": 15,
       "department": "Dermatology",
       "fee": 1400
+    }
+  ],
+  "patients": [
+    {
+      "patientId": 1,
+      "patientName": "Aarav Sharma",
+      "doctorId": 3,
+      "bookingDate": "2023-08-12",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 2,
+      "patientName": "Priya Reddy",
+      "doctorId": 25,
+      "bookingDate": "2024-01-05",
+      "bookingTime": "02:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 3,
+      "patientName": "Vikram Joshi",
+      "doctorId": 7,
+      "bookingDate": "2023-11-22",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 4,
+      "patientName": "Anjali Gupta",
+      "doctorId": 15,
+      "bookingDate": "2024-02-18",
+      "bookingTime": "11:15 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 5,
+      "patientName": "Rohan Malhotra",
+      "doctorId": 1,
+      "bookingDate": "2023-09-07",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 6,
+      "patientName": "Neha Srinivasan",
+      "doctorId": 28,
+      "bookingDate": "2023-12-25",
+      "bookingTime": "09:00 AM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 7,
+      "patientName": "Arjun Iyer",
+      "doctorId": 12,
+      "bookingDate": "2024-03-14",
+      "bookingTime": "03:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 8,
+      "patientName": "Kavita Nair",
+      "doctorId": 9,
+      "bookingDate": "2023-07-01",
+      "bookingTime": "01:20 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 9,
+      "patientName": "Rahul Bhatia",
+      "doctorId": 5,
+      "bookingDate": "2024-04-09",
+      "bookingTime": "05:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 10,
+      "patientName": "Shreya Chopra",
+      "doctorId": 18,
+      "bookingDate": "2023-10-31",
+      "bookingTime": "08:45 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 11,
+      "patientName": "Aditya Rao",
+      "doctorId": 23,
+      "bookingDate": "2024-05-22",
+      "bookingTime": "12:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 12,
+      "patientName": "Pooja Menon",
+      "doctorId": 6,
+      "bookingDate": "2023-06-15",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 13,
+      "patientName": "Nitin Verma",
+      "doctorId": 29,
+      "bookingDate": "2024-06-10",
+      "bookingTime": "10:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 14,
+      "patientName": "Divya Khanna",
+      "doctorId": 14,
+      "bookingDate": "2023-08-08",
+      "bookingTime": "02:30 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 15,
+      "patientName": "Siddharth Das",
+      "doctorId": 8,
+      "bookingDate": "2024-07-03",
+      "bookingTime": "11:00 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 16,
+      "patientName": "Tanvi Chatterjee",
+      "doctorId": 2,
+      "bookingDate": "2023-12-12",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 17,
+      "patientName": "Manoj Tiwari",
+      "doctorId": 27,
+      "bookingDate": "2024-08-19",
+      "bookingTime": "03:45 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 18,
+      "patientName": "Swati Dubey",
+      "doctorId": 19,
+      "bookingDate": "2023-11-11",
+      "bookingTime": "01:15 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 19,
+      "patientName": "Harish Yadav",
+      "doctorId": 4,
+      "bookingDate": "2024-09-28",
+      "bookingTime": "05:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 20,
+      "patientName": "Preeti Sengupta",
+      "doctorId": 30,
+      "bookingDate": "2023-10-05",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 21,
+      "patientName": "Girish Acharya",
+      "doctorId": 11,
+      "bookingDate": "2024-10-15",
+      "bookingTime": "02:20 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 22,
+      "patientName": "Jyoti Bakshi",
+      "doctorId": 24,
+      "bookingDate": "2023-09-09",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 23,
+      "patientName": "Naveen Choudhury",
+      "doctorId": 13,
+      "bookingDate": "2024-11-23",
+      "bookingTime": "12:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 24,
+      "patientName": "Ananya Dutta",
+      "doctorId": 16,
+      "bookingDate": "2023-07-17",
+      "bookingTime": "09:15 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 25,
+      "patientName": "Pranav Mishra",
+      "doctorId": 26,
+      "bookingDate": "2024-12-05",
+      "bookingTime": "01:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 26,
+      "patientName": "Shilpa Ranganathan",
+      "doctorId": 21,
+      "bookingDate": "2023-08-29",
+      "bookingTime": "03:00 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 27,
+      "patientName": "Rajiv Kapoor",
+      "doctorId": 17,
+      "bookingDate": "2024-01-14",
+      "bookingTime": "11:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 28,
+      "patientName": "Radhika Sinha",
+      "doctorId": 22,
+      "bookingDate": "2023-06-20",
+      "bookingTime": "02:10 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 29,
+      "patientName": "Sunil Nambiar",
+      "doctorId": 20,
+      "bookingDate": "2024-02-29",
+      "bookingTime": "04:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 30,
+      "patientName": "Esha Venkatesh",
+      "doctorId": 25,
+      "bookingDate": "2023-05-03",
+      "bookingTime": "10:15 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 31,
+      "patientName": "Vijay Balakrishnan",
+      "doctorId": 3,
+      "bookingDate": "2024-03-17",
+      "bookingTime": "12:45 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 32,
+      "patientName": "Madhu Ganesan",
+      "doctorId": 7,
+      "bookingDate": "2023-04-22",
+      "bookingTime": "05:15 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 33,
+      "patientName": "Kavya Iyengar",
+      "doctorId": 1,
+      "bookingDate": "2024-04-11",
+      "bookingTime": "09:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 34,
+      "patientName": "Rakesh Pillai",
+      "doctorId": 28,
+      "bookingDate": "2023-03-08",
+      "bookingTime": "02:00 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 35,
+      "patientName": "Sonal Mehra",
+      "doctorId": 12,
+      "bookingDate": "2024-05-19",
+      "bookingTime": "11:30 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 36,
+      "patientName": "Deepak Sundaram",
+      "doctorId": 5,
+      "bookingDate": "2023-02-14",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 37,
+      "patientName": "Trisha Rajan",
+      "doctorId": 9,
+      "bookingDate": "2024-06-21",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 38,
+      "patientName": "Sameer Krishnan",
+      "doctorId": 15,
+      "bookingDate": "2023-01-09",
+      "bookingTime": "01:20 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 39,
+      "patientName": "Asha Natarajan",
+      "doctorId": 23,
+      "bookingDate": "2024-07-07",
+      "bookingTime": "03:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 40,
+      "patientName": "Yashwant Chauhan",
+      "doctorId": 6,
+      "bookingDate": "2023-12-30",
+      "bookingTime": "09:15 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 41,
+      "patientName": "Bhavna Rastogi",
+      "doctorId": 29,
+      "bookingDate": "2024-08-08",
+      "bookingTime": "12:45 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 42,
+      "patientName": "Chitra Varma",
+      "doctorId": 14,
+      "bookingDate": "2023-11-18",
+      "bookingTime": "05:00 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 43,
+      "patientName": "Dinesh Prabhu",
+      "doctorId": 8,
+      "bookingDate": "2024-09-01",
+      "bookingTime": "02:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 44,
+      "patientName": "Eshwar Prasad",
+      "doctorId": 2,
+      "bookingDate": "2023-10-23",
+      "bookingTime": "11:45 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 45,
+      "patientName": "Falguni Saxena",
+      "doctorId": 27,
+      "bookingDate": "2024-10-12",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 46,
+      "patientName": "Gautam Bannerjee",
+      "doctorId": 19,
+      "bookingDate": "2023-09-06",
+      "bookingTime": "10:30 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 47,
+      "patientName": "Hema Rangan",
+      "doctorId": 4,
+      "bookingDate": "2024-11-17",
+      "bookingTime": "01:00 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 48,
+      "patientName": "Ishan Grover",
+      "doctorId": 30,
+      "bookingDate": "2023-08-04",
+      "bookingTime": "03:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 49,
+      "patientName": "Jaya Srinivas",
+      "doctorId": 11,
+      "bookingDate": "2024-12-24",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 50,
+      "patientName": "Kiran Venkatraman",
+      "doctorId": 24,
+      "bookingDate": "2023-07-19",
+      "bookingTime": "05:15 PM",
+      "bookingStatus": "Cancelled"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "adminId": "Admin1",
+      "password": "Admin1@123"
+    },
+    {
+      "id": 2,
+      "adminId": "Admin2",
+      "password": "Admin2@123"
+    },
+    {
+      "id": 3,
+      "adminId": "Admin3",
+      "password": "Admin3@123"
     }
   ]
 }

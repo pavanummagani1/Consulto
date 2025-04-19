@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { AllDoctors } from "../Components/doctor"
-import List from "../Components/departmentList"
-import '../Styles/allDoctors.css'
-import "../Styles/landing.css"
+import { AllDoctors } from "../../Components/doctor"
+import List from "../../Components/departmentList"
+import '../../Styles/client/allDoctors.css'
+import "../../Styles/client/landing.css"
 
 const Doctors = () => {
-    const departments = ["Cardiology", "Neurology", "Orthopedics", "Pediatrics", "Dermatology", "Gynecology", "Oncology", "Psychiatry"];
+    const departments = ["General Physcian", "Gynecology", "Dermatology", "Pediatrics", "Neurology", "Gastroentrologist", "Cardilogy", "Orthopedics"];
     const [doctors, setDoctors] = useState([])
     const fetchDoctors = async () => {
         try {

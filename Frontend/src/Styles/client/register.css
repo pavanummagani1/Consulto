@@ -1,0 +1,102 @@
+/* Outer Wrapper */
+.register-wrapper {
+    min-height: 90vh;
+    background-color: #f2f6fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  
+  /* Main Box */
+  .register-box {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .logo-section {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .logo-image {
+    width: 240px;
+    height: auto;
+  }
+  
+  /* Form Container */
+  .register-container {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-button {
+    margin-top: 1rem;
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .secondary-button {
+    margin-top: 0.5rem;
+    color: #1976d2;
+    background-color: #fff;
+  }
+  
+  .link-style {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .gender-label {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (min-width: 768px) {
+    .register-box {
+      flex-direction: row;
+    }
+  
+    .logo-section,
+    .register-container {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo-image {
+      width: 180px;
+    }
+  
+    .register-container {
+      padding: 1rem;
+    }
+  
+    .form-button {
+      font-size: 0.85rem;
+    }
+  }
+  
