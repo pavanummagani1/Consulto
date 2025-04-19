@@ -11,3 +11,16 @@
     text-decoration: none;
     color: #fff;
 }
+.hamIcon {
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    margin-left: 15px;
+    display: none;
+    transition: transform 0.2s ease;
+}
+
+.hamIcon:hover {
+    transform: scale(1.1);
+    color: #1976d2;
+}

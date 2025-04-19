@@ -45,10 +45,12 @@ import Footer from './Components/footer'
 import './App.css'
 import "./Styles/client/landing.css";
 import Register from './Pages/client/register'
+import AdminDashboard from './Pages/admin/dashboard'
+import AdminLogin from './Pages/admin/adminLogin'
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
   return (
@@ -62,6 +64,8 @@ const Layout = () => {
         <Route path='/contactus' element={<ContactUs />} />
         <Route path='/alldoctors' element={<Doctors />} />
         <Route path='/doctor/:id' element={<SingleDoctor />} />
+        <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='/adminlogin' element={<AdminLogin />} />
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>
