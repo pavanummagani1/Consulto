@@ -4,15 +4,19 @@
 }
 
 .adminSidebar {
-    display: flex;
-    width: 250px;
-    background-color: #fff;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #ffffff;
     border-right: 1px solid #e0e0e0;
     padding: 1rem;
+    width: 250px;
+    display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    position: fixed;
-
+    z-index: 1001;
 }
 
 .sidebarContainer {
@@ -42,6 +46,8 @@
 .dataDashboard {
     flex-grow: 1;
     padding: 2rem;
+    margin-left: 250px;
+    width: calc(100% - 250px);
 }
 
 .BtnContainer {
@@ -63,48 +69,6 @@
 
 .dashborardBtns:hover {
     background-color: #4f46e5;
-}
-
-@media (max-width: 1023px) {
-    .adminSidebar {
-        display: none !important;
-    }
-
-    .BtnContainer {
-        display: flex !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    .adminSidebar {
-        display: flex !important;
-    }
-
-    .BtnContainer {
-        display: none !important;
-    }
-}
-.adminSidebar {
-    position: fixed;
-    top: 70;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #ffffff;
-    border-right: 1px solid #e0e0e0;
-    padding: 1rem;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 1001;
-}
-
-.dataDashboard {
-    flex-grow: 1;
-    padding: 2rem;
-    margin-left: 250px;
-    width: calc(100% - 250px);
 }
 
 .styled-table {
@@ -138,7 +102,14 @@
     cursor: pointer;
 }
 
-@media (max-width: 1023px) {
+.text {
+    font-weight: bold;
+}
+
+/* 🔹 Media Queries */
+
+/* Mini Phones (≤480px) */
+@media screen and (max-width: 480px) {
     .adminSidebar {
         display: none !important;
     }
@@ -153,8 +124,60 @@
         margin-left: 0;
         width: 100%;
     }
+
+    .doctorsContainer {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
+/* Phones/Tablets (481px–768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .adminSidebar {
+        display: none !important;
+    }
+
+    .BtnContainer {
+        display: flex !important;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .dataDashboard {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .doctorsContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets/Mini Laptops (769px–1023px) */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .adminSidebar {
+        display: none !important;
+    }
+
+    .BtnContainer {
+        display: flex !important;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .dataDashboard {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .doctorsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktops (≥1024px) */
 @media (min-width: 1024px) {
     .adminSidebar {
         display: flex !important;
@@ -163,7 +186,4 @@
     .BtnContainer {
         display: none !important;
     }
-}
-.text{
-    font-weight: bold;
 }

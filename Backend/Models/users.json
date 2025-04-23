@@ -1,0 +1,34 @@
+[
+    {
+        "username": "Aditi",
+        "mobileNumber": "9676000700",
+        "email": "aditi@gmail.com",
+        "password": "$2b$10$x7ulB3/Mebp3iBEw9hl.2uHB4TbYjv7F7v4hYrQXdaqd.ZTaGMOlC",
+        "age": "7",
+        "gender": "female"
+    },
+    {
+        "username": "asd",
+        "mobileNumber": "9876543219",
+        "email": "asd@gmail.com",
+        "password": "$2b$10$iWK5ZV1PoR229wnGwAqQcOsgVmJ/pW2pkrMqIZCcB0bG9uYJ0DOWW",
+        "age": "24",
+        "gender": "male"
+    },
+    {
+        "username": "shiva",
+        "mobileNumber": "3456789231",
+        "email": "maheshgopagani05@gmail.com",
+        "password": "$2b$10$7njRlvGi2WTQq0uMfKrLC.UjnWDVaNb9ym/Gi1saGW.K5gDYVlXl6",
+        "age": "7",
+        "gender": "male"
+    },
+    {
+        "username": "Aravindh",
+        "mobileNumber": "8500402873",
+        "email": "aravindh@gmail.com",
+        "password": "$2b$10$UuOVaPJl5Vm66mxJFhG.d.Qc7agXA9K4SG1.eGvtp2aWF6bKm1Pcm",
+        "age": "27",
+        "gender": "male"
+    }
+]

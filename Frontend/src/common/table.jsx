@@ -1,5 +1,4 @@
 const Table = ({columns = [], dataset = []}) => {
-    console.log(columns,dataset)
     return (
         <table border={1} cellSpacing={0} className="styled-table">
             <thead>

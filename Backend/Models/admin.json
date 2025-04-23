@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "adminId": "Admin1",
+      "password": "$2a$12$SsvfjwOcnz4wbhuxI61jj.6vlZM.iYJmghzjQcVoT9MXeWW7inpvy"
+    },
+    {
+      "id": 2,
+      "adminId": "Admin2",
+      "password": "$2a$12$WYM8uwPZ4NfjpyWF9D4iwelkSiW/MdUVqNQ4XeSTQ649iOlu3nqTS"
+    },
+    {
+      "id": 3,
+      "adminId": "Admin3",
+      "password": "$2a$12$KpYibn.USrrGqF148KCeG.e6AwQDbrsBCuyji880rOk5KE7PN9SwW"
+    }
+]

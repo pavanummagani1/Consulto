@@ -41,10 +41,14 @@
       "categoryImage": "https://cdn-icons-png.flaticon.com/512/9340/9340043.png"
     }
   ],
-  "doctors": [
+  "doctors":  [
     {
       "id": 1,
       "doctorName": "Dr. Bhavitha Chowdary",
+      "email": "drbhavitha.chowdary1@medcare.com",
+      "password": "Doc@Bhavitha1",
+      "degree": "MBBS, MD (Cardiology), DM (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 101, Mumbai",
       "doctorImage": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Interventional Cardiologist",
       "yearsOfExperience": 26,
@@ -52,11 +56,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Cardiology), DM (Cardiology) from AIIMS. Fellowship in Interventional Cardiology from Cleveland Clinic. Specializes in complex coronary interventions and structural heart diseases. Published over 50 research papers in international journals.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "04:00 pm", "05:00 pm"]
     },
     {
       "id": 2,
       "doctorName": "Dr. Rajesh Kumar",
+      "email": "drrajesh.kumar2@medcare.com",
+      "password": "Doc@Rajesh2",
+      "degree": "MBBS, MD (Medicine), DM (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 102, Mumbai",
       "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Cardiac Electrophysiologist",
       "yearsOfExperience": 12,
@@ -64,11 +73,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Medicine), DM (Cardiology) from PGIMER. Advanced training in cardiac rhythm disorders. Expert in pacemaker implantation and cardiac ablation procedures.",
       "fee": 1300,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "05:30 pm", "06:30 pm", "07:30 pm"]
     },
     {
       "id": 3,
       "doctorName": "Dr. Sarika Joshi",
+      "email": "drsarika.joshi3@medcare.com",
+      "password": "Doc@Sarika3",
+      "degree": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 103, Mumbai",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Cardiologist",
       "yearsOfExperience": 10,
@@ -76,11 +90,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology). Fellowship from Boston Children's Hospital. Specializes in congenital heart defects and pediatric heart surgeries.",
       "fee": 1400,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "03:00 pm", "05:00 pm", "07:00 pm"]
     },
     {
       "id": 4,
       "doctorName": "Dr. Vikram Mehta",
+      "email": "drvikram.mehta4@medcare.com",
+      "password": "Doc@Vikram4",
+      "degree": "MBBS, MD (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 104, Mumbai",
       "doctorImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Preventive Cardiologist",
       "yearsOfExperience": 8,
@@ -88,11 +107,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Cardiology). Expert in preventive cardiology and cardiac rehabilitation. Focuses on lifestyle modifications and heart disease prevention.",
       "fee": 1200,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm", "08:30 pm"]
     },
     {
       "id": 5,
       "doctorName": "Dr. Leela Sharma",
+      "email": "drleela.sharma5@medcare.com",
+      "password": "Doc@Leela5",
+      "degree": "MBBS, MD, Fellowship in Nuclear Cardiology",
+      "address": "MedCare Hospital, Cardiology Wing, Room 105, Mumbai",
       "doctorImage": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Nuclear Cardiologist",
       "yearsOfExperience": 14,
@@ -100,11 +124,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD, Fellowship in Nuclear Cardiology. Expertise in cardiac imaging and stress testing. Pioneer in implementing new imaging technologies.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["12:00 pm", "12:30 pm", "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm", "03:30 pm"]
     },
     {
       "id": 6,
       "doctorName": "Dr. Arun Sharma",
+      "email": "drarun.sharma6@medcare.com",
+      "password": "Doc@Arun6",
+      "degree": "MBBS, MD (Neurology), Fellowship in Movement Disorders",
+      "address": "MedCare Hospital, Neurology Wing, Room 106, Delhi",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Neurologist",
       "yearsOfExperience": 20,
@@ -112,11 +141,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Neurology), Fellowship in Movement Disorders from UCL. Expert in Parkinson's disease and movement disorders. Research focus on neurodegenerative diseases.",
       "fee": 1800,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "03:00 pm", "04:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
     },
     {
       "id": 7,
       "doctorName": "Dr. Esha Malhotra",
+      "email": "dresha.malhotra7@medcare.com",
+      "password": "Doc@Esha7",
+      "degree": "MBBS, MD (Pediatrics), DM (Neurology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 107, Delhi",
       "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Neurologist",
       "yearsOfExperience": 15,
@@ -124,11 +158,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Neurology). Specializes in pediatric epilepsy and neurodevelopmental disorders. Trained at Johns Hopkins.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
     },
     {
       "id": 8,
       "doctorName": "Dr. Mihir Choudhury",
+      "email": "drmihir.choudhury8@medcare.com",
+      "password": "Doc@Mihir8",
+      "degree": "MBBS, MD, DM (Neuro-oncology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 108, Delhi",
       "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Neuro-oncologist",
       "yearsOfExperience": 18,
@@ -136,11 +175,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD, DM (Neuro-oncology). Expert in brain tumors and neurological complications of cancer. Research published in leading oncology journals.",
       "fee": 2000,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["04:00 pm", "04:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm", "07:00 pm", "07:30 pm", "08:00 pm", "08:30 pm"]
     },
     {
       "id": 9,
       "doctorName": "Dr. Priya Nair",
+      "email": "drpriya.nair9@medcare.com",
+      "password": "Doc@Priya9",
+      "degree": "MBBS, MD (Neurology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 109, Delhi",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Stroke Specialist",
       "yearsOfExperience": 12,
@@ -148,11 +192,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Neurology). Fellowship in Stroke Medicine. Pioneer in implementing acute stroke protocols and rehabilitation programs.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "04:00 pm", "05:00 pm", "06:00 pm"]
     },
     {
       "id": 10,
       "doctorName": "Dr. Suresh Reddy",
+      "email": "drsuresh.reddy10@medcare.com",
+      "password": "Doc@Suresh10",
+      "degree": "MBBS, MS (Ortho), Fellowship in Joint Replacement",
+      "address": "MedCare Hospital, Neurology Wing, Room 110, Delhi",
       "doctorImage": "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Joint Replacement Surgeon",
       "yearsOfExperience": 22,
@@ -160,11 +209,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Joint Replacement from Germany. Expert in minimally invasive joint replacement surgery. Over 5000 successful surgeries.",
       "fee": 2000,
-      "isAvailable": false
+      "isAvailable": false,
+      "availableSlots": []
     },
     {
       "id": 11,
       "doctorName": "Dr. Jhanvi Bhatia",
+      "email": "drjhanvi.bhatia11@medcare.com",
+      "password": "Doc@Jhanvi11",
+      "degree": "MBBS, MS (Ortho), Fellowship in Sports Medicine",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 111, Bangalore",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Sports Medicine Specialist",
       "yearsOfExperience": 14,
@@ -172,11 +226,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Sports Medicine. Former team doctor for national sports teams. Expert in arthroscopic surgery and sports injuries.",
       "fee": 1800,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
     },
     {
       "id": 12,
       "doctorName": "Dr. Ravi Menon",
+      "email": "drravi.menon12@medcare.com",
+      "password": "Doc@Ravi12",
+      "degree": "MBBS, MS (Ortho), Fellowship in Spine Surgery",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 112, Bangalore",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Spine Surgeon",
       "yearsOfExperience": 16,
@@ -184,11 +243,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Spine Surgery. Specializes in complex spine surgeries and minimally invasive techniques. Pioneer in robotic spine surgery.",
       "fee": 2200,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm"]
     },
     {
       "id": 13,
       "doctorName": "Dr. Amrita Desai",
+      "email": "dramrita.desai13@medcare.com",
+      "password": "Doc@Amrita13",
+      "degree": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 113, Bangalore",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Orthopedist",
       "yearsOfExperience": 12,
@@ -196,11 +260,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics. Expert in treating congenital deformities and pediatric fractures.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "10:30 am", "11:00 am", "11:30 am", "12:00 pm", "12:30 pm", "01:00 pm"]
     },
     {
       "id": 14,
       "doctorName": "Dr. Neha Gupta",
+      "email": "drneha.gupta14@medcare.com",
+      "password": "Doc@Neha14",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 114, Bangalore",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Cosmetic Dermatologist",
       "yearsOfExperience": 10,
@@ -208,11 +277,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology from Paris. Expert in advanced skin treatments and anti-aging procedures.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm", "06:00 pm"]
     },
     {
       "id": 15,
       "doctorName": "Dr. Dev Verma",
+      "email": "drdev.verma15@medcare.com",
+      "password": "Doc@Dev15",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 115, Bangalore",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Dermatologist",
       "yearsOfExperience": 15,
@@ -220,11 +294,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology. Specializes in childhood skin conditions and genetic skin disorders.",
       "fee": 1400,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm"]
     },
     {
       "id": 16,
       "doctorName": "Dr. Meera Patel",
+      "email": "drmeera.patel16@medcare.com",
+      "password": "Doc@Meera16",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery",
+      "address": "MedCare Hospital, Dermatology Wing, Room 116, Chennai",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Surgical Dermatologist",
       "yearsOfExperience": 12,
@@ -232,11 +311,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery. Expert in skin cancer treatment and reconstructive procedures.",
       "fee": 1800,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:30 am", "01:30 pm", "03:30 pm", "05:30 pm", "07:30 pm"]
     },
     {
       "id": 17,
       "doctorName": "Dr. Jayant Thakur",
+      "email": "drjayant.thakur17@medcare.com",
+      "password": "Doc@Jayant17",
+      "degree": "MBBS, MD (Dermatology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 117, Chennai",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Clinical Dermatologist",
       "yearsOfExperience": 8,
@@ -244,11 +328,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Dermatology). Specializes in chronic skin conditions and allergic disorders. Research focus on autoimmune skin diseases.",
       "fee": 1300,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "04:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
     },
     {
       "id": 18,
       "doctorName": "Dr. Praveena Sanjeev",
+      "email": "drpraveena.sanjeev18@medcare.com",
+      "password": "Doc@Praveena18",
+      "degree": "MBBS, MD (Pediatrics)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 118, Chennai",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "General Pediatrician",
       "yearsOfExperience": 18,
@@ -256,11 +345,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics) from AIIMS. Expert in newborn care and childhood development. Established pediatric emergency protocols.",
       "fee": 1200,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "10:30 am", "11:00 am", "04:00 pm", "04:30 pm", "05:00 pm", "07:00 pm", "07:30 pm"]
     },
     {
       "id": 19,
       "doctorName": "Dr. Rohit Chandra",
+      "email": "drrohit.chandra19@medcare.com",
+      "password": "Doc@Rohit19",
+      "degree": "MBBS, MD (Pediatrics), DM (Pulmonology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 119, Chennai",
       "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Pulmonologist",
       "yearsOfExperience": 14,
@@ -268,11 +362,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pulmonology). Specializes in childhood asthma and respiratory disorders. Research in cystic fibrosis.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "06:30 pm", "07:30 pm"]
     },
     {
       "id": 20,
       "doctorName": "Dr. Anjali Desai",
+      "email": "dranjali.desai20@medcare.com",
+      "password": "Doc@Anjali20",
+      "degree": "MBBS, MD (Pediatrics), DM (Endocrinology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 120, Chennai",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Endocrinologist",
       "yearsOfExperience": 12,
@@ -280,11 +379,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Endocrinology). Expert in childhood diabetes and growth disorders. Fellowship from Toronto.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["12:00 pm", "12:30 pm", "01:00 pm", "01:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm"]
     },
     {
       "id": 21,
       "doctorName": "Dr. William Parker",
+      "email": "drwilliam.parker21@medcare.com",
+      "password": "Doc@William21",
+      "degree": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 121, Hyderabad",
       "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Pediatric Gastroenterologist",
       "yearsOfExperience": 10,
@@ -292,11 +396,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology. Specializes in childhood digestive disorders and nutrition.",
       "fee": 1400,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm"]
     },
     {
       "id": 22,
       "doctorName": "Dr. Sanya Malhotra",
+      "email": "drsanya.malhotra22@medcare.com",
+      "password": "Doc@Sanya22",
+      "degree": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 122, Hyderabad",
       "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Developmental Pediatrician",
       "yearsOfExperience": 15,
@@ -304,11 +413,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics. Expert in autism spectrum disorders and ADHD.",
       "fee": 1300,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
     },
     {
       "id": 23,
       "doctorName": "Dr. Rahul Verma",
+      "email": "drrahul.verma23@medcare.com",
+      "password": "Doc@Rahul23",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 123, Hyderabad",
       "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Cataract Surgeon",
       "yearsOfExperience": 20,
@@ -316,11 +430,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification. Pioneer in micro-incision cataract surgery. Over 10,000 successful surgeries.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm"]
     },
     {
       "id": 24,
       "doctorName": "Dr. Maria Rodriguez",
+      "email": "drmaria.rodriguez24@medcare.com",
+      "password": "Doc@Maria24",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 124, Hyderabad",
       "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
       "specialization": "Retina Specialist",
       "yearsOfExperience": 15,
@@ -328,11 +447,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery. Expert in diabetic retinopathy and macular degeneration.",
       "fee": 1800,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["03:00 pm", "03:30 pm", "04:00 pm", "04:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm"]
     },
     {
       "id": 25,
       "doctorName": "Dr. Arjun Kapoor",
+      "email": "drarjun.kapoor25@medcare.com",
+      "password": "Doc@Arjun25",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 125, Hyderabad",
       "doctorImage": "https://t3.ftcdn.net/jpg/02/95/51/80/360_F_295518052_aO5d9CqRhPnjlNDTRDjKLZHNftqfsxzI.jpg",
       "specialization": "Glaucoma Specialist",
       "yearsOfExperience": 18,
@@ -340,11 +464,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma. Pioneering work in minimally invasive glaucoma surgery.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "06:00 pm", "07:00 pm", "08:00 pm"]
     },
     {
       "id": 26,
       "doctorName": "Dr. Pradeep Kumar",
+      "email": "drpradeep.kumar26@medcare.com",
+      "password": "Doc@Pradeep26",
+      "degree": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery",
+      "address": "MedCare Hospital, ENT Wing, Room 126, Kolkata",
       "doctorImage": "https://t4.ftcdn.net/jpg/03/21/23/37/360_F_321233723_3nSdORPnL4nPOfGEocyCGVCI0RoXuRVo.jpg",
       "specialization": "ENT Surgeon",
       "yearsOfExperience": 22,
@@ -352,11 +481,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery. Expert in complex ear surgeries and cochlear implants.",
       "fee": 1400,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
     },
     {
       "id": 27,
       "doctorName": "Dr. Sophie Anderson",
+      "email": "drsophie.anderson27@medcare.com",
+      "password": "Doc@Sophie27",
+      "degree": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology",
+      "address": "MedCare Hospital, ENT Wing, Room 127, Kolkata",
       "doctorImage": "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
       "specialization": "Pediatric ENT",
       "yearsOfExperience": 14,
@@ -364,11 +498,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology. Specializes in childhood hearing disorders and airway problems.",
       "fee": 1300,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:30 am", "11:30 am", "12:30 pm", "01:30 pm", "04:30 pm", "05:30 pm", "06:30 pm", "07:30 pm"]
     },
     {
       "id": 28,
       "doctorName": "Dr. Vinod Shetty",
+      "email": "drvinod.shetty28@medcare.com",
+      "password": "Doc@Vinod28",
+      "degree": "MBBS, MS (ENT), Fellowship in Rhinology",
+      "address": "MedCare Hospital, ENT Wing, Room 128, Kolkata",
       "doctorImage": "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
       "specialization": "Rhinologist",
       "yearsOfExperience": 16,
@@ -376,11 +515,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Rhinology. Expert in endoscopic sinus surgery and skull base procedures.",
       "fee": 1600,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["11:00 am", "01:00 pm", "03:00 pm", "05:00 pm", "07:00 pm"]
     },
     {
       "id": 29,
       "doctorName": "Dr. Pranathi Reddy",
+      "email": "drpranathi.reddy29@medcare.com",
+      "password": "Doc@Pranathi29",
+      "degree": "MBBS, MS (Ortho), Fellowship in Joint Replacement",
+      "address": "MedCare Hospital, ENT Wing, Room 129, Kolkata",
       "doctorImage": "https://www.shutterstock.com/image-photo/confident-woman-doctor-wearing-medical-600nw-1670852902.jpg",
       "specialization": "Joint Replacement Surgeon",
       "yearsOfExperience": 12,
@@ -388,11 +532,16 @@
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "Dr. Pranathi Reddy is a highly skilled Joint Replacement Surgeon with over 12 years of experience in the field of Orthopedics. She specializes in the diagnosis and treatment of joint disorders, including hip, knee, and shoulder replacements. With a focus on providing patients with the best care through advanced surgical techniques and personalized rehabilitation plans, Dr. Reddy is committed to improving the quality of life for those suffering from joint pain and mobility issues",
       "fee": 1200,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:00 am", "12:00 pm", "02:00 pm", "04:00 pm", "06:00 pm", "08:00 pm"]
     },
     {
       "id": 30,
       "doctorName": "Dr. Karthik Menon",
+      "email": "drkarthik.menon30@medcare.com",
+      "password": "Doc@Karthik30",
+      "degree": "MBBS, MS (ENT), Fellowship in Neurotology",
+      "address": "MedCare Hospital, ENT Wing, Room 130, Kolkata",
       "doctorImage": "https://thumbs.dreamstime.com/b/african-male-doctor-happy-tablet-computer-34481166.jpg",
       "specialization": "Neurotologist",
       "yearsOfExperience": 18,
@@ -400,7 +549,8 @@
       "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Neurotology. Expert in balance disorders and skull base surgery.",
       "fee": 1500,
-      "isAvailable": true
+      "isAvailable": true,
+      "availableSlots": ["10:30 am", "11:30 am", "12:30 pm", "02:30 pm", "03:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
     }
   ],
   "topDoctors": [
@@ -877,6 +1027,14 @@
       "bookingDate": "2023-07-19",
       "bookingTime": "05:15 PM",
       "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 345,
+      "patientName": "shiva Venkatraman",
+      "doctorId": 24,
+      "bookingDate": "2023-07-07",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Confirmed"
     }
   ],
   "admin": [

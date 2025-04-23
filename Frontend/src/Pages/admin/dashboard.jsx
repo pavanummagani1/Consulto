@@ -3,6 +3,8 @@ import AdminHeader from "../../Components/AdminHeader"
 import "../../Styles/admin/dashboard.css"
 import { useEffect, useState } from "react"
 import Table from "../../common/table"
+import { AdminDoctorsCards } from "../../Components/AdminDoctorCards"
+import AddDoctor from "../../Components/AddDoctor"
 
 
 const AdminDashboard = () => {
@@ -12,17 +14,17 @@ const AdminDashboard = () => {
     const [showAppointments, setShowAppointments] = useState(false)
     const [showAddForm, setShowAddForm] = useState(false);
 
-    const displayAppointments = ()=>{
+    const displayAppointments = () => {
         setShowAppointments(true);
         setShowDoctors(false);
         setShowAddForm(false);
     }
-    const displayDoctors = ()=>{
+    const displayDoctors = () => {
         setShowAppointments(false);
         setShowDoctors(true);
         setShowAddForm(false);
     }
-    const displayAddFrom = ()=>{
+    const displayAddFrom = () => {
         setShowAppointments(false);
         setShowDoctors(false);
         setShowAddForm(true);
@@ -59,7 +61,7 @@ const AdminDashboard = () => {
 
     useEffect(() => { fetchAppointments() }, [])
 
-    const doctorsColumns = adminDoctors.length > 0 ? Object.keys(adminDoctors[0]) : []
+    // const doctorsColumns = adminDoctors.length > 0 ? Object.keys(adminDoctors[0]) : []
     const appointmentColumns = appointments.length > 0 ? Object.keys(appointments[0]) : []
 
     return (
@@ -82,20 +84,23 @@ const AdminDashboard = () => {
                 </div>
                 <div className="dataDashboard">
                     <div className="BtnContainer">
-                        <Button variant="outlined" className="dashborardBtns">DOCTORS</Button>
-                        <Button variant="outlined" className="dashborardBtns">APPOINTEMTS</Button>
-                        <Button variant="outlined" className="dashborardBtns">ADD DOCTORS</Button>
+                        <Button variant="outlined" className="dashborardBtns" onClick={displayDoctors}>DOCTORS</Button>
+                        <Button variant="outlined" className="dashborardBtns" onClick={displayAppointments}>APPOINTEMTS</Button>
+                        <Button variant="outlined" className="dashborardBtns" onClick={displayAddFrom}>ADD DOCTORS</Button>
                     </div>
                     <div className="dataContainer">
                         {!showAppointments && !showAddForm && (<div>
                             <span className="text">ALL DOCTORS</span>
-                            <Table columns = {doctorsColumns} dataset = {adminDoctors}/>
+                            {/* <Table columns = {doctorsColumns} dataset = {adminDoctors}/> */}
+                            <div className="doctorsContainer">
+                                <AdminDoctorsCards doctors={adminDoctors} />
+                            </div>
                         </div>)}
                         {!showDoctors && !showAddForm && (<div>
                             <span className="text">ALL APPOINTMENTS</span>
-                            <Table columns = {appointmentColumns} dataset = {appointments}/>
+                            <Table columns={appointmentColumns} dataset={appointments} />
                         </div>)}
-                        {/* {showAddForm && (<Table/>)} */}
+                        {showAddForm && (<AddDoctor/>)}
                     </div>
                 </div>
             </div>
