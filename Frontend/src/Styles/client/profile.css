@@ -1,0 +1,103 @@
+.profileContainer {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1000;
+    height: calc(50vh - 70px); /* full screen height minus navbar */
+  }
+  
+  .profileText {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .profileText:hover {
+    color: #007bff;
+  }
+  
+  .logoutBtn {
+    background-color: #007bff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logoutBtn:hover {
+    background-color: #ff1a1a;
+  }
+  
+  .btnLinks {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.95rem;
+  }
+  
+  /* RESPONSIVE BREAKPOINTS */
+  
+  /* Mini Mobiles (<= 320px) */
+  @media (max-width: 320px) {
+    .profileContainer {
+      width: 150px;
+      padding: 1rem 0.5rem;
+    }
+    .profileText {
+      font-size: 0.9rem;
+    }
+    .logoutBtn {
+      padding: 0.6rem 1rem;
+    }
+  }
+  
+  /* Mobiles (321px to 480px) */
+  @media (min-width: 321px) and (max-width: 480px) {
+    .profileContainer {
+      width: 160px;
+    }
+    .profileText {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Tablets (481px to 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .profileContainer {
+      width: 180px;
+    }
+  }
+  
+  /* iPads (769px to 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .profileContainer {
+      width: 200px;
+    }
+  }
+  
+  /* Laptops (1025px to 1440px) */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .profileContainer {
+      width: 220px;
+    }
+  }
+  
+  /* Desktops (1441px and above) */
+  @media (min-width: 1441px) {
+    .profileContainer {
+      width: 240px;
+    }
+  }
+  

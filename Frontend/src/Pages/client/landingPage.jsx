@@ -4,15 +4,18 @@ import {TopDoctor} from '../../Components/doctor'
 import { Link } from "react-router-dom";
 import '../../Styles/client/header.css'
 import '../../Styles/client/footer.css'
+import Reviews from "./reviews";
+import "../../Styles/client/reviews.css"
 const LandingPage = () => {
   const [categories, setCategories] = useState([]);
   const [doctors, setDoctors] = useState([])
+  const [reviews, setReviews] = useState([])
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await fetch('http://localhost:3000/categories');
         if (!response.ok) {
-          throw new Error('Failed to fetch users');
+          throw new Error('Failed to fetch Categories');
         }
         const data = await response.json();
         // console.log(data)
@@ -30,7 +33,7 @@ const LandingPage = () => {
       try {
         const response = await fetch('http://localhost:3000/doctors');
         if (!response.ok) {
-          throw new Error('Failed to fetch users');
+          throw new Error('Failed to fetch Doctors');
         }
         const data = await response.json();
         // console.log(data)
@@ -43,6 +46,23 @@ const LandingPage = () => {
     fetchDoctors();
   }, []);
   //   console.log(doctors)
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/reviews');
+        if (!response.ok) {
+          throw new Error('Failed to fetch Reviews');
+        }
+        const data = await response.json();
+        // console.log(data)
+        setReviews(data);
+      } catch (err) {
+        console.log(err)
+      }
+    };
+
+    fetchReviews();
+  }, []);
   return (
     <>
       <div className="bannerContainer">
@@ -86,6 +106,11 @@ const LandingPage = () => {
           <button className="createAccountBtn">CREATE ACCOUNT</button>
         </div>
         <img src="appointment_img.png" className="appointmentImage" />
+      </div>
+      {/* reviews */}
+      <div className="reviewContainer">
+        <div className="reviewTitle">WHAT PEOPLE SAY</div>
+          <Reviews review={reviews}/>
       </div>
     </>
   )
