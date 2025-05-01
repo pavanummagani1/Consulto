@@ -47,10 +47,12 @@ import "./Styles/client/landing.css";
 import Register from './Pages/client/register'
 import AdminDashboard from './Pages/admin/dashboard'
 import AdminLogin from './Pages/admin/adminLogin'
+import { ForgotPassword } from './Pages/client/ForgotPassword'
+import { ProfilePage } from './Pages/client/profilePage'
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword",'/profile'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
   return (
@@ -66,6 +68,8 @@ const Layout = () => {
         <Route path='/doctor/:id' element={<SingleDoctor />} />
         <Route path='/admin' element={<AdminDashboard />} />
         <Route path='/adminlogin' element={<AdminLogin />} />
+        <Route path="/forgotpassword" element = {<ForgotPassword/>}/>
+        <Route path='/profile' element={<ProfilePage/>}></Route>
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>

@@ -1,0 +1,90 @@
+/* body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+} */
+.forgotContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 5vh auto;
+    background-color: #f9f9f9;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .infoText {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .submitButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 320px) {
+    /* Mini Mobiles */
+    .forgotContainer {
+      padding: 1rem;
+      max-width: 90%;
+    }
+  
+    .inputField, .submitButton {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (min-width: 321px) and (max-width: 480px) {
+    /* Mobiles */
+    .forgotContainer {
+      max-width: 95%;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+    /* Tablets & iPods */
+    .forgotContainer {
+      max-width: 80%;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Mini Laptops */
+    .forgotContainer {
+      max-width: 60%;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    /* Laptops & Desktops */
+    .forgotContainer {
+      max-width: 400px;
+    }
+  }
+  

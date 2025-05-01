@@ -78,6 +78,13 @@ h1 {
 .loginContainer a:hover {
   text-decoration: underline;
 }
+#forgotPassword a{
+  display: flex;
+  justify-content: end;
+  color: #1976d2;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 /* Responsive Layout */
 

@@ -24,6 +24,15 @@ const FormsData = {
             {type:'text', placeholder:"Consulting Doctor", id:'ConsultingDoctor', name:"consultingDoctor"},
             {type:'date', placeholder:"Enter Date", id:'date', name:'Date'},   
         ]
+    },
+    profileData:{
+        label:['User Name', 'Email', 'Mobile Number', 'password'],
+        fields:[
+            {type: "text", id: "username", name: "userName" },
+            {type: "email",id: "email", name: "userEmail" },
+            {type: "tel",id: "mobileNumber", name: "mobileNumber" },
+            {type:"password",id:"password", name:"password"},
+        ]
     }
     
 }

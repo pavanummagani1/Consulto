@@ -42,9 +42,10 @@ const Login = () => {
           <form id='loginForm' onSubmit={submitLoginForm}>
             <TextField required label="Email/UserName" type='text' name='email' onChange={handleChange} />
             <TextField label="Password" type="password" autoComplete="current-password" name='password' onChange={handleChange} />
+            <div id='forgotPassword'><Link to="/forgotpassword">Forgot Password?</Link></div>
             <Button variant="contained" type='submit'>Login Now</Button>
           </form>
-          <Button variant="contained">
+          <Button variant="contained" className='registerBtn'>
             <Link to='/register'>New User? Register Now</Link>
           </Button>
         </div>
