@@ -44,7 +44,6 @@ const AdminDashboard = () => {
     }
 
     useEffect(() => { fetchAdminDoctors() }, [])
-    // 
     const fetchAppointments = async () => {
         try {
             let response = await fetch('http://localhost:3000/patients');
@@ -100,7 +99,7 @@ const AdminDashboard = () => {
                             <span className="text">ALL APPOINTMENTS</span>
                             <Table columns={appointmentColumns} dataset={appointments} />
                         </div>)}
-                        {showAddForm && (<AddDoctor/>)}
+                        {showAddForm && (<AddDoctor />)}
                     </div>
                 </div>
             </div>

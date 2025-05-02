@@ -1,24 +1,24 @@
-import {  useState } from "react";
+import { useState } from "react";
 import FormsData from "../data/inputsData"
 import "../Styles/admin/addDoctorForm.css"
 export const AddDoctor = () => {
   const [doctorDetails, setDoctorDetails] = useState({
-    doctorProfile:'',
-    doctorName:'',
-    doctorEmail:'',
-    password:'',
-    doctorFees:0,
-    doctorSpeciality:'',
-    doctorDegree:'',
-    doctorAddress:'',
-    about:''
+    doctorProfile: '',
+    doctorName: '',
+    doctorEmail: '',
+    password: '',
+    doctorFees: 0,
+    doctorSpeciality: '',
+    doctorDegree: '',
+    doctorAddress: '',
+    about: ''
   })
-  const addDoctor = async(e)=>{
+  const addDoctor = async (e) => {
     e.preventDefault()
     console.log(doctorDetails)
     try {
       const formData = new FormData();
-      formData.append('doctorProfile', doctorDetails.doctorProfile); 
+      formData.append('doctorProfile', doctorDetails.doctorProfile);
       formData.append('doctorName', doctorDetails.doctorName);
       formData.append('doctorEmail', doctorDetails.doctorEmail);
       formData.append('password', doctorDetails.password);
@@ -28,24 +28,24 @@ export const AddDoctor = () => {
       formData.append('doctorAddress', doctorDetails.doctorAddress);
       formData.append('about', doctorDetails.about);
 
-      let response = await fetch('http://localhost:3535/adddoctor',{
-        'method':"POST",
+      let response = await fetch('http://localhost:3535/adddoctor', {
+        'method': "POST",
         "body": formData
       });
-      if(!response.ok)return new Error('Failed to Add the DOCTOR')
+      if (!response.ok) return new Error('Failed to Add the DOCTOR')
       let data = await response.json()
-    console.log(data)
+      console.log(data)
     } catch (error) {
       console.log(error)
-    }finally{
+    } finally {
       setDoctorDetails({});
-      e.target.reset(); 
+      e.target.reset();
     }
 
   }
   // HANDLES THE TEXT INPUTS
-  const handleInputChange = (e)=>{
-    setDoctorDetails({...doctorDetails, [e.target.name]:e.target.value})
+  const handleInputChange = (e) => {
+    setDoctorDetails({ ...doctorDetails, [e.target.name]: e.target.value })
   }
   // HANDELS THE FILE INPUT
   const handleFileChange = (e) => {
@@ -53,7 +53,7 @@ export const AddDoctor = () => {
   };
   return (
     <div className="add-doctor-container">
-      <form className="add-doctor-form" encType="multipart/form-data"  onSubmit={addDoctor}>
+      <form className="add-doctor-form" encType="multipart/form-data" onSubmit={addDoctor}>
         {/* Upload section */}
         <div className="upload-section">
           <div className="upload-icon">&#128100;</div>
@@ -81,7 +81,6 @@ export const AddDoctor = () => {
             );
           })}
         </div>
-
         <button type="submit" className="submit-button">ADD DOCTOR</button>
       </form>
     </div>
