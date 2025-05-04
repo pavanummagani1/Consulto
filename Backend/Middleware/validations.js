@@ -7,7 +7,7 @@ export const name = (req,res,next)=>{
     if(result){
         next()
     }else{
-        res.status(400).json('Please Enter UserName in Correct Format')
+        res.status(400).json({message:'Please Enter UserName in Correct Format [a-zA-Z0-9_]{3,15'})
     }
 }
 
@@ -18,7 +18,7 @@ export const mobileNumber = (req,res,next)=>{
     if(result){
         next()
     }else{
-        res.status(400).json('Please Enter 10 digit Mobile Number')
+        res.status(400).json({message:'Please Enter 10 digit Mobile Number'})
     }
 }
 
@@ -29,7 +29,7 @@ export const email = (req,res,next)=>{
     if(result){
         next()
     }else{
-        res.status(400).json('Please Enter Email in correct format')
+        res.status(400).json({message:'Please Enter Email in correct format'})
     }
 }
 
@@ -42,6 +42,6 @@ export const password = async(req,res,next)=>{
         req.body.password =  await bcrypt.hash(password,10)
         next()
     }else{
-        res.status(400).json('Please Enter Password in correct format')
+        res.status(400).json({message:'Please Enter Password in correct format'})
     }
 }

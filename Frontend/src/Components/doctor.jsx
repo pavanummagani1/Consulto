@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 export const TopDoctor = (props)=>{
     const {doctors} = props
     const navigate = useNavigate()
-    const showDoctor = (id)=>{
-        navigate(`/doctor/${id}`)
+    const showDoctor = (doctor)=>{
+        navigate(doctor)
     }
 return(
     <>
-    {doctors.filter(doctor=>doctor.yearsOfExperience>=17).map(doctor=>{
+    {doctors.filter(doctor=>doctor.experience>=5).map(doctor=>{
         return(
-            <div className="doctorCard" key={doctor.id}>
-                <img src={doctor.doctorImage}  className="doctorImage"/>
-                <span className={`status ${doctor.isAvailable ? "available" : "notAvailable"}`}>
-              <span className="dot"></span> {doctor.isAvailable ? "Available" : "Not Available"}
+            <div className="doctorCard" key={doctor.doctorid}>
+                <img src={doctor.image}  className="doctorImage"/>
+                <span className={`status ${doctor.avaliable? "available" : "notAvailable"}`}>
+              <span className="dot"></span> {doctor.avaliable? "Available" : "Not Available"}
             </span>
-                <h3 className="doctorName">{doctor.doctorName}</h3>
-                <p className="doctorcategory">Specalization:{doctor.specialization}</p>
+                <h3 className="doctorName">{doctor.name}</h3>
+                <p className="doctorcategory">Specalization:{doctor.speciality}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={()=>showDoctor(doctor.id)}>View Details</button>
+                <button className='detailsBtn' onClick={()=>showDoctor(doctor)}>View Details</button>
 
             </div>
         )
@@ -37,15 +37,15 @@ export const AllDoctors =(props)=>{
         <>
         {doctors.map(doctor=>{
         return(
-            <div className="doctorCard" key={doctor.id}>
-                <img src={doctor.doctorImage}  className="doctorImage"/>
-                <span className={`status ${doctor.isAvailable ? "available" : "notAvailable"}`}>
-              <span className="dot"></span> {doctor.isAvailable ? "Available" : "Not Available"}
+            <div className="doctorCard" key={doctor.doctorid}>
+                <img src={doctor.image}  className="doctorImage"/>
+                <span className={`status ${doctor.avaliable? "available" : "notAvailable"}`}>
+              <span className="dot"></span> {doctor.avaliable? "Available" : "Not Available"}
             </span>
-                <h5 className="doctorName">{doctor.doctorName}</h5>
-                <p className="doctorcategory">Specalization:{doctor.specialization}</p>
+                <h6 className="doctorName">DR.{doctor.name}</h6>
+                <p className="doctorcategory">Specalization:{doctor.speciality}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={()=>showDoctor(doctor.id)}>View Details</button>
+                <button className='detailsBtn' onClick={()=>showDoctor(doctor.doctorid)}>View Details</button>
             </div>
         )
     })}

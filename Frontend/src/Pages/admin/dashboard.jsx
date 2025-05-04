@@ -31,13 +31,13 @@ const AdminDashboard = () => {
     }
     const fetchAdminDoctors = async () => {
         try {
-            let response = await fetch('http://localhost:3000/doctors');
+            let response = await fetch('http://localhost:3201/admin/doctors');
             if (!response.ok) {
                 throw new Error('Failed to fetch')
             }
             let data = await response.json()
             setAdminDoctors(data)
-            // console.log("Doctos",data)
+            console.log("Doctors",data)
         } catch (error) {
             console.log(error)
         }
@@ -52,7 +52,6 @@ const AdminDashboard = () => {
             }
             let data = await response.json()
             setAppointments(data)
-            // console.log("Appointments",data)
         } catch (error) {
             console.log(error)
         }

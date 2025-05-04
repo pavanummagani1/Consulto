@@ -21,21 +21,25 @@ const userSchema = new mongoose.Schema({
     address:{
         type:Object,
         default:{
-            line1:'',
-            line2:''
+            landmark:'Near abc, Road No-2',
+            city:'abcd',
+            pincode:'000000'
         }
     },
     gender:{
         type:String,
-        default:"Not Selected"
+        default:"female"
     },
-    dob:{
-        type:String,
-        default:"Not Selected"
+    age:{
+        type:Number,
+        default:'0'
     },
     phone:{
-        type:String,
-        default:"9640504486"
+        type:Number,
+        default:'000000'
+    },
+    appointmentdetails:{
+        type:Array
     }
 })
 

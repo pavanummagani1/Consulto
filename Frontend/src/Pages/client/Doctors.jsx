@@ -9,7 +9,7 @@ const Doctors = () => {
     const [doctors, setDoctors] = useState([])
     const fetchDoctors = async () => {
         try {
-            const response = await fetch('http://localhost:3000/doctors');
+            const response = await fetch('http://localhost:3201/doctors');
             if (!response.ok) {
                 throw new Error('Failed to fetch users');
             }

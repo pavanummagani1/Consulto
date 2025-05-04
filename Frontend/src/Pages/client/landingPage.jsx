@@ -13,7 +13,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3000/categories');
+        const response = await fetch('http://localhost:3201/categories');
         if (!response.ok) {
           throw new Error('Failed to fetch Categories');
         }
@@ -31,12 +31,12 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('http://localhost:3000/doctors');
+        const response = await fetch('http://localhost:3201/doctors');
         if (!response.ok) {
           throw new Error('Failed to fetch Doctors');
         }
         const data = await response.json();
-        // console.log(data)
+        console.log(data)
         setDoctors(data);
       } catch (err) {
         console.log(err)

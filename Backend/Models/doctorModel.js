@@ -31,7 +31,7 @@ const doctorSchema = new mongoose.Schema({
         required:true
     },
     experience:{
-        type:String,
+        type:Number,
         required:true
     },
     about:{
@@ -51,12 +51,16 @@ const doctorSchema = new mongoose.Schema({
         required:true
     },
     address:{
-        type:Object,
+        type:String,
         required:true
     },
     avaliableslots:{
-        type:Object,
+        type:Array,
         default:{}
+    },
+    department:{
+        type:String,
+        required:true
     }
 },{minimize:false})
 
