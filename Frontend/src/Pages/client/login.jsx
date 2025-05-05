@@ -1,36 +1,72 @@
 import { TextField, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../Styles/client/login.css';
 import { useState } from 'react';
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const [state, setLoginState] = useState({})
+  const navigate = useNavigate();
+  const [state, setLoginState] = useState({});
+
+  const validateForm = () => {
+    const requiredFields = ['email', 'password'];
+
+    for (let field of requiredFields) {
+      const value = state[field];
+
+      if (
+        value === undefined ||
+        value === null ||
+        (typeof value === 'string' && value.trim() === '')
+      ) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   const submitLoginForm = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      toast.error("Please fill all required fields!", { position: "top-right" });
+      return;
+    }
     try {
-      let data = await fetch('http://localhost:3535/login', {
-        "method": "POST",
-        "headers": {
+      // alert('Hello')
+      let response = await fetch('http://localhost:3201/login', {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(state)
       });
-      if (!data.ok) return new Error('Failed to Register')
-      let response = await data.json()
-      if (response.token) {
-        let token = response.token
-        localStorage.setItem('userToken', token && "TRUE")
+      console.log(response)
+
+      if (!response.ok) throw new Error('Login failed');
+
+      let data = await response.json();
+      console.log(data)
+      if (data.token && data.status) {
+        localStorage.setItem('userToken', data.token && "TRUE");
+        toast.success(data.message || "Login successful!", { position: "top-right" });
+        setTimeout(() => navigate('/dashboard'), 5000);
+      } else {
+        toast.error("Login failed", { position: "top-right" });
       }
     } catch (error) {
-      console.log(error)
+      console.error(error);
+      toast.error(error.message || "Network error. Please try again.", { position: "top-right" });
     } finally {
       setLoginState({});
       e.target.reset();
     }
   }
+
   const handleChange = (e) => {
-    setLoginState({ ...state, [e.target.name]: e.target.value })
+    setLoginState({ ...state, [e.target.name]: e.target.value });
   }
+
   return (
     <div className="mainContainer">
       <h1>WELCOME BACK</h1>
@@ -40,16 +76,17 @@ const Login = () => {
         </div>
         <div className="loginContainer">
           <form id='loginForm' onSubmit={submitLoginForm}>
-            <TextField required label="Email/UserName" type='text' name='email' onChange={handleChange} />
+            <TextField label="Email/UserName" type='text' name='email' onChange={handleChange} />
             <TextField label="Password" type="password" autoComplete="current-password" name='password' onChange={handleChange} />
             <div id='forgotPassword'><Link to="/forgotpassword">Forgot Password?</Link></div>
             <Button variant="contained" type='submit'>Login Now</Button>
           </form>
-          <Button variant="contained" className='registerBtn'>
-            <Link to='/register'>New User? Register Now</Link>
+          <Button variant="contained" component={Link} to="/register" className='registerBtn'>
+            New User? Register Now
           </Button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

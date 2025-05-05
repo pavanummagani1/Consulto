@@ -14,6 +14,7 @@ import AdminDashboard from './Pages/admin/dashboard'
 import AdminLogin from './Pages/admin/adminLogin'
 import { ForgotPassword } from './Pages/client/ForgotPassword'
 import { ProfilePage } from './Pages/client/profilePage'
+import Dashboard from './Pages/client/dashboard'
 
 const Layout = () => {
   const location = useLocation();
@@ -35,6 +36,7 @@ const Layout = () => {
         <Route path='/adminlogin' element={<AdminLogin />} />
         <Route path="/forgotpassword" element = {<ForgotPassword/>}/>
         <Route path='/profile' element={<ProfilePage/>}></Route>
+        <Route path='/dashboard' element={<Dashboard/>}></Route>
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>

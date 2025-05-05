@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 export const TopDoctor = (props)=>{
     const {doctors} = props
     const navigate = useNavigate()
-    const showDoctor = (doctor)=>{
-        navigate(doctor)
+    const showDoctor = (doctorid)=>{
+        navigate(`/doctor/${doctorid}`)
     }
 return(
     <>
@@ -18,7 +18,7 @@ return(
                 <h3 className="doctorName">{doctor.name}</h3>
                 <p className="doctorcategory">Specalization:{doctor.speciality}</p>
                 <p className="doctorcategory">{doctor.department}</p>
-                <button className='detailsBtn' onClick={()=>showDoctor(doctor)}>View Details</button>
+                <button className='detailsBtn' onClick={()=>showDoctor(doctor.doctorid)}>View Details</button>
 
             </div>
         )

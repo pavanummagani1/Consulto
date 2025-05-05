@@ -1,15 +1,36 @@
-import { Link } from "react-router-dom"
-import "../Styles/client/profile.css"
-const Profile = () => {
-    return (
-        <>
-            <aside className="profileContainer">
-                <span className="profileText"><Link to='/profile'>MY PROFILE</Link></span>
-                <span className="profileText">MY APPOINTMENTS</span>
-                <button className="logoutBtn"><Link className="btnLinks" to='/login'>LOGOUT</Link></button>
-            </aside>
-        </>
-    )
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "../Styles/client/profile.css";
 
-}
-export default Profile
+const Profile = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem("userToken");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLoginLogout = () => {
+    if (isLoggedIn) {
+      localStorage.removeItem("userToken");
+      setIsLoggedIn(false);
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
+  };
+
+  return (
+    <aside className="profileContainer">
+      <span className="profileText">
+        <Link to="/profile">MY PROFILE</Link>
+      </span>
+      <span className="profileText">MY APPOINTMENTS</span>
+      <button className="logoutBtn" onClick={handleLoginLogout}>
+        {isLoggedIn ? "LOGOUT" : "LOGIN"}
+      </button>
+    </aside>
+  );
+};
+
+export default Profile;

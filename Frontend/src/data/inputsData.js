@@ -25,18 +25,17 @@ const FormsData = {
         ]
 
     },
-    patientForm:{
-        label:["Patient Name","Gaurdian Name", "Age", "Mobile Number", "Consulting Doctor","Appointment Date", "Time Slots"],
-        fields:[
-            {type: "text", placeholder: "Enter Patient Name", id: "patientname", name: "patientName" },
-            {type: "text", placeholder: "Enter Gaurdian Name", id: "gaurdianName", name: "gaurdianName" },
-            {type:"number", placeholder:"Patient Age", id:"age",name:"patientAge"},
-            {type:"tel", placeholder:"Patient Mobile Number", id:"mobileNumber",name:"mobileNumber"},
-            {type:'text', placeholder:"Consulting Doctor", id:'ConsultingDoctor', name:"consultingDoctor"},
-            {type:'date', placeholder:"Enter Date", id:'date', name:'Date'},   
-        ]
-    },
-    profileData:{
+        patientForm: {
+            label: ["Patient Name", "Guardian Name", "Age", "Mobile Number", "Consulting Doctor", "Appointment Date"],
+            fields: [
+                {type: "text", placeholder: "Enter Patient Name", id: "patientname", name: "patientName" },
+                {type: "text", placeholder: "Enter Guardian Name", id: "guardianName", name: "guardianName" },
+                {type: "number", placeholder: "Patient Age", id: "age", name: "patientAge"},
+                {type: "tel", placeholder: "Patient Mobile Number", id: "mobileNumber", name: "mobileNumber"},
+                {type: "select", placeholder: "Select Appointment Date", id: "appointmentDate", name: "appointmentDate", options: "generateDates"}
+            ]
+        },
+        profileData:{
         label:['User Name', 'Email', 'Mobile Number', 'password'],
         fields:[
             {type: "text", id: "username", name: "userName" },

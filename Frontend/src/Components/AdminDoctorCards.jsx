@@ -1,5 +1,9 @@
 export const AdminDoctorsCards =(props)=>{
     const {doctors} = props
+
+    const removeDoctor = ()=>{
+
+    }
     return(
         <>
         {doctors.map(doctor=>{
@@ -13,7 +17,7 @@ export const AdminDoctorsCards =(props)=>{
                 <p className="doctorcategory">Specalization:{doctor.speciality}</p>
                 <p className="doctorcategory">Department:{doctor.department}</p>
                 <button className='detailsBtn update'>Update Details</button>
-                <button className='detailsBtn remove'>Remove Doctor</button>
+                <button className='detailsBtn remove' onClick={()=>{re}}>Remove Doctor</button>
             </div>
         )
     })}

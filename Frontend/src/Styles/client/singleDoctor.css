@@ -218,6 +218,69 @@
   transform: translateY(0);
 }
 
+.selected-slot {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.selected-slot-info {
+  margin-top: 10px;
+  color: #4CAF50;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style for the date select dropdown */
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+
+/* Existing styles... */
+
+.booked-slot {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.booked-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+.selected-slot {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.selected-slot-info {
+  margin-top: 10px;
+  color: #4CAF50;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style for the date select dropdown */
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
 @media (max-width: 600px) {
   .formGrid {
     grid-template-columns: 1fr;
