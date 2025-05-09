@@ -25,11 +25,3 @@
     color: #1976d2;
 }
 
-.remove{
-    background-color: red;
-}
-.remove:hover{
-    background-color: #fff;
-    border-color: red;
-    color: red;
-}

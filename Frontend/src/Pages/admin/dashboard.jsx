@@ -46,7 +46,7 @@ const AdminDashboard = () => {
     useEffect(() => { fetchAdminDoctors() }, [])
     const fetchAppointments = async () => {
         try {
-            let response = await fetch('http://localhost:3000/patients');
+            let response = await fetch('http://localhost:3201/admin/appointments');
             if (!response.ok) {
                 throw new Error('Failed to fetch')
             }

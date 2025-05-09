@@ -5,6 +5,7 @@ import connectDB from "./config/connectDB.js"
 import connectCloudinary from "./config/cloudinary.js"
 import adminRouter from "./routes/adminRoute.js"
 import clientRouter from "./routes/clientRoute.js"
+import doctorRoute from "./routes/doctorRoute.js"
 
 const app = express()
 dotenv.config()
@@ -17,10 +18,7 @@ app.use(express.json())
 
 app.use('/admin', adminRouter) //http:localhost:3201/admin/adddoctor
 app.use('/', clientRouter)
-
-app.get('/', (req,res)=>{
-    res.status(200).json({message:"Hello Express"+port})
-})
+app.use('/doctor',doctorRoute)
 connectDB().then(()=>{
     app.listen(port, () => {
         console.log(`server started sucessfully at http://localhost:${port}`)

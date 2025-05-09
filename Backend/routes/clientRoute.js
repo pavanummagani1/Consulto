@@ -1,6 +1,6 @@
 import express from "express";
-import { categories, doctors, singleDoctor } from "../Controllers/doctorController.js";
-import { Login, Patient, Register } from "../Controllers/userController.js";
+import { categories, doctors, singleDoctor } from "../Controllers/adminController.js";
+import { Login, Patient, Register } from "../Controllers/clientController.js";
 import { email, mobileNumber, name, password } from "../Middleware/validations.js";
 import upload from "../Middleware/multer.js";
 

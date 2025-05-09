@@ -1,6 +1,36 @@
 import {v2 as cloudinary} from "cloudinary"
 import doctorModel from "../Models/doctorModel.js";
 import categoryModel from "../Models/categoryModel.js";
+import bcrypt from "bcryptjs";
+import adminModel from "../Models/adminModel.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import appointmentModel from "../Models/appointmentsModel.js";
+dotenv.config()
+
+
+export const adminLogin = async(req,res)=>{
+    try {
+        const {adminid, adminpassword} = req.body;
+        const admin = await adminModel.findOne({adminid})
+        console.log(admin)
+        if(!admin){
+            return res.status(404).json({sucess: false,message:'Admin Not Found'})
+        }
+        console.log(admin["adminPassword"])
+        const isValidPassword = await bcrypt.compare(adminpassword, admin.adminPassword);
+        if(!isValidPassword){
+            return res.status(404).json({sucess: false,message:'Enter Correct Password'})
+        }
+        let token = jwt.sign({adminid,adminpassword}, process.env.LOGIN_SECRET_KEY)
+        res.status(200).json({sucess:true, message:'Login Sucessful', token})
+        
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({success:false, message:'Failed to Login'})
+    }
+}
 
 export const addDoctor = async(req,res)=>{
     try {
@@ -53,5 +83,32 @@ export const singleDoctor = async(req,res)=>{
         res.status(200).json(doctor)
     } catch (error) {
         res.status(400).json({success:false, message:'Failed get the Doctor',error})
+    }
+}
+
+export const deletedoctor = async(req,res)=>{
+    try {
+        const { doctorid } = req.body;
+    
+        const result = await doctorModel.deleteOne({ doctorid });
+    
+        if (result.deletedCount === 0) {
+          return res.status(404).json({ message: "Doctor not found" });
+        }
+    
+        res.json({ message: "Doctor deleted successfully" });
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Error deleting doctor" });
+      }
+}
+
+export const appointments = async(req,res)=>{
+    try {
+        const result = await appointmentModel.find();
+        res.status(200).json(result)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Error in fetching Appointments" }); 
     }
 }

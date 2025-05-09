@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const patientSchema = new mongoose.Schema({
+const appointmentSchema = new mongoose.Schema({
     patientName:{
         type:String,
         required:true
@@ -27,7 +27,7 @@ const patientSchema = new mongoose.Schema({
         unique:true
     },
     date:{
-        type:Number,
+        type:String,
         required:true
     },
     bookedSlot:{
@@ -48,6 +48,6 @@ const patientSchema = new mongoose.Schema({
     }
 },{minimize:false})
 
-const patientModel = mongoose.models.patient || mongoose.model('patient', patientSchema)
+const appointmentModel = mongoose.models.appointments || mongoose.model('appointments', appointmentSchema)
 
-export default patientModel;
+export default appointmentModel;

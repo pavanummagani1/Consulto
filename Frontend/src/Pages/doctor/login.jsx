@@ -2,19 +2,19 @@ import { TextField, Button } from '@mui/material';
 import '../../Styles/client/login.css';
 import { useState } from 'react';
 
-const AdminLogin = () => {
+const DoctorLogin = () => {
         const [state, setAdminState] = useState({})
         const submitAdminForm = async(e)=>{
             e.preventDefault();
             try {
-                let data = await fetch('http://localhost:3201/admin/login',{
+                let data = await fetch('http://localhost:3201/doctor/login',{
                     "method":"POST",
                     "headers":{
                         "Content-Type":"application/json"
                     },
                     body:JSON.stringify(state)
                 });
-                if(!data.ok) return new Error('Failed to Register')
+                if(!data.ok) return new Error('Failed to Login')
                 let response = await data.json()
             console.log(response)
             } catch (error) {
@@ -29,15 +29,15 @@ const AdminLogin = () => {
       }
   return (
     <div className="mainContainer">
-        <h1>WELCOME BACK, ADMIN</h1>
+        <h1>HELLO,DoCTOR</h1>
       <div className="authWrapper">
         <div className="logo">
           <img src="/Consulto_Logo.png" className="Image" alt="Consulto Logo" />
         </div>
         <div className="loginContainer">
           <form id='loginForm' onSubmit={submitAdminForm}>
-            <TextField required label="Email/UserName" type='text' name='adminid' onChange={handleChange} />
-            <TextField label="Password" type="password" autoComplete="current-password" name='adminpassword' onChange={handleChange} />
+            <TextField required label="Email" type='text' name='email' onChange={handleChange} />
+            <TextField label="Password" type="password" autoComplete="current-password" name='password' onChange={handleChange} />
             <Button variant="contained" type='submit'>Login Now</Button>
           </form>
         </div>
@@ -46,4 +46,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default DoctorLogin;

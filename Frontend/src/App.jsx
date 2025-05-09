@@ -15,28 +15,66 @@ import AdminLogin from './Pages/admin/adminLogin'
 import { ForgotPassword } from './Pages/client/ForgotPassword'
 import { ProfilePage } from './Pages/client/profilePage'
 import Dashboard from './Pages/client/dashboard'
+import RestrictedRoute from './Components/RestrictedRoute'
+import PublicRoute from './Components/PublicRoute'
+
+
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword",'/profile'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword", '/profile'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
+
+
   return (
     <>
+
       {!shouldHideLayout && <Navbar />}
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/aboutus' element={<About />} />
-        <Route path='/contactus' element={<ContactUs />} />
-        <Route path='/alldoctors' element={<Doctors />} />
-        <Route path='/doctor/:id' element={<SingleDoctor />} />
-        <Route path='/admin' element={<AdminDashboard />} />
-        <Route path='/adminlogin' element={<AdminLogin />} />
-        <Route path="/forgotpassword" element = {<ForgotPassword/>}/>
-        <Route path='/profile' element={<ProfilePage/>}></Route>
-        <Route path='/dashboard' element={<Dashboard/>}></Route>
+        <Route path='/' element=
+          {
+            <RestrictedRoute><LandingPage /></RestrictedRoute>
+          }
+        />
+        <Route path='/login' element=
+          {
+            <RestrictedRoute><Login /></RestrictedRoute>
+          }
+        />
+
+        <Route path='/register' element=
+          {
+            <PublicRoute><Register /></PublicRoute>
+          }
+        />
+        <Route path='/aboutus' element={
+          <PublicRoute><About /></PublicRoute>
+        } />
+        <Route path='/contactus' element={
+          <PublicRoute><ContactUs /></PublicRoute>
+        } />
+        <Route path='/alldoctors' element={
+          <PublicRoute><Doctors /></PublicRoute>
+        } />
+        <Route path='/doctor/:id' element={
+          <PublicRoute><SingleDoctor /></PublicRoute>
+        } />
+        <Route path='/admin' element={
+          <PublicRoute><AdminDashboard /></PublicRoute>
+        } />
+        <Route path='/adminlogin' element={
+          <PublicRoute><AdminLogin /></PublicRoute>
+        } />
+        <Route path="/forgotpassword" element={
+          <PublicRoute><ForgotPassword /></PublicRoute>
+        } />
+        <Route path='/profile' element={
+          <PublicRoute><ProfilePage /></PublicRoute>
+        }></Route>
+        <Route path='/dashboard' element={
+          <PublicRoute><Dashboard /></PublicRoute>
+        }></Route>
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>

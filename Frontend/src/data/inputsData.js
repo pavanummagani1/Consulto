@@ -26,13 +26,13 @@ const FormsData = {
 
     },
         patientForm: {
-            label: ["Patient Name", "Guardian Name", "Age", "Mobile Number", "Consulting Doctor", "Appointment Date"],
+            label: ["Patient Name", "Guardian Name", "Age","Email", "Mobile Number"],
             fields: [
                 {type: "text", placeholder: "Enter Patient Name", id: "patientname", name: "patientName" },
                 {type: "text", placeholder: "Enter Guardian Name", id: "guardianName", name: "guardianName" },
                 {type: "number", placeholder: "Patient Age", id: "age", name: "patientAge"},
+                {type: "mail", placeholder: "Patient Email", id: "Email", name: "email"},
                 {type: "tel", placeholder: "Patient Mobile Number", id: "mobileNumber", name: "mobileNumber"},
-                {type: "select", placeholder: "Select Appointment Date", id: "appointmentDate", name: "appointmentDate", options: "generateDates"}
             ]
         },
         profileData:{
