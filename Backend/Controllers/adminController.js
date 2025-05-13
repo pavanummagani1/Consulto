@@ -10,24 +10,25 @@ dotenv.config()
 
 
 export const adminLogin = async(req,res)=>{
+    console.log(req.body)
     try {
-        const {adminid, adminpassword} = req.body;
+        const {adminid, adminPassword} = req.body;
+        // console.log(adminid, adminPassword)
         const admin = await adminModel.findOne({adminid})
-        console.log(admin)
+        // console.log(admin)
         if(!admin){
             return res.status(404).json({sucess: false,message:'Admin Not Found'})
         }
-        console.log(admin["adminPassword"])
-        const isValidPassword = await bcrypt.compare(adminpassword, admin.adminPassword);
+        const isValidPassword = await bcrypt.compare(adminPassword, admin.adminPassword);
         if(!isValidPassword){
             return res.status(404).json({sucess: false,message:'Enter Correct Password'})
         }
-        let token = jwt.sign({adminid,adminpassword}, process.env.LOGIN_SECRET_KEY)
+        let token = jwt.sign({adminid,adminPassword}, process.env.LOGIN_SECRET_KEY)
         res.status(200).json({sucess:true, message:'Login Sucessful', token})
         
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(400).json({success:false, message:'Failed to Login'})
     }
 }

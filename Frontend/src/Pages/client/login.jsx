@@ -4,6 +4,7 @@ import '../../Styles/client/login.css';
 import { useState } from 'react';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -47,8 +48,12 @@ const Login = () => {
 
       let data = await response.json();
       console.log(data)
+      const user = {
+        userToken: data.token,
+        userid:data.userid
+      }
       if (data.token && data.status) {
-        localStorage.setItem('userToken', data.token && "TRUE");
+        localStorage.setItem('user', JSON.stringify(user));
         toast.success(data.message || "Login successful!", { position: "top-right" });
         setTimeout(() => navigate('/dashboard'), 5000);
       } else {
@@ -83,6 +88,9 @@ const Login = () => {
           </form>
           <Button variant="contained" component={Link} to="/register" className='registerBtn'>
             New User? Register Now
+          </Button>
+          <Button variant="contained" className='registerBtn'>
+            <span> <FcGoogle size={24}/></span> Sign Up With Google
           </Button>
         </div>
       </div>

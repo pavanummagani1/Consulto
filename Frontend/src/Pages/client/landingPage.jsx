@@ -109,7 +109,7 @@ const LandingPage = () => {
       </div>
       {/* reviews */}
       <div className="reviewContainer">
-        <div className="reviewTitle">WHAT PEOPLE SAY</div>
+        <div className="reviewTitle">What Our Patients Say About Us</div>
           <Reviews review={reviews}/>
       </div>
     </>

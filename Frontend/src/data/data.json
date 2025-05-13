@@ -41,7 +41,7 @@
       "categoryImage": "https://cdn-icons-png.flaticon.com/512/9340/9340043.png"
     }
   ],
-  "doctors":  [
+  "doctors": [
     {
       "id": 1,
       "doctorName": "Dr. Bhavitha Chowdary",
@@ -57,7 +57,15 @@
       "aboutDoctor": "MBBS, MD (Cardiology), DM (Cardiology) from AIIMS. Fellowship in Interventional Cardiology from Cleveland Clinic. Specializes in complex coronary interventions and structural heart diseases. Published over 50 research papers in international journals.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "04:00 pm", "05:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "05:00 pm"
+      ]
     },
     {
       "id": 2,
@@ -74,7 +82,16 @@
       "aboutDoctor": "MBBS, MD (Medicine), DM (Cardiology) from PGIMER. Advanced training in cardiac rhythm disorders. Expert in pacemaker implantation and cardiac ablation procedures.",
       "fee": 1300,
       "isAvailable": true,
-      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "05:30 pm", "06:30 pm", "07:30 pm"]
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "05:30 pm",
+        "06:30 pm",
+        "07:30 pm"
+      ]
     },
     {
       "id": 3,
@@ -91,7 +108,15 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology). Fellowship from Boston Children's Hospital. Specializes in congenital heart defects and pediatric heart surgeries.",
       "fee": 1400,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "03:00 pm", "05:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "03:00 pm",
+        "05:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 4,
@@ -108,7 +133,16 @@
       "aboutDoctor": "MBBS, MD (Cardiology). Expert in preventive cardiology and cardiac rehabilitation. Focuses on lifestyle modifications and heart disease prevention.",
       "fee": 1200,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm", "08:30 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm",
+        "08:30 pm"
+      ]
     },
     {
       "id": 5,
@@ -125,7 +159,16 @@
       "aboutDoctor": "MBBS, MD, Fellowship in Nuclear Cardiology. Expertise in cardiac imaging and stress testing. Pioneer in implementing new imaging technologies.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["12:00 pm", "12:30 pm", "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm", "03:30 pm"]
+      "availableSlots": [
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm",
+        "01:30 pm",
+        "02:00 pm",
+        "02:30 pm",
+        "03:00 pm",
+        "03:30 pm"
+      ]
     },
     {
       "id": 6,
@@ -142,7 +185,16 @@
       "aboutDoctor": "MBBS, MD (Neurology), Fellowship in Movement Disorders from UCL. Expert in Parkinson's disease and movement disorders. Research focus on neurodegenerative diseases.",
       "fee": 1800,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "03:00 pm", "04:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 7,
@@ -159,7 +211,15 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Neurology). Specializes in pediatric epilepsy and neurodevelopmental disorders. Trained at Johns Hopkins.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
     },
     {
       "id": 8,
@@ -176,7 +236,18 @@
       "aboutDoctor": "MBBS, MD, DM (Neuro-oncology). Expert in brain tumors and neurological complications of cancer. Research published in leading oncology journals.",
       "fee": 2000,
       "isAvailable": true,
-      "availableSlots": ["04:00 pm", "04:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm", "07:00 pm", "07:30 pm", "08:00 pm", "08:30 pm"]
+      "availableSlots": [
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm",
+        "07:00 pm",
+        "07:30 pm",
+        "08:00 pm",
+        "08:30 pm"
+      ]
     },
     {
       "id": 9,
@@ -193,7 +264,16 @@
       "aboutDoctor": "MBBS, MD (Neurology). Fellowship in Stroke Medicine. Pioneer in implementing acute stroke protocols and rehabilitation programs.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "04:00 pm", "05:00 pm", "06:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm"
+      ]
     },
     {
       "id": 10,
@@ -227,7 +307,15 @@
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Sports Medicine. Former team doctor for national sports teams. Expert in arthroscopic surgery and sports injuries.",
       "fee": 1800,
       "isAvailable": true,
-      "availableSlots": ["11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 12,
@@ -244,7 +332,15 @@
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Spine Surgery. Specializes in complex spine surgeries and minimally invasive techniques. Pioneer in robotic spine surgery.",
       "fee": 2200,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 13,
@@ -261,7 +357,15 @@
       "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics. Expert in treating congenital deformities and pediatric fractures.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "10:30 am", "11:00 am", "11:30 am", "12:00 pm", "12:30 pm", "01:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "10:30 am",
+        "11:00 am",
+        "11:30 am",
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm"
+      ]
     },
     {
       "id": 14,
@@ -278,7 +382,15 @@
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology from Paris. Expert in advanced skin treatments and anti-aging procedures.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm", "06:00 pm"]
+      "availableSlots": [
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm"
+      ]
     },
     {
       "id": 15,
@@ -295,7 +407,15 @@
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology. Specializes in childhood skin conditions and genetic skin disorders.",
       "fee": 1400,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "02:00 pm", "03:00 pm", "04:00 pm", "05:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm"
+      ]
     },
     {
       "id": 16,
@@ -312,7 +432,13 @@
       "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery. Expert in skin cancer treatment and reconstructive procedures.",
       "fee": 1800,
       "isAvailable": true,
-      "availableSlots": ["11:30 am", "01:30 pm", "03:30 pm", "05:30 pm", "07:30 pm"]
+      "availableSlots": [
+        "11:30 am",
+        "01:30 pm",
+        "03:30 pm",
+        "05:30 pm",
+        "07:30 pm"
+      ]
     },
     {
       "id": 17,
@@ -329,7 +455,16 @@
       "aboutDoctor": "MBBS, MD (Dermatology). Specializes in chronic skin conditions and allergic disorders. Research focus on autoimmune skin diseases.",
       "fee": 1300,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "04:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 18,
@@ -346,7 +481,16 @@
       "aboutDoctor": "MBBS, MD (Pediatrics) from AIIMS. Expert in newborn care and childhood development. Established pediatric emergency protocols.",
       "fee": 1200,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "10:30 am", "11:00 am", "04:00 pm", "04:30 pm", "05:00 pm", "07:00 pm", "07:30 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "10:30 am",
+        "11:00 am",
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "07:00 pm",
+        "07:30 pm"
+      ]
     },
     {
       "id": 19,
@@ -363,7 +507,15 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pulmonology). Specializes in childhood asthma and respiratory disorders. Research in cystic fibrosis.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["11:30 am", "12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "06:30 pm", "07:30 pm"]
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "06:30 pm",
+        "07:30 pm"
+      ]
     },
     {
       "id": 20,
@@ -380,7 +532,16 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), DM (Endocrinology). Expert in childhood diabetes and growth disorders. Fellowship from Toronto.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["12:00 pm", "12:30 pm", "01:00 pm", "01:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm"]
+      "availableSlots": [
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm",
+        "01:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm"
+      ]
     },
     {
       "id": 21,
@@ -397,7 +558,15 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology. Specializes in childhood digestive disorders and nutrition.",
       "fee": 1400,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:30 am", "01:00 pm", "02:30 pm", "04:00 pm", "05:30 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 22,
@@ -414,7 +583,15 @@
       "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics. Expert in autism spectrum disorders and ADHD.",
       "fee": 1300,
       "isAvailable": true,
-      "availableSlots": ["12:30 pm", "01:30 pm", "02:30 pm", "03:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
+      "availableSlots": [
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
     },
     {
       "id": 23,
@@ -431,7 +608,15 @@
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification. Pioneer in micro-incision cataract surgery. Over 10,000 successful surgeries.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "04:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm"
+      ]
     },
     {
       "id": 24,
@@ -448,7 +633,16 @@
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery. Expert in diabetic retinopathy and macular degeneration.",
       "fee": 1800,
       "isAvailable": true,
-      "availableSlots": ["03:00 pm", "03:30 pm", "04:00 pm", "04:30 pm", "05:00 pm", "05:30 pm", "06:00 pm", "06:30 pm"]
+      "availableSlots": [
+        "03:00 pm",
+        "03:30 pm",
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm"
+      ]
     },
     {
       "id": 25,
@@ -465,7 +659,16 @@
       "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma. Pioneering work in minimally invasive glaucoma surgery.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "03:00 pm", "06:00 pm", "07:00 pm", "08:00 pm"]
+      "availableSlots": [
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "06:00 pm",
+        "07:00 pm",
+        "08:00 pm"
+      ]
     },
     {
       "id": 26,
@@ -482,7 +685,16 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery. Expert in complex ear surgeries and cochlear implants.",
       "fee": 1400,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "11:00 am", "12:00 pm", "01:00 pm", "02:00 pm", "05:00 pm", "06:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 27,
@@ -499,7 +711,16 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology. Specializes in childhood hearing disorders and airway problems.",
       "fee": 1300,
       "isAvailable": true,
-      "availableSlots": ["10:30 am", "11:30 am", "12:30 pm", "01:30 pm", "04:30 pm", "05:30 pm", "06:30 pm", "07:30 pm"]
+      "availableSlots": [
+        "10:30 am",
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm",
+        "07:30 pm"
+      ]
     },
     {
       "id": 28,
@@ -516,7 +737,13 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Rhinology. Expert in endoscopic sinus surgery and skull base procedures.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": ["11:00 am", "01:00 pm", "03:00 pm", "05:00 pm", "07:00 pm"]
+      "availableSlots": [
+        "11:00 am",
+        "01:00 pm",
+        "03:00 pm",
+        "05:00 pm",
+        "07:00 pm"
+      ]
     },
     {
       "id": 29,
@@ -533,7 +760,14 @@
       "aboutDoctor": "Dr. Pranathi Reddy is a highly skilled Joint Replacement Surgeon with over 12 years of experience in the field of Orthopedics. She specializes in the diagnosis and treatment of joint disorders, including hip, knee, and shoulder replacements. With a focus on providing patients with the best care through advanced surgical techniques and personalized rehabilitation plans, Dr. Reddy is committed to improving the quality of life for those suffering from joint pain and mobility issues",
       "fee": 1200,
       "isAvailable": true,
-      "availableSlots": ["10:00 am", "12:00 pm", "02:00 pm", "04:00 pm", "06:00 pm", "08:00 pm"]
+      "availableSlots": [
+        "10:00 am",
+        "12:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "06:00 pm",
+        "08:00 pm"
+      ]
     },
     {
       "id": 30,
@@ -550,7 +784,16 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Neurotology. Expert in balance disorders and skull base surgery.",
       "fee": 1500,
       "isAvailable": true,
-      "availableSlots": ["10:30 am", "11:30 am", "12:30 pm", "02:30 pm", "03:30 pm", "04:30 pm", "05:30 pm", "06:30 pm"]
+      "availableSlots": [
+        "10:30 am",
+        "11:30 am",
+        "12:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
     }
   ],
   "topDoctors": [
@@ -1055,76 +1298,76 @@
     }
   ],
   "reviews": [
-  {
-    "id": 1,
-    "patientName": "Aarohi Sharma",
-    "patientImg": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
-    "review": "Dr. Miller was incredibly thorough and took the time to explain my condition in detail. The physical therapy exercises have helped tremendously with my lower back pain.",
-    "rating": 5
-  },
-  {
-    "id": 2,
-    "patientName": "Rohan Mehta",
-    "patientImg": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg",
-    "review": "The care I received after my knee surgery was excellent. The staff was attentive and the follow-up appointments were always on time.",
-    "rating": 4
-  },
-  {
-    "id": 3,
-    "patientName": "Ishita Nair",
-    "patientImg": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
-    "review": "I've been seeing Dr. Williams for over 3 years now. She always listens to my concerns and provides practical advice.",
-    "rating": 5
-  },
-  {
-    "id": 4,
-    "patientName": "Arjun Patel",
-    "patientImg": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-    "review": "After my heart attack, I was terrified. Dr. Patel took excellent care of me and explained everything in a way that made me feel comfortable.",
-    "rating": 5
-  },
-  {
-    "id": 5,
-    "patientName": "Priya Reddy",
-    "patientImg": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
-    "review": "My pregnancy journey at Memorial Hospital was mostly positive. The delivery team was amazing during a complicated birth.",
-    "rating": 4
-  },
-  {
-    "id": 6,
-    "patientName": "Aditya Deshmukh",
-    "patientImg": "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg",
-    "review": "The wait times for appointments can be frustrating. Although Dr. Kim is excellent when you finally see her.",
-    "rating": 3
-  },
-  {
-    "id": 7,
-    "patientName": "Sanya Kapoor",
-    "patientImg": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg",
-    "review": "I've been struggling with eczema for years, and Dr. Singh is the first dermatologist who's given me a treatment plan that actually works.",
-    "rating": 4
-  },
-  {
-    "id": 8,
-    "patientName": "Vikram Joshi",
-    "patientImg": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg",
-    "review": "As someone with multiple health issues, I appreciate how Dr. Martinez coordinates with my other specialists.",
-    "rating": 5
-  },
-  {
-    "id": 9,
-    "patientName": "Kritika Menon",
-    "patientImg": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
-    "review": "I was hesitant to seek therapy, but Dr. Washington created such a safe, judgment-free environment.",
-    "rating": 4
-  },
-  {
-    "id": 10,
-    "patientName": "Manav Iyer",
-    "patientImg": "https://img.freepik.com/free-photo/indian-man-portrait-temple_53876-14535.jpg?semt=ais_hybrid&w=740",
-    "review": "My experience with this dental practice has been disappointing. The hygienist was rough during my cleaning.",
-    "rating": 2
-  }
-],
-"appointments":
+    {
+      "id": 1,
+      "patientName": "Aarohi Sharma",
+      "patientImg": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+      "review": "Dr. Miller was incredibly thorough and took the time to explain my condition in detail. The physical therapy exercises have helped tremendously with my lower back pain.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "patientName": "Rohan Mehta",
+      "patientImg": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg",
+      "review": "The care I received after my knee surgery was excellent. The staff was attentive and the follow-up appointments were always on time.",
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "patientName": "Ishita Nair",
+      "patientImg": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
+      "review": "I've been seeing Dr. Williams for over 3 years now. She always listens to my concerns and provides practical advice.",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "patientName": "Arjun Patel",
+      "patientImg": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+      "review": "After my heart attack, I was terrified. Dr. Patel took excellent care of me and explained everything in a way that made me feel comfortable.",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "patientName": "Priya Reddy",
+      "patientImg": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
+      "review": "My pregnancy journey at Memorial Hospital was mostly positive. The delivery team was amazing during a complicated birth.",
+      "rating": 4
+    },
+    {
+      "id": 6,
+      "patientName": "Aditya Deshmukh",
+      "patientImg": "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg",
+      "review": "The wait times for appointments can be frustrating. Although Dr. Kim is excellent when you finally see her.",
+      "rating": 3
+    },
+    {
+      "id": 7,
+      "patientName": "Sanya Kapoor",
+      "patientImg": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg",
+      "review": "I've been struggling with eczema for years, and Dr. Singh is the first dermatologist who's given me a treatment plan that actually works.",
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "patientName": "Vikram Joshi",
+      "patientImg": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg",
+      "review": "As someone with multiple health issues, I appreciate how Dr. Martinez coordinates with my other specialists.",
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "patientName": "Kritika Menon",
+      "patientImg": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+      "review": "I was hesitant to seek therapy, but Dr. Washington created such a safe, judgment-free environment.",
+      "rating": 4
+    },
+    {
+      "id": 10,
+      "patientName": "Manav Iyer",
+      "patientImg": "https://img.freepik.com/free-photo/indian-man-portrait-temple_53876-14535.jpg?semt=ais_hybrid&w=740",
+      "review": "My experience with this dental practice has been disappointing. The hygienist was rough during my cleaning.",
+      "rating": 2
+    }
+  ]
+
 }

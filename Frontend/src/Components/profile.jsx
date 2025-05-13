@@ -25,7 +25,7 @@ const Profile = () => {
       <span className="profileText">
         <Link to="/profile">MY PROFILE</Link>
       </span>
-      <span className="profileText">MY APPOINTMENTS</span>
+      <span className="profileText"><Link to='/myappointments'>MY APPOINTMENTS</Link></span>
       <button className="logoutBtn" onClick={handleLoginLogout}>
         {isLoggedIn ? "LOGOUT" : "LOGIN"}
       </button>

@@ -85,7 +85,9 @@ h1 {
   font-weight: bold;
   text-decoration: none;
 }
-
+.registerBtn span{
+  margin-right: 0.2rem;
+}
 /* Responsive Layout */
 
 /* Tablets and below */

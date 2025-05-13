@@ -8,7 +8,7 @@ export const TopDoctor = (props)=>{
     }
 return(
     <>
-    {doctors.filter(doctor=>doctor.experience>=5).map(doctor=>{
+    {doctors.filter(doctor=>doctor.experience>=10).map(doctor=>{
         return(
             <div className="doctorCard" key={doctor.doctorid}>
                 <img src={doctor.image}  className="doctorImage"/>

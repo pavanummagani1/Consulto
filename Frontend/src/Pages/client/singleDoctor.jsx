@@ -18,6 +18,8 @@ const SingleDoctor = () => {
     const [appointment, setApponitmentState] = useState()
     const navigate = useNavigate();
     const { id } = useParams();
+
+    let user = JSON.parse(localStorage.getItem('user'));
     useEffect(() => {
         const fetchAppointments = async () => {
           try {
@@ -116,8 +118,7 @@ const SingleDoctor = () => {
     }, [id]);
 
     const openForm = () => {
-        let jwtToken = localStorage.getItem('userToken');
-
+        let jwtToken = user.userToken;
         if (!jwtToken) {
             toast.error("Please Login to Book an Appointment", { position: "top-right" });
             setTimeout(() => navigate('/login'), 5000);
@@ -142,17 +143,52 @@ const SingleDoctor = () => {
 
     const closeForm = () => setShowModal(false);
 
-    const submitForm = (e)=>{
-        e.preventDefault()
-        const finalAppointmnet = {...appointment,
-            ["consultingDoctor"]:"Dr. " + doctor.name,
-            ["doctorId"] : doctor.doctorid,
-            ["date"]:selectedDate,
-            ["bookedSlot"]:selectedSlot
-        }
 
-        console.log(finalAppointmnet)
-    }
+    // SUBMITTING THE BOOKING FORM
+    const submitForm = async (e) => {
+        e.preventDefault();
+    
+        if (!selectedDate || !selectedSlot) {
+            toast.error("Please select date and slot", { position: "top-right" });
+            return;
+        }
+    
+        const finalAppointmnet = {
+            ...appointment,
+            consultingDoctor: "Dr. " + doctor.name,
+            speciality:doctor.speciality,
+            image:doctor.image,
+            doctorId: doctor.doctorid,
+            date: selectedDate,
+            bookedSlot: selectedSlot,
+            userid:user.userid,
+        };
+    
+        try {
+            const response = await fetch('http://localhost:3201/appointments', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(finalAppointmnet)
+            });
+    
+            if (response.ok) {
+                toast.success("Appointment Booked Successfully", { position: "top-right" });
+                setTimeout(()=>{
+                    setShowModal(false)
+                },2500)
+            } else {
+                const errorData = await response.json();
+                toast.error(`Failed to book appointment: ${errorData.message || "Unknown error"}`, { position: "top-right" });
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            toast.error("Something went wrong. Please try again.", { position: "top-right" });
+        }
+    };
+    
+    // setting the details for Appointment object
     const handleChange = (e)=>{
         setApponitmentState({ ...appointment, [e.target.name]: e.target.value });
     }

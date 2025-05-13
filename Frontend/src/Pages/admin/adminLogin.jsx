@@ -6,6 +6,7 @@ const AdminLogin = () => {
         const [state, setAdminState] = useState({})
         const submitAdminForm = async(e)=>{
             e.preventDefault();
+            console.log(state)
             try {
                 let data = await fetch('http://localhost:3201/admin/login',{
                     "method":"POST",
@@ -37,7 +38,7 @@ const AdminLogin = () => {
         <div className="loginContainer">
           <form id='loginForm' onSubmit={submitAdminForm}>
             <TextField required label="Email/UserName" type='text' name='adminid' onChange={handleChange} />
-            <TextField label="Password" type="password" autoComplete="current-password" name='adminpassword' onChange={handleChange} />
+            <TextField label="Password" type="password" autoComplete="current-password" name='adminPassword' onChange={handleChange} />
             <Button variant="contained" type='submit'>Login Now</Button>
           </form>
         </div>

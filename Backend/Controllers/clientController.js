@@ -1,30 +1,33 @@
-import { v2 as cloudinary } from "cloudinary"
+// import { v2 as cloudinary } from "cloudinary"
 import userModel from "../Models/userModel.js";
 import bcrypt from "bcryptjs";
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
-import twilio from 'twilio';
+// import twilio from 'twilio';
+import appointmentModel from "../Models/appointmentsModel.js";
 dotenv.config()
-const twilioClient = twilio(
-    process.env.TWILIO_ACCOUNT_SID,
-    process.env.TWILIO_AUTH_TOKEN
-);
+// const twilioClient = twilio(
+//     process.env.TWILIO_ACCOUNT_SID,
+//     process.env.TWILIO_AUTH_TOKEN
+// );
 export const Register = async (req, res) => {
     try {
         let userData = req.body;
+       const mobileNumber = Number(userData.mobileNumber);
 
         // id
         const userCount = await userModel.countDocuments();
         const nextIdNumber = userCount + 1;
         const userid = `con${String(nextIdNumber).padStart(3, '0')}`
-
+        const date = new Date()
         //uploadImage to Cloudinary
         // const imageUpload = await cloudinary.uploader.upload(userprofie.path, { resource_type: "image" })
         // const image = imageUpload.secure_url
 
-        const user = { ...userData, userid, date: Date.now() }
-        const newDoctor = new userModel(user)
-        await newDoctor.save()
+        const user = { ...userData, mobileNumber, userid, date}
+        console.log(user)
+        const newUser = new userModel(user)
+        await newUser.save()
         res.status(201).json({ success: true, message: 'User Registered Sucessfully' })
     } catch (error) {
         res.status(400).json({ success: false, message: 'Failed to register', error })
@@ -32,35 +35,81 @@ export const Register = async (req, res) => {
 }
 
 export const Login = async (req, res) => {
-    let userData = req.body
-    let token = jwt.sign(userData, process.env.LOGIN_SECRET_KEY)
-    let { email, password } = userData
-    let user = await userModel.findOne({ email });
-    if (!user) return res.status(404).json({ status: false, message: 'User Not Found' })
-    let isPasswordMatched = bcrypt.compare(password, user.password);
-    if (isPasswordMatched) return res.status(200).json({ status: true, message: "Login Sucessfull", token })
-}
-
-export const Patient = async (req, res) => {
     try {
-        const patientData = req.body;
-        console.log(patientData)
+        const userData = req.body;
+        console.log(userData)
+        const { email, password } = userData;
 
-        //save data to db
-        //msg 
-        const message = await twilioClient.messages.create({
-            body: `Hi ${patientData.patientName}.Your appointment with ${patientData.doctorName} at CONSULTO APP is confirmed on ${patientData.appointmentDate} at ${patientData.appointmentTime}.
-            Join the Meet Link before 15 Minutes prior to your appointment time.`,
-            from: 'whatsapp:+14155238886',
-            to: `whatsapp:+91${patientData.mobileNumber}`
+        const user = await userModel.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ status: false, message: 'User Not Found' });
+        }
+
+        const isPasswordMatched = await bcrypt.compare(password, user.password);
+        if (!isPasswordMatched) {
+            return res.status(401).json({ status: false, message: 'Invalid Credentials' });
+        }
+
+        const token = jwt.sign(userData, process.env.LOGIN_SECRET_KEY);
+
+        return res.status(200).json({
+            status: true,
+            message: "Login Successful",
+            token,
+            userid: user.userid
         });
 
-        console.log('WhatsApp message sent:', message.sid);
+    } catch (error) {
+        console.error("Login Error:", error);
+        return res.status(500).json({ status: false, message: 'Internal Server Error' });
+    }
+};
 
-        res.status(200).json({ status: true, message: "Appointment Booked Successfully. WhatsApp confirmation sent." });
+
+export const Appointment = async (req, res) => {
+    try {
+        const patientData = req.body;
+        // const {email,mobileNumber} = patientData
+        console.log(patientData)
+        // const appointment = await appointmentModel.findOne({
+        //     $or: [
+        //       { email },
+        //       { mobileNumber }
+        //     ]
+        //   });
+        // console.log(appointment)
+        // if(!appointment&&true){
+            const newAppointment = new appointmentModel(patientData)
+            await newAppointment.save()
+            res.status(200).json({ status: true, message: "Appointment Booked Successfully. WhatsApp confirmation sent." });
+        // }else{
+            // res.status(400).json({ status: false, message: "Appointment booking failed"});
+        // }
 
     } catch (error) {
         console.error('Error in booking appointment:', error);
         res.status(500).json({ status: false, message: "Appointment booking failed", error: error.message });
     }
 };
+
+export const userAppointments = async (req, res) => {
+    try {
+        const { userid } = req.params;
+        const appointments = await appointmentModel.find({ userid });
+        res.status(200).json(appointments);
+    } catch (error) {
+        console.error("Error fetching appointments:", error);
+        res.status(500).json({ message: "Failed to fetch appointments" });
+    }
+};
+
+export const userDetails =  async(req,res)=>{
+        try {
+        const { userid } = req.params;
+        const user= await userModel.find({ userid });
+        res.status(200).json(user);
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        res.status(500).json({ message: "Failed to fetch userDetails" });
+    }
+}

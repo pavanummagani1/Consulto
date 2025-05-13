@@ -32,14 +32,21 @@ const userSchema = new mongoose.Schema({
     },
     age:{
         type:Number,
-        default:'0'
+        default:0
     },
-    phone:{
+    mobileNumber:{
         type:Number,
-        default:'000000'
+        default:0
+    },
+    userid:{
+        type:String,
+        required:true
     },
     appointmentdetails:{
         type:Array
+    },
+    date:{
+        type:String,
     }
 })
 
