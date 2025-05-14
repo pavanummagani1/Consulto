@@ -711,16 +711,8 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology. Specializes in childhood hearing disorders and airway problems.",
       "fee": 1300,
       "isAvailable": true,
-      "availableSlots": [
-        "10:30 am",
-        "11:30 am",
-        "12:30 pm",
-        "01:30 pm",
-        "04:30 pm",
-        "05:30 pm",
-        "06:30 pm",
-        "07:30 pm"
-      ]
+      "availableSlots": ["10:30 am","11:30 am","12:30 pm","01:30 pm","04:30 pm","05:30 pm","06:30 pm","07:30 pm"
+]
     },
     {
       "id": 28,
@@ -737,13 +729,7 @@
       "aboutDoctor": "MBBS, MS (ENT), Fellowship in Rhinology. Expert in endoscopic sinus surgery and skull base procedures.",
       "fee": 1600,
       "isAvailable": true,
-      "availableSlots": [
-        "11:00 am",
-        "01:00 pm",
-        "03:00 pm",
-        "05:00 pm",
-        "07:00 pm"
-      ]
+      "availableSlots": ["11:00 am","01:00 pm","03:00 pm","05:00 pm","07:00 pm"]
     },
     {
       "id": 29,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import '../../Styles/client/landing.css'
 import {TopDoctor} from '../../Components/doctor'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../../Styles/client/header.css'
 import '../../Styles/client/footer.css'
 import Reviews from "./reviews";
@@ -10,6 +10,7 @@ const LandingPage = () => {
   const [categories, setCategories] = useState([]);
   const [doctors, setDoctors] = useState([])
   const [reviews, setReviews] = useState([])
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -49,7 +50,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3000/reviews');
+        const response = await fetch('http://localhost:3201/reviews');
         if (!response.ok) {
           throw new Error('Failed to fetch Reviews');
         }
@@ -63,6 +64,10 @@ const LandingPage = () => {
 
     fetchReviews();
   }, []);
+
+  const navigateLogin = ()=>{
+    navigate('/login')
+  }
   return (
     <>
       <div className="bannerContainer">
@@ -72,7 +77,7 @@ const LandingPage = () => {
             <img src="/group_profiles.png" className="groupImage" />
             <span>Simply browse through our extensive list of trusted doctors,schedule your appointment hassle-free.</span>
           </div>
-          <button className="createAccountBtn">CREATE ACCOUNT<i className="fa-solid fa-arrow-right"></i></button>
+          <button className="createAccountBtn" onClick={navigateLogin}>CREATE ACCOUNT<i className="fa-solid fa-arrow-right"></i></button>
         </div>
         <img src="/header_img.png" className="bannerImage" />
       </div>
@@ -82,7 +87,7 @@ const LandingPage = () => {
           <h3 className="departmentsContainerTitle">Find by Speciality</h3>
           <span className="departmentsContainerAbout">Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.</span>
           <div className="categoryContainer">
-            {categories.map(category => <div className="category" key={category.id}><img src={category.categoryImage} /> <span className="categoryName">{category.category}</span></div>)}
+            {categories.map(category => <div className="category" key={category.catid}><img src={category.categoryImage} /> <span className="categoryName">{category.category}</span></div>)}
           </div>
         </div>
       </div>
@@ -103,7 +108,7 @@ const LandingPage = () => {
         <div className="appointmentDetails">
           <p className="mainText">Book Appointment</p>
           <p className="subText">With 100+ Trusted Doctors</p>
-          <button className="createAccountBtn">CREATE ACCOUNT</button>
+          <button className="createAccountBtn" onClick={navigateLogin}>CREATE ACCOUNT</button>
         </div>
         <img src="appointment_img.png" className="appointmentImage" />
       </div>

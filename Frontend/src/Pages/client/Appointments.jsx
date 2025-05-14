@@ -26,7 +26,7 @@ const Appointments = () => {
                 <div key={index} className="appointment-card">
                     <div className="left-section">
                         <img
-                            src={appointment.image} // Replace with actual doctor image if available
+                            src={appointment.image}
                             alt="Doctor"
                             className="doctor-img"
                         />
@@ -36,11 +36,12 @@ const Appointments = () => {
                             <p className="specialization">{appointment.speciality}</p>
                             <p><strong>Address:</strong><br />24 Main Street<br />10 Clause Road</p>
                             <p><strong>Date & Time:</strong> {appointment.date} | {appointment.bookedSlot}</p>
+                            <p><strong>Appointment Status:</strong> {appointment.appointmentStatus}</p>
                         </div>
                     </div>
                     <div className="right-section">
                         <button className="action-btn">Payment: {appointment.paymentStatus}</button>
-                        <button className="action-btn cancel">Cancel appointment</button>
+                        <button className="action-btn cancel" >Cancel appointment</button>
                     </div>
                 </div>
             ))}

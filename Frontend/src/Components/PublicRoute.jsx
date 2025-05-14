@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-const PublicRoute = ({children}) => {
-  sessionStorage.setItem("referrer", window.location.href.substring(21))
+const PublicRoute = ({ children }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token =  user.userToken
+
+  if (token) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   return children;
-}
+};
 
-export default PublicRoute
+export default PublicRoute;

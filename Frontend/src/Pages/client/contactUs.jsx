@@ -1,4 +1,5 @@
 import { Component } from "react"
+import { Link } from "react-router-dom"
 import '../../Styles/client/contactUs.css'
 
 class ContactUs extends Component {
@@ -22,7 +23,7 @@ class ContactUs extends Component {
                         </div>
                         <div className="contactBlock">
                             <span className="contactHeading">CAREERS AT CONSULTO</span>
-                            <button className="viewJobsBtn">VIEW JOBS</button>
+                            <button className="viewJobsBtn"> <Link className="link" to='/careers'>VIEW JOBS</Link> </button>
                         </div>
                     </section>
                 </section>
