@@ -7,19 +7,20 @@ import jwt from 'jsonwebtoken'
 import appointmentModel from "../Models/appointmentsModel.js";
 import reviewsModel from "../Models/reviewsModel.js";
 import { OAuth2Client } from 'google-auth-library';
-// import userModel from '../Models/userModel.js'
+import nodemailer from 'nodemailer'
 dotenv.config()
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // const twilioClient = twilio(
 //     process.env.TWILIO_ACCOUNT_SID,
 //     process.env.TWILIO_AUTH_TOKEN
 // );
 
+
+// JWT TOKEN for google
 const generateJWTToken = (user) => {
     return jwt.sign(
         {
-            id: user._id,
+            id: user.userid,
             email: user.email,
             role: user.role || 'user',
         },
@@ -27,6 +28,12 @@ const generateJWTToken = (user) => {
         { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
     );
 };
+
+// OTP FOR MAIL
+const generateOtp = () => {
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    return otp
+}
 
 export const Register = async (req, res) => {
     try {
@@ -128,6 +135,63 @@ export const googleLogin = async (req, res) => {
     }
 };
 
+
+// Forgot password;
+export const forgotpassword = async (req, res) => {
+    const { email } = req.body
+    const user = await userModel.findOne({ email });
+    if (user) {
+        const otp = generateOtp()
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: "support@consulto.com",
+            to: email,
+            subject: "Your OTP TO RESET PASSWORD",
+            text: `Your OTP code is: ${otp}`,
+        };
+
+        try {
+            await transporter.sendMail(mailOptions);
+            res.status(200).json({ message: "OTP sent successfully", otp });
+        } catch (err) {
+            console.error("Mail error:", err);
+            res.status(500).json({ error: "Failed to send OTP" });
+        }
+    }
+    else {
+        return res.status(404).json({ status: false, message: 'User Not Found, Please Register First' });
+    }
+
+
+}
+
+// Update Password
+export const updatepassword = async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    user.password = newPassword;
+    await user.save();
+
+    res.status(200).json({ message: "Password updated successfully." });
+  } catch (error) {
+    console.error("Error updating password:", error);
+    res.status(500).json({ message: "Failed to update password." });
+  }
+};
+
+
 export const Appointment = async (req, res) => {
     try {
         const patientData = req.body;
@@ -186,3 +250,7 @@ export const reviews = async (req, res) => {
     }
 }
 
+
+export const appointmentStatus = async(req, res)=>{
+    console.log(req.body)
+}

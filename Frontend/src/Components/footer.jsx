@@ -28,7 +28,7 @@ const Footer = () => {
                 <div className="footerSection contactSection">
                     <h3 className="sectionTitle">Get in Touch</h3>
                     <p className="contactText">+91 93815 96405</p>
-                    <p className="contactText"><a href="mailto:support@consulto.com">support@consulto.com</a></p>
+                    <p className="contactText"><a href="mailto:support@consulto.com">consulto247@gmail.com</a></p>
                 </div>
             </div>
 

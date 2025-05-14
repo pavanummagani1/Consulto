@@ -1,90 +1,104 @@
-/* body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-} */
-.forgotContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 400px;
-    margin: 5vh auto;
-    background-color: #f9f9f9;
+/* Root container for full height centering */
+.forgot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Shared styling for both containers */
+.otpRequestContainer,
+.otpValidationContainer {
+  background-color: #ffffff;
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.otpValidationContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* Inner box inside request container */
+.innerBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input fields for email and OTP */
+.inputField,
+.otpInput {
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.2px solid #ccc;
+  width: 100%;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.inputField:focus,
+.otpInput:focus {
+  border-color: #3498db;
+}
+
+/* Info text below email input */
+.infoText {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Common submit/verify button */
+.submitButton {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #2c80b4;
+}
+
+.passwordResetContainer {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Responsive: full width below small screens */
+@media screen and (max-width: 480px) {
+  .otpRequestContainer,
+  .otpValidationContainer {
+    padding: 25px 20px;
   }
-  
-  .inputField {
-    width: 100%;
-    padding: 10px 15px;
-    margin: 10px 0;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .infoText {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
+
   .submitButton {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 15px;
+    padding: 10px;
   }
-  
-  .submitButton:hover {
-    background-color: #0056b3;
+
+  .inputField,
+  .otpInput {
+    font-size: 15px;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 320px) {
-    /* Mini Mobiles */
-    .forgotContainer {
-      padding: 1rem;
-      max-width: 90%;
-    }
-  
-    .inputField, .submitButton {
-      font-size: 0.85rem;
-    }
-  }
-  
-  @media (min-width: 321px) and (max-width: 480px) {
-    /* Mobiles */
-    .forgotContainer {
-      max-width: 95%;
-    }
-  }
-  
-  @media (min-width: 481px) and (max-width: 768px) {
-    /* Tablets & iPods */
-    .forgotContainer {
-      max-width: 80%;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    /* Mini Laptops */
-    .forgotContainer {
-      max-width: 60%;
-    }
-  }
-  
-  @media (min-width: 1025px) {
-    /* Laptops & Desktops */
-    .forgotContainer {
-      max-width: 400px;
-    }
-  }
-  
+}

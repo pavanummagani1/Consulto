@@ -45,3 +45,14 @@ export const password = async(req,res,next)=>{
         res.status(400).json({message:'Please Enter Password in correct format'})
     }
 }
+export const newPassword = async(req,res,next)=>{
+    let password = req.body.newPassword
+    let passswordRegex = /^[a-zA-z0-9@!#$&*]{8,12}$/
+    let result = passswordRegex.test(password);
+    if(result){
+        req.body.newPassword =  await bcrypt.hash(password,10)
+        next()
+    }else{
+        res.status(400).json({message:'Please Enter Password in correct format'})
+    }
+}

@@ -26,7 +26,11 @@ const SingleDoctor = () => {
             const res = await fetch(`http://localhost:3201/doctor/doctor/${id}`)
             const data = await res.json()
             // console.log(data)
-            setAppointmentsData(data)
+            const alteredData = data.map(appointment => {
+                appointment.date = appointment.date.split('T')[0]
+                return appointment;
+            })
+            setAppointmentsData(alteredData)
           } catch (err) {
             console.error("Error fetching appointments:", err)
           }
@@ -69,8 +73,9 @@ const SingleDoctor = () => {
     
     const showSlots = (index, date) => {
         setSelectedDateIndex(index);
+        // console.log(index)
         const timeSlotContainer = document.getElementById('timeSlots');
-    
+        // console.log(appointmentsData)
         const [day, month, year] = date.split("/");
         const modifiedDate = `${year}-${month}-${day}`;
         setSelectedDate(modifiedDate);
@@ -80,7 +85,7 @@ const SingleDoctor = () => {
             .map(appoint => appoint.bookedSlot.toLowerCase());
     
         setBookedSlots(filteredSlots);
-        setSelectedSlot(doctor.avaliableslots[index]);
+        // setSelectedSlot(doctor.avaliableslots[index]);
     
         // Check if all available slots are booked
         const totalAvailable = doctor.avaliableslots?.length || 0;
@@ -96,6 +101,10 @@ const SingleDoctor = () => {
         }
     };
     
+    const bookSlot = (index) => {
+        setSelectedTimeIndex(index)
+        setSelectedSlot(doctor.avaliableslots[index])
+    }
 
     const getMonthName = (monthNum) => {
         const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
@@ -118,17 +127,20 @@ const SingleDoctor = () => {
     }, [id]);
 
     const openForm = () => {
-        let jwtToken = user.userToken;
+        let jwtToken = localStorage.getItem('user')
+
+        if (!selectedDate || selectedTimeIndex === null) {
+            toast.error("Please select a date and slot before booking", { position: "top-right" });
+            return;
+        }
+
         if (!jwtToken) {
             toast.error("Please Login to Book an Appointment", { position: "top-right" });
             setTimeout(() => navigate('/login'), 5000);
             return;
         }
     
-        if (!selectedDate || selectedTimeIndex === null) {
-            toast.error("Please select a date and slot before booking", { position: "top-right" });
-            return;
-        }
+        
     
         setShowModal(true);
     };
@@ -163,6 +175,8 @@ const SingleDoctor = () => {
             bookedSlot: selectedSlot,
             userid:user.userid,
         };
+
+        console.log(finalAppointmnet)
     
         try {
             const response = await fetch('http://localhost:3201/appointments', {
@@ -235,7 +249,7 @@ const SingleDoctor = () => {
                                     type="button"
                                     key={index}
                                     className={`time-slot ${buttonStyle(time, index)}`}
-                                    onClick={() => setSelectedTimeIndex(index)}
+                                    onClick={() => bookSlot(index)}
                                     disabled = {bookedSlots.indexOf(time) >= 0 ? true :false}
                                 >
                                     {time}

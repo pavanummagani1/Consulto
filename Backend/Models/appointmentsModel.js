@@ -24,10 +24,10 @@ const appointmentSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        // unique: true
+        unique: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     userid: {
@@ -59,6 +59,10 @@ const appointmentSchema = new mongoose.Schema({
     appointmentStatus:{
         type:String,
         default:'Upcomming'
+    },
+    doctorId:{
+        type:String,
+        required:true
     }
 }, { minimize: false })
 

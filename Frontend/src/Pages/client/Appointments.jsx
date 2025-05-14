@@ -19,6 +19,10 @@ const Appointments = () => {
         if (userid) fetchAppointments();
     }, [userid]);
 
+    // const handleStatus = async(appointment)=>{
+    //     // const {appointment.appointmentStatus, appointment.email}  =  appointment;
+    //     // let response  = await fetch('http://localhost:3201/updatestatus')
+    // }
     return (
         <div className="appointments-wrapper">
             <h2 className="appointments-heading">My Appointments</h2>
@@ -41,7 +45,7 @@ const Appointments = () => {
                     </div>
                     <div className="right-section">
                         <button className="action-btn">Payment: {appointment.paymentStatus}</button>
-                        <button className="action-btn cancel" >Cancel appointment</button>
+                        {/* <button className="action-btn cancel"  onClick={()=>handleStatus(appointment)}>Cancel appointment</button> */}
                     </div>
                 </div>
             ))}

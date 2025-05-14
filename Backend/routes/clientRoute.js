@@ -1,7 +1,7 @@
 import express from "express";
 import { categories, doctors, singleDoctor } from "../Controllers/adminController.js";
-import { Appointment, googleLogin, Login, Register, reviews, userAppointments, userDetails } from "../Controllers/clientController.js";
-import { email, mobileNumber, name, password } from "../Middleware/validations.js";
+import { Appointment, appointmentStatus, forgotpassword, googleLogin, Login, Register, reviews, updatepassword, userAppointments, userDetails } from "../Controllers/clientController.js";
+import { email, mobileNumber, name, newPassword, password } from "../Middleware/validations.js";
 import upload from "../Middleware/multer.js";
 
 const clientRouter = express.Router()
@@ -15,4 +15,7 @@ clientRouter.get('/appointments/:userid',userAppointments)
 clientRouter.get('/userdetails/:userid', userDetails)
 clientRouter.get('/reviews',reviews)
 clientRouter.post('/auth/google', googleLogin)
+clientRouter.post('/forgotpassword', forgotpassword)
+clientRouter.patch('/updatepassword',newPassword, updatepassword)
+clientRouter.patch('/updatestatus',appointmentStatus)
 export default clientRouter
