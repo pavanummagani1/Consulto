@@ -14,7 +14,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3201/categories');
+        const response = await fetch('https://consulto.onrender.com/categories');
         if (!response.ok) {
           throw new Error('Failed to fetch Categories');
         }

@@ -7,7 +7,7 @@ const DoctorLogin = () => {
         const submitAdminForm = async(e)=>{
             e.preventDefault();
             try {
-                let data = await fetch('http://localhost:3201/doctor/login',{
+                let data = await fetch('https://consulto.onrender.com/doctor/login',{
                     "method":"POST",
                     "headers":{
                         "Content-Type":"application/json"
