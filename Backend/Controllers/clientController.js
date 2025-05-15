@@ -155,7 +155,10 @@ export const forgotpassword = async (req, res) => {
             from: "support@consulto.com",
             to: email,
             subject: "Your OTP TO RESET PASSWORD",
-            text: `Your OTP code is: ${otp}`,
+            text: `HI,
+            ${otp} is your OTP for Verification
+            Please Do not share it with anyone.
+            Team CONSULTO`,
         };
 
         try {

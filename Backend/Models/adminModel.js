@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-    name:{
+    adminid:{
         type:String,
         required:true
     },
-    password:{
+    adminPassword:{
         type:String,
         required:true
     }

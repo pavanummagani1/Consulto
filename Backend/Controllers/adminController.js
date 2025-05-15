@@ -1,7 +1,7 @@
 import {v2 as cloudinary} from "cloudinary"
 import doctorModel from "../Models/doctorModel.js";
 import categoryModel from "../Models/categoryModel.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import adminModel from "../Models/adminModel.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
@@ -10,25 +10,25 @@ dotenv.config()
 
 
 export const adminLogin = async(req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     try {
         const {adminid, adminPassword} = req.body;
-        // console.log(adminid, adminPassword)
+        console.log(adminid, adminPassword)
         const admin = await adminModel.findOne({adminid})
-        // console.log(admin)
+        console.log(admin)
         if(!admin){
             return res.status(404).json({sucess: false,message:'Admin Not Found'})
         }
         const isValidPassword = await bcrypt.compare(adminPassword, admin.adminPassword);
         if(!isValidPassword){
-            return res.status(404).json({sucess: false,message:'Enter Correct Password'})
+            return res.status(401).json({sucess: false,message:'Enter Correct Password'})
         }
-        let token = jwt.sign({adminid,adminPassword}, process.env.LOGIN_SECRET_KEY)
+        let token = jwt.sign({adminid}, process.env.LOGIN_SECRET_KEY)
         res.status(200).json({sucess:true, message:'Login Sucessful', token})
         
 
     } catch (error) {
-        // console.log(error)
+        console.log(error)
         res.status(400).json({success:false, message:'Failed to Login'})
     }
 }
