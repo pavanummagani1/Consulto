@@ -10,7 +10,6 @@ import Footer from './Components/footer'
 import './App.css'
 import "./Styles/client/landing.css";
 import Register from './Pages/client/register'
-import AdminDashboard from './Pages/admin/dashboard'
 import AdminLogin from './Pages/admin/adminLogin'
 import { ForgotPassword } from './Pages/client/ForgotPassword'
 import  ProfilePage  from './Pages/client/profilePage'
@@ -77,7 +76,7 @@ const Layout = () => {
         }/>
 
         <Route path='/admin' element={
-          <AuthenticatedRoute><AdminDashboard /></AuthenticatedRoute>
+          <AuthenticatedRoute><AdminLogin/></AuthenticatedRoute>
         }/>
 
         <Route path='/adminlogin' element={
