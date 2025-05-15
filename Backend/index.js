@@ -10,7 +10,7 @@ import doctorRoute from "./routes/doctorRoute.js"
 const app = express()
 dotenv.config()
 app.use(cors({
-    origin: 'https://consulto-zeta.vercel.app',
+    origin: ['https://consulto-zeta.vercel.app','http://localhost:5173'],
     credentials: true
 }))
 const port = process.env.PORT || 3200
