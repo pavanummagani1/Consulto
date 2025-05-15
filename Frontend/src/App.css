@@ -18,5 +18,13 @@
     text-decoration: none;
     color: #fff;
 }
-
+.admin{
+    display: flex;
+    flex-direction: column;
+}
+.top-buttons{
+    display: flex;
+    gap: 1rem;
+    align-self: flex-end;
+}
 

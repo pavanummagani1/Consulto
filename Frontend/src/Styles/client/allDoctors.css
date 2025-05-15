@@ -2,9 +2,9 @@
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2rem; */
 }
 
 .inputSearch {
@@ -17,38 +17,68 @@
 }
 
 .doctorList {
-    display: flex;
-    gap: 2rem;
+      display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .listContainer {
-    display: none;
+     width: 20%;
+  min-width: 200px;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #f5f5f5;
-    border-radius: 12px;
+.categoryList {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
     padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
 }
 
-.sidebar ul {
+.categoryList h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.categoryList ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.categoryList ul li {
     cursor: pointer;
-    transition: background 0.3s;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    color: #333;
+    font-size: 0.95rem;
 }
 
-.sidebar li:hover {
-    background-color: #e6f7ff;
+.categoryList ul li:hover {
+    background-color: #f0f4f8;
+    transform: translateX(4px);
+    font-weight: 500;
+    color: #007bff;
 }
+
+.categoryList ul li.active-category {
+    background-color: #e6f0ff;
+    font-weight: 600;
+    color: #007bff;
+}
+
+
 
 .doctorsContainer {
     flex: 1;
@@ -126,6 +156,9 @@
 .detailsBtn:hover {
     background-color: #0056b3;
 }
+
+
+
 
 @media (max-width: 768px) {
     .doctorList {

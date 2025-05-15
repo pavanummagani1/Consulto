@@ -214,7 +214,7 @@ const SingleDoctor = () => {
                 </section>
                 <section className="details-bookingContainer">
                     <section className="detailsContainer">
-                        <h2 className="doctorName">{doctor.name}</h2>
+                        <h2 className="docName">DR.{doctor.name}</h2>
                         <p className="department">Department: {doctor.department}</p>
                         <p className="specialization">Specialization: {doctor.speciality}</p>
                         <p className="experience">Experience: {doctor.experience} Years</p>

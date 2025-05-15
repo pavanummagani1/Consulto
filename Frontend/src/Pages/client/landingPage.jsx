@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import '../../Styles/client/landing.css'
-import {TopDoctor} from '../../Components/doctor'
+import { TopDoctor } from '../../Components/doctor'
 import { Link, useNavigate } from "react-router-dom";
 import '../../Styles/client/header.css'
 import '../../Styles/client/footer.css'
@@ -65,7 +65,7 @@ const LandingPage = () => {
     fetchReviews();
   }, []);
 
-  const navigateLogin = ()=>{
+  const navigateLogin = () => {
     navigate('/login')
   }
   return (
@@ -87,7 +87,16 @@ const LandingPage = () => {
           <h3 className="departmentsContainerTitle">Find by Speciality</h3>
           <span className="departmentsContainerAbout">Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.</span>
           <div className="categoryContainer">
-            {categories.map(category => <div className="category" key={category.catid}><img src={category.categoryImage} /> <span className="categoryName">{category.category}</span></div>)}
+            {categories.map(category => (
+              <div
+                className="category"
+                key={category.catid}
+                onClick={() => navigate(`/alldoctors?category=${encodeURIComponent(category.category)}`)}
+              >
+                <img src={category.categoryImage} alt={category.category} />
+                <span className="categoryName">{category.category}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -115,7 +124,7 @@ const LandingPage = () => {
       {/* reviews */}
       <div className="reviewContainer">
         <div className="reviewTitle">What Our Patients Say About Us</div>
-          <Reviews review={reviews}/>
+        <Reviews review={reviews} />
       </div>
     </>
   )

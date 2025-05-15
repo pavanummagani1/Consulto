@@ -1,3 +1,5 @@
+import { FaInstagram, FaFacebook, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
+
 const Footer = () => {
     return (
         <footer className="footerContainer">
@@ -36,10 +38,10 @@ const Footer = () => {
             <div className="footerBottom">
                 <div className="iconsContainer">
                     <h3>Follow us on</h3>
-                    <span className="footerIcons"><i className="fa-brands fa-instagram"></i></span>
-                    <span className="footerIcons"><i className="fa-brands fa-facebook"></i></span>
-                    <span className="footerIcons"><i className="fa-brands fa-x-twitter"></i></span>
-                    <span className="footerIcons"><i className="fa-brands fa-whatsapp"></i></span>
+                    <span className="footerIcons"><FaInstagram /></span>
+                    <span className="footerIcons"><FaFacebook /></span>
+                    <span className="footerIcons"><FaXTwitter /></span>
+                    <span className="footerIcons"><FaWhatsapp /></span>
                 </div>
                 <p>© 2025 Consulto — All Rights Reserved.</p>
             </div>
