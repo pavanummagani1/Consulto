@@ -35,7 +35,7 @@ const Register = () => {
         }
         
         try {
-            const response = await fetch('http://localhost:3201/register', {
+            const response = await fetch('https://consulto.onrender.com/register', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

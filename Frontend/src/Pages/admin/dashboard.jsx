@@ -31,7 +31,7 @@ const AdminDashboard = () => {
     }
     const fetchAdminDoctors = async () => {
         try {
-            let response = await fetch('http://localhost:3201/admin/doctors');
+            let response = await fetch('https://consulto.onrender.com/admin/doctors');
             if (!response.ok) {
                 throw new Error('Failed to fetch')
             }
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
     useEffect(() => { fetchAdminDoctors() }, [])
     const fetchAppointments = async () => {
         try {
-            let response = await fetch('http://localhost:3201/admin/appointments');
+            let response = await fetch('https://consulto.onrender.com/admin/appointments');
             if (!response.ok) {
                 throw new Error('Failed to fetch')
             }

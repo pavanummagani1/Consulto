@@ -13,7 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3201/categories');
+        const response = await fetch('https://consulto.onrender.com/categories');
         if (!response.ok) {
           throw new Error('Failed to fetch Categories');
         }
@@ -31,7 +31,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('http://localhost:3201/doctors');
+        const response = await fetch('https://consulto.onrender.com/doctors');
         if (!response.ok) {
           throw new Error('Failed to fetch Doctors');
         }
@@ -49,7 +49,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3000/reviews');
+        const response = await fetch('https://consulto.onrender.com/reviews');
         if (!response.ok) {
           throw new Error('Failed to fetch Reviews');
         }

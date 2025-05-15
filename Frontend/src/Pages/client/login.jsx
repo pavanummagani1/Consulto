@@ -37,7 +37,7 @@ const Login = () => {
       return;
     }
     try {
-      let response = await fetch('http://localhost:3201/login', {
+      let response = await fetch('https://consulto.onrender.com/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -82,7 +82,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      const res = await fetch('http://localhost:3201/auth/google', {
+      const res = await fetch('https://consulto.onrender.com/auth/google', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

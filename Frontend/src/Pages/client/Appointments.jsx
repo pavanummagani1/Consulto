@@ -9,7 +9,7 @@ const Appointments = () => {
     useEffect(() => {
         const fetchAppointments = async () => {
             try {
-                const response = await fetch(`http://localhost:3201/appointments/${userid}`);
+                const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
                 const data = await response.json();
                 setAppointments(data);
             } catch (error) {

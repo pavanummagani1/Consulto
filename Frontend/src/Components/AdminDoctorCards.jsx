@@ -6,7 +6,7 @@ export const AdminDoctorsCards = (props) => {
 
   const removeDoctor = async (doctor) => {
     try {
-      const response = await fetch('http://localhost:3201/admin/deletedoctor', {
+      const response = await fetch('https://consulto.onrender.com/admin/deletedoctor', {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"

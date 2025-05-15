@@ -23,7 +23,7 @@ const SingleDoctor = () => {
     useEffect(() => {
         const fetchAppointments = async () => {
           try {
-            const res = await fetch(`http://localhost:3201/doctor/doctor/${id}`)
+            const res = await fetch(`https://consulto.onrender.com/doctor/doctor/${id}`)
             const data = await res.json()
             // console.log(data)
             const alteredData = data.map(appointment => {
@@ -113,7 +113,7 @@ const SingleDoctor = () => {
 
     const fetchDoctor = async () => {
         try {
-            const response = await fetch(`http://localhost:3201/doctors/${id}`);
+            const response = await fetch(`https://consulto.onrender.com/doctors/${id}`);
             if (!response.ok) throw new Error('Failed to fetch doctor');
             const data = await response.json();
             data.length > 0 ? setDoctor(data[0]) : alert('Doctor not found');
@@ -179,7 +179,7 @@ const SingleDoctor = () => {
         console.log(finalAppointmnet)
     
         try {
-            const response = await fetch('http://localhost:3201/appointments', {
+            const response = await fetch('https://consulto.onrender.com/appointments', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

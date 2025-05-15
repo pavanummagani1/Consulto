@@ -32,7 +32,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('http://localhost:3201/doctors');
+        const response = await fetch('https://consulto.onrender.com/doctors');
         if (!response.ok) {
           throw new Error('Failed to fetch Doctors');
         }
@@ -50,7 +50,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3201/reviews');
+        const response = await fetch('https://consulto.onrender.com/reviews');
         if (!response.ok) {
           throw new Error('Failed to fetch Reviews');
         }

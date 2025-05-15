@@ -12,7 +12,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3201/userdetails/${userid}`);
+        const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`);
         const data = await response.json();
         if (Array.isArray(data) && data.length > 0) {
           setUser(data[0]); // Set the first user object

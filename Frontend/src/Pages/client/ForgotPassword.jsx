@@ -38,7 +38,7 @@ export const ForgotPassword = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3201/forgotpassword", {
+      const response = await fetch("https://consulto.onrender.com/forgotpassword", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -79,7 +79,7 @@ const handlePasswordReset = async () => {
   }
 
   try {
-    const response = await fetch("http://localhost:3201/updatepassword", {
+    const response = await fetch("https://consulto.onrender.com/updatepassword", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
