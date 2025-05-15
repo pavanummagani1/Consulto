@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import '../../Styles/client/ProfilePage.css';
+import '../../Styles/client/profilePage.css'
 
 const ProfilePage = () => {
   const [showPassword, setShowPassword] = useState(false);
