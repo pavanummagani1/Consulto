@@ -20,6 +20,7 @@ import Appointments from './Pages/client/Appointments'
 import Careers from './Pages/client/Careers'
 import AuthenticatedRoute from './Components/AuthenticatedRoute'
 import DoctorLogin from './Pages/doctor/login'
+import AdminDashboard from './Pages/admin/dashboard'
 
 
 
@@ -77,7 +78,7 @@ const Layout = () => {
         } />
 
         <Route path='/admin' element={
-          <AuthenticatedRoute><AdminLogin /></AuthenticatedRoute>
+          <AuthenticatedRoute><AdminDashboard/></AuthenticatedRoute>
         } />
 
         <Route path='/adminlogin' element={

@@ -16,7 +16,7 @@ app.use(cors({
 const port = process.env.PORT || 3200
 app.use(express.json())
 
-app.use('/admin', adminRouter) //http:localhost:3201/admin/adddoctor
+app.use('/admin', adminRouter)
 app.use('/', clientRouter)
 app.use('/doctor',doctorRoute)
 connectDB().then(()=>{
