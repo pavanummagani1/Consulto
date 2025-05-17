@@ -11,7 +11,6 @@ const Navbar = () => {
   const toggleSidebar = () => setIsSidebarOpened((prev) => !prev);
   const toggleProfile = () => setIsProfileOpened((prev) => !prev);
 
-  // 👉 Close profile dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (

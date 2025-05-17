@@ -1,52 +1,55 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    email:{
-        type:String,
-        required:true,
-        unique:true
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     },
-    image:{
-        type:String,
-        default:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    image: {
+        type: String,
+        default: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
     },
-    address:{
-        type:Object,
-        default:{
-            landmark:'Near abc, Road No-2',
-            city:'abcd',
-            pincode:'000000'
+    address: {
+        type: Object,
+        default: {
+            landmark: 'Near abc, Road No-2',
+            city: 'abcd',
+            pincode: '000000'
         }
     },
-    gender:{
-        type:String,
-        default:"female"
+    gender: {
+        type: String,
+        default: "female"
     },
-    age:{
-        type:Number,
-        default:0
+    age: {
+        type: Number,
+        default: 0
     },
-    mobileNumber:{
-        type:Number,
-        default:0
+    mobileNumber: {
+        type: Number,
+        default: 0
     },
-    userid:{
-        type:String,
-        required:true
+    userid: {
+        type: String,
+        required: true
     },
-    appointmentdetails:{
-        type:Array
+    appointmentdetails: {
+        type: [{
+            type: Object,
+            required: false
+        }]
     },
-    date:{
-        type:String,
+    date: {
+        type: String,
     }
 })
 

@@ -78,6 +78,68 @@
     color: red;
     border-color: red;
 }
+.no-appointments {
+    text-align: center;
+    margin-top: 50px;
+    color: #2c2c2c;
+}
+
+.no-appointments-img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.no-appointments h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.no-appointments p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.book-btn {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #5a4dbf;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.status-badge.yellow {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.red {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-badge.green {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
 @media (max-width: 768px) {
     .appointment-card {
         flex-direction: column;

@@ -1,15 +1,18 @@
 import { TextField, Button } from '@mui/material';
 import '../../Styles/client/login.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminLogin = () => {
+  const navigate = useNavigate()
   const [state, setAdminState] = useState({})
   const submitAdminForm = async (e) => {
     e.preventDefault();
     console.log(state)
     try {
-      let data = await fetch('https://consulto.onrender.com/admin/login', {
+      let data = await fetch('http://localhost:3201/admin/login', {
         "method": "POST",
         "headers": {
           "Content-Type": "application/json"
@@ -18,6 +21,14 @@ const AdminLogin = () => {
       });
       if (!data.ok) return new Error('Failed to Register')
       let response = await data.json()
+    const admin = {
+      adminToken: response.token
+    }
+    if(response.sucess){
+      toast.success(response.message || "Login Sucessfull")
+      localStorage.setItem("Admin", JSON.stringify(admin))
+      setTimeout(()=>{navigate('/admin')},1500)
+    }
       console.log(response)
     } catch (error) {
       console.log(error)
@@ -51,6 +62,7 @@ const AdminLogin = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

@@ -63,6 +63,10 @@ const appointmentSchema = new mongoose.Schema({
     doctorId:{
         type:String,
         required:true
+    },
+    appointmentid:{
+        type:String,
+        required:true
     }
 }, { minimize: false })
 

@@ -179,7 +179,7 @@ const SingleDoctor = () => {
         console.log(finalAppointmnet)
     
         try {
-            const response = await fetch('https://consulto.onrender.com/appointments', {
+            const response = await fetch('http://localhost:3201/appointments', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
