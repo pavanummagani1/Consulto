@@ -47,7 +47,7 @@ const Navbar = () => {
           <span className="navItems"><Link className="Link" to="/aboutus">ABOUT US</Link></span>
           <span className="navItems"><Link className="Link" to="/alldoctors">ALL DOCTORS</Link></span>
           <span className="navItems"><Link className="Link" to="/contactus">CONTACT US</Link></span>
-          <span className="navItems"><Link className="Link" to="/admin">ADMIN</Link></span>
+          <span className="navItems"><Link className="Link" to="/adminlogin">ADMIN</Link></span>
         </div>
 
         {/* Profile with dropdown */}

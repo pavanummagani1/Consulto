@@ -3,8 +3,6 @@ import { Table as AntTable, Input } from 'antd';
 
 const Table = ({ columns = [], dataset = [] }) => {
     const [searchText, setSearchText] = useState('');
-
-    // Ant Design column definitions
     const antColumns = columns.map(col => ({
         title: col,
         dataIndex: col,
@@ -13,7 +11,6 @@ const Table = ({ columns = [], dataset = [] }) => {
         render: (text) => text || 'N/A',
     }));
 
-    // Global search filter
     const filteredData = dataset.filter((record) =>
         columns.some((col) =>
             String(record[col]).toLowerCase().includes(searchText.toLowerCase())

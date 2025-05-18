@@ -23,7 +23,7 @@ const DoctorLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3201/doctor/login', {
+      const response = await fetch('https://consulto.onrender.com/doctor/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -99,6 +99,7 @@ const DoctorLogin = () => {
                   ),
                 }}
               />
+              {/* <div id='forgotPassword'><Link to="/forgotpassword">Forgot Password?</Link></div> */}
               <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
                 Login Now
               </Button>

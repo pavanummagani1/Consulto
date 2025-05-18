@@ -62,7 +62,7 @@ export const AddDoctor = () => {
       formData.append('avaliable', doctorDetails.avaliable);
       formData.append('experience', doctorDetails.experience);
 
-      const response = await fetch('http://localhost:3201/admin/adddoctor', {
+      const response = await fetch('https://consulto.onrender.com/admin/adddoctor', {
         method: "POST",
         body: formData
       });

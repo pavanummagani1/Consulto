@@ -15,7 +15,7 @@ const DoctorDashboard = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await fetch(`http://localhost:3201/doctor/appointments/${doctorId}`);
+            const response = await fetch(`https://consulto.onrender.com/doctor/appointments/${doctorId}`);
             const data = await response.json();
             setAppointments(data);
         } catch (err) {
@@ -46,7 +46,7 @@ const DoctorDashboard = () => {
     };
 
     useEffect(() => {
-        fetchAppointments(); // Load appointments on page load
+        fetchAppointments();
     }, []);
 
     const appointmentColumns = [

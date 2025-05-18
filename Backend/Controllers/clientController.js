@@ -109,7 +109,7 @@ export const googleLogin = async (req, res) => {
 // Forgot password;
 export const forgotpassword = async (req, res) => {
     const { email } = req.body
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ email })
     if (user) {
         const otp = generateOtp()
 
@@ -150,7 +150,7 @@ export const forgotpassword = async (req, res) => {
 export const updatepassword = async (req, res) => {
     try {
         const { email, newPassword } = req.body;
-        const user = await userModel.findOne({ email });
+        const user = await userModel.findOne({ email })
         if (!user) {
             return res.status(404).json({ message: "User not found." });
         }
@@ -165,11 +165,11 @@ export const updatepassword = async (req, res) => {
 };
 
 
-// Appointment
+//Appointments Boooking
 export const Appointment = async (req, res) => {
     try {
         const patientData = req.body;
-        const { userid } = patientData;
+        const { userid, email, patientName, date, bookedSlot, consultingDoctor } = patientData;
 
         const appointmentCount = await appointmentModel.countDocuments();
         const nextIdNumber = appointmentCount + 1;
@@ -180,27 +180,66 @@ export const Appointment = async (req, res) => {
             return res.status(404).json({ status: false, message: "User not found" });
         }
 
+        const appointmentDate = new Date(patientData.date);
+        const today = new Date();
+        const isToday =
+            appointmentDate.getFullYear() === today.getFullYear() &&
+            appointmentDate.getMonth() === today.getMonth() &&
+            appointmentDate.getDate() === today.getDate();
+
+        const appointmentStatus = isToday ? "Today" : "Upcomming";
+
+        const completeAppointmentData = {
+            ...patientData,
+            appointmentid,
+            appointmentStatus
+        };
+
         if (!Array.isArray(user.appointdetails)) {
             user.appointdetails = [];
         }
 
-        console.log('Before push:', user.appointdetails.length);
-
-        user.appointdetails.push(patientData);
+        user.appointdetails.push(completeAppointmentData);
         await user.save();
 
-        console.log('After push:', user.appointdetails.length);
-
-        const newAppointment = new appointmentModel({ ...patientData, appointmentid });
+        const newAppointment = new appointmentModel(completeAppointmentData);
         await newAppointment.save();
+
+        
+        const transporter = nodemailer.createTransport({
+            service: "Gmail", 
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASS 
+            }
+        });
+
+        const mailOptions = {
+            from: "your_email@gmail.com",
+            to: email,
+            subject: "Appointment Confirmation",
+            html: `
+                <h2>Appointment Confirmation</h2>
+                <p>Hi <strong>${patientName}</strong>,</p>
+                <p>Your appointment has been confirmed with <strong>${consultingDoctor}</strong>.</p>
+                <p><strong>Date:</strong> ${new Date(date).toDateString()}</p>
+                <p><strong>Time:</strong> ${bookedSlot}</p>
+                <p><strong>Appointment ID:</strong> ${appointmentid}</p>
+                <br />
+                <p>Thank you for choosing our service!</p>
+                <img src="https://res.cloudinary.com/djzdih0ni/image/upload/v1747478982/Consulto_Logo_da2ib2.png" alt="Consulto Logo" width="200"/>
+            `
+        };
+
+        await transporter.sendMail(mailOptions);
 
         return res.status(200).json({
             status: true,
-            message: "Appointment Booked Successfully. WhatsApp confirmation sent."
+            message: "Appointment Booked Successfully. Email confirmation sent."
         });
 
     } catch (error) {
-        console.error('Error in booking appointment:', error);
+        console.error("Appointment booking error:", error);
         return res.status(500).json({
             status: false,
             message: "Appointment booking failed",
@@ -208,6 +247,8 @@ export const Appointment = async (req, res) => {
         });
     }
 };
+
+
 
 
 

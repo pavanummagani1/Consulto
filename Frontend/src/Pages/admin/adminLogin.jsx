@@ -12,7 +12,7 @@ const AdminLogin = () => {
     e.preventDefault();
     console.log(state)
     try {
-      let data = await fetch('http://localhost:3201/admin/login', {
+      let data = await fetch('https://consulto.onrender.com/admin/login', {
         "method": "POST",
         "headers": {
           "Content-Type": "application/json"
