@@ -270,7 +270,7 @@ const SingleDoctor = () => {
                 elements,
                 clientSecret,
                 confirmParams: {
-                    return_url: 'https://yourwebsite.com/booking-success',
+                    return_url: 'https://consulto-zeta.vercel.app/booking-success',
                     receipt_email: finalAppointment.email,
                 },
             });
