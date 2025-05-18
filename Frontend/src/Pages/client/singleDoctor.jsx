@@ -252,7 +252,7 @@ const SingleDoctor = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                    "Authorization": `Bearer ${user.userToken}`
                 },
                 body: JSON.stringify({
                     amount: finalAppointment.amount * 100, // in cents/paisa

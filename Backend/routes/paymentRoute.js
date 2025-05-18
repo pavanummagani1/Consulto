@@ -1,5 +1,5 @@
 import express from 'express';
-import { createPaymentIntent } from '../Controllers/paymentController.js';
+import  createPaymentIntent  from '../Controllers/paymentController.js';
 
 const paymentRouter = express.Router();
 

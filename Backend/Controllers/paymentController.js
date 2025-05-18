@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-export const createPaymentIntent = async (req, res) => {
+const createPaymentIntent = async (req, res) => {
     try {
         const { amount, metadata } = req.body;
         
@@ -34,3 +34,5 @@ export const createPaymentIntent = async (req, res) => {
         });
     }
 };
+
+export default createPaymentIntent;
