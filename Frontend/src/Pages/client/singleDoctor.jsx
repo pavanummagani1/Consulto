@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import '../../Styles/client/singleDoctor.css';
-import FormsData from '../../data/inputsData.js';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { loadStripe } from '@stripe/stripe-js';
+import '../../Styles/client/singleDoctor.css';
+import FormsData from '../../data/inputsData.js';
 import { fetchDoctorById } from "../../Services/services.js";
 
 const SingleDoctor = () => {
@@ -223,6 +224,8 @@ const SingleDoctor = () => {
 
 
     // SUBMITTING THE BOOKING FORM
+
+
     const submitForm = async (e) => {
         e.preventDefault();
 
@@ -231,7 +234,7 @@ const SingleDoctor = () => {
             return;
         }
 
-        const finalAppointmnet = {
+        const finalAppointment = {
             ...appointment,
             consultingDoctor: "Dr. " + doctor.name,
             speciality: doctor.speciality,
@@ -240,27 +243,60 @@ const SingleDoctor = () => {
             date: selectedDate,
             bookedSlot: selectedSlot,
             userid: user.userid,
+            amount: doctor.fee || 500 // Default fee if not specified
         };
 
-        console.log(finalAppointmnet)
-
         try {
-            const response = await fetch('https://consulto.onrender.com/appointments', {
+            // 1. Create a payment intent on your backend
+            const paymentIntentResponse = await fetch('https://consulto.onrender.com/create-payment-intent', {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify(finalAppointmnet)
+                body: JSON.stringify({
+                    amount: finalAppointment.amount * 100, // in cents/paisa
+                    metadata: finalAppointment
+                })
             });
 
-            if (response.ok) {
-                toast.success("Appointment Booked Successfully", { position: "top-right" });
-                setTimeout(() => {
-                    setShowModal(false)
-                }, 2500)
-            } else {
-                const errorData = await response.json();
-                toast.error(`Failed to book appointment: ${errorData.message || "Unknown error"}`, { position: "top-right" });
+            const { clientSecret } = await paymentIntentResponse.json();
+
+            // 2. Initialize Stripe
+            const stripe = await loadStripe('your_publishable_key_from_stripe');
+
+            // 3. Confirm the payment
+            const { error, paymentIntent } = await stripe.confirmPayment({
+                elements,
+                clientSecret,
+                confirmParams: {
+                    return_url: 'https://yourwebsite.com/booking-success',
+                    receipt_email: finalAppointment.email,
+                },
+            });
+
+            if (error) {
+                toast.error(error.message, { position: "top-right" });
+                return;
+            }
+
+            // 4. If payment successful, save appointment
+            if (paymentIntent.status === 'succeeded') {
+                const response = await fetch('https://consulto.onrender.com/appointments', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(finalAppointment)
+                });
+
+                if (response.ok) {
+                    toast.success("Appointment Booked Successfully", { position: "top-right" });
+                    setTimeout(() => {
+                        setShowModal(false);
+                        navigate('/booking-success');
+                    }, 2500);
+                }
             }
         } catch (error) {
             console.error("Error:", error);

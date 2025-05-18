@@ -6,6 +6,7 @@ import connectCloudinary from "./config/cloudinary.js"
 import adminRouter from "./routes/adminRoute.js"
 import clientRouter from "./routes/clientRoute.js"
 import doctorRoute from "./routes/doctorRoute.js"
+import paymentRouter from "./routes/paymentRoute.js"
 
 const app = express()
 dotenv.config()
@@ -16,9 +17,14 @@ app.use(cors({
 const port = process.env.PORT || 3200
 app.use(express.json())
 
+
+
 app.use('/admin', adminRouter)
 app.use('/', clientRouter)
 app.use('/doctor',doctorRoute)
+app.use('/api/payments', paymentRouter);
+
+
 connectDB().then(()=>{
     app.listen(port, () => {
         console.log(`server started sucessfully at http://localhost:${port}`)

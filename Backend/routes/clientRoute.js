@@ -18,5 +18,6 @@ clientRouter.post('/auth/google', googleLogin)
 clientRouter.post('/forgotpassword', forgotpassword)
 clientRouter.patch('/updatepassword',newPassword, updatepassword)
 clientRouter.patch('/userdetails/:userid',upload.single('image'), updatedetails)
-clientRouter.patch('/updatestatus',appointmentStatus)
+clientRouter.patch('/updatestatus',appointmentStatus);
+clientRouter.post('/create-payment-intent', createPaymentIntent);
 export default clientRouter
