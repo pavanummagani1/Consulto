@@ -3,43 +3,144 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import '../../Styles/client/singleDoctor.css';
 import FormsData from '../../data/inputsData.js';
 import { fetchDoctorById } from "../../Services/services.js";
+
+// Stripe configuration
+const stripePromise = loadStripe('pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPBIN6QfGGP6QRdyCKuYVsRYFSJDtVQRQ0QpJKM5oWdBF000O8RdShCR');
+
+// Payment Form Component
+const CheckoutForm = ({ 
+  handleSubmit, 
+  appointment, 
+  setAppointmentState,
+  selectedDate, 
+  selectedSlot,
+  doctor,
+  closeForm
+}) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!stripe || !elements) {
+      toast.error("Payment system not ready. Please try again.");
+      return;
+    }
+
+    setIsProcessing(true);
+    try {
+      await handleSubmit(e, stripe, elements);
+    } catch (error) {
+      console.error("Payment error:", error);
+      toast.error(error.message || "Payment processing failed");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  return (
+    <div className="modal-overlay">
+      <div className="modalcontent">
+        <span className="closebutton" onClick={closeForm}>&times;</span>
+        <form className="patientsubmitForm formGrid" onSubmit={handleFormSubmit}>
+          {FormsData?.patientForm?.fields?.map((ele, index) => {
+            const label = FormsData?.patientForm?.label?.[index];
+            return (
+              <div className="formgroup" key={index}>
+                <label htmlFor={ele.id}>{label}</label>
+                <input
+                  type={ele.type}
+                  placeholder={ele.placeholder}
+                  id={ele.id}
+                  name={ele.name}
+                  required
+                  onChange={(e) => setAppointmentState(prev => ({ 
+                    ...prev, 
+                    [e.target.name]: e.target.value 
+                  }))}
+                />
+              </div>
+            );
+          })}
+          
+          <div className="payment-section">
+            <h4>Payment Details</h4>
+            <div className="card-element">
+              <CardElement 
+                options={{
+                  style: {
+                    base: {
+                      fontSize: '16px',
+                      color: '#424770',
+                      '::placeholder': {
+                        color: '#aab7c4',
+                      },
+                    },
+                    invalid: {
+                      color: '#9e2146',
+                    },
+                  },
+                }} 
+              />
+            </div>
+            <div className="payment-summary">
+              <p>Doctor: Dr. {doctor.name}</p>
+              <p>Date: {selectedDate}</p>
+              <p>Time: {selectedSlot}</p>
+              <p className="payment-amount">Amount: ₹{Math.max(doctor.fee || 5000, 5000)/100}</p>
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            className="appointmentBtn" 
+            disabled={isProcessing}
+          >
+            {isProcessing ? 'Processing Payment...' : `Pay ₹${Math.max(doctor.fee || 5000, 5000)/100}`}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 const SingleDoctor = () => {
     const [doctor, setDoctor] = useState({});
     const [showModal, setShowModal] = useState(false);
     const [dateArray, setDateArray] = useState([]);
     const [selectedDateIndex, setSelectedDateIndex] = useState(null);
-    const [selectedDate, setSelectedDate] = useState('')
-    const [selectedSlot, setSelectedSlot] = useState('')
+    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedSlot, setSelectedSlot] = useState('');
     const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
     const [appointmentsData, setAppointmentsData] = useState([]);
-    const [bookedSlots, setBookedSlots] = useState([])
-    const [appointment, setApponitmentState] = useState()
+    const [bookedSlots, setBookedSlots] = useState([]);
+    const [appointment, setAppointmentState] = useState({});
     const navigate = useNavigate();
     const { id } = useParams();
 
     let user = JSON.parse(localStorage.getItem('user'));
+
     useEffect(() => {
         const fetchAppointments = async () => {
             try {
-                const res = await fetch(`https://consulto.onrender.com/doctor/doctor/${id}`)
-                const data = await res.json()
-                // console.log(data)
+                const res = await fetch(`https://consulto.onrender.com/doctor/doctor/${id}`);
+                const data = await res.json();
                 const alteredData = data.map(appointment => {
-                    appointment.date = appointment.date.split('T')[0]
+                    appointment.date = appointment.date.split('T')[0];
                     return appointment;
-                })
-                setAppointmentsData(alteredData)
+                });
+                setAppointmentsData(alteredData);
             } catch (err) {
-                console.error("Error fetching appointments:", err)
+                console.error("Error fetching appointments:", err);
             }
-        }
-        fetchAppointments()
-    }, [id])
-
+        };
+        fetchAppointments();
+    }, [id]);
 
     useEffect(() => {
         const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -64,20 +165,12 @@ const SingleDoctor = () => {
                     short: `${day} ${getMonthName(month)}`
                 });
             }
-
         }
-
-        console.log(arr)
-
         setDateArray(arr);
     }, []);
 
-
     const showSlots = (index, date) => {
         setSelectedDateIndex(index);
-        // console.log(index)
-        const timeSlotContainer = document.getElementById('timeSlots');
-        // console.log(appointmentsData)
         const [day, month, year] = date.split("/");
         const modifiedDate = `${year}-${month}-${day}`;
         setSelectedDate(modifiedDate);
@@ -87,9 +180,7 @@ const SingleDoctor = () => {
             .map(appoint => appoint.bookedSlot.toLowerCase());
 
         setBookedSlots(filteredSlots);
-        // setSelectedSlot(doctor.avaliableslots[index]);
 
-        // Check if all available slots are booked
         const totalAvailable = doctor.avaliableslots?.length || 0;
         const totalBooked = doctor.avaliableslots?.filter(slot =>
             filteredSlots.includes(slot.toLowerCase())
@@ -97,16 +188,16 @@ const SingleDoctor = () => {
 
         if (totalAvailable === totalBooked) {
             toast.info("All slots booked or no slot available for this date", { position: "top-right" });
-            timeSlotContainer.style.display = 'none';
+            document.getElementById('timeSlots').style.display = 'none';
         } else {
-            timeSlotContainer.removeAttribute('style');
+            document.getElementById('timeSlots').removeAttribute('style');
         }
     };
 
     const bookSlot = (index) => {
-        setSelectedTimeIndex(index)
-        setSelectedSlot(doctor.avaliableslots[index])
-    }
+        setSelectedTimeIndex(index);
+        setSelectedSlot(doctor.avaliableslots[index]);
+    };
 
     const getMonthName = (monthNum) => {
         const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
@@ -120,35 +211,14 @@ const SingleDoctor = () => {
                 if (doctor) {
                     setDoctor(doctor);
                 } else {
-                    alert('Doctor not found');
+                    toast.error('Doctor not found');
                 }
             } catch (err) {
                 console.error(err);
             }
         };
-
         if (id) fetchDoctor();
     }, [id]);
-
-
-    // const openForm = () => {
-    //     let jwtToken = localStorage.getItem('user')
-
-    //     if (!selectedDate || selectedTimeIndex === null) {
-    //         toast.error("Please select a date and slot before booking", { position: "top-right" });
-    //         return;
-    //     }
-
-    //     if (!jwtToken) {
-    //         toast.error("Please Login to Book an Appointment", { position: "top-right" });
-    //         setTimeout(() => navigate('/login'), 5000);
-    //         return;
-    //     }
-
-
-
-    //     setShowModal(true);
-    // };
 
     const openForm = () => {
         let jwtToken = localStorage.getItem('user');
@@ -158,7 +228,6 @@ const SingleDoctor = () => {
             return;
         }
 
-        // 🟡 Check if selected slot is in the past (for today)
         const today = new Date();
         const selected = new Date(selectedDate);
 
@@ -192,7 +261,6 @@ const SingleDoctor = () => {
             return;
         }
 
-        // 🛑 Check for existing upcoming appointment with the same doctor
         const hasUpcomingAppointment = appointmentsData.some(app =>
             app.userid === user.userid &&
             app.doctorId === doctor.doctorid &&
@@ -206,25 +274,21 @@ const SingleDoctor = () => {
             return;
         }
 
-        // ✅ Proceed with booking
         setShowModal(true);
     };
 
-
-
     const buttonStyle = (time, index) => {
-        if (index === selectedTimeIndex && bookedSlots.indexOf(time) < 0) {
-            return 'active'
-        } else if (bookedSlots.indexOf(time) >= 0) {
-            return 'disabled'
+        if (index === selectedTimeIndex && !bookedSlots.includes(time.toLowerCase())) {
+            return 'active';
+        } else if (bookedSlots.includes(time.toLowerCase())) {
+            return 'disabled';
         }
-    }
+        return '';
+    };
 
     const closeForm = () => setShowModal(false);
 
-
-    // SUBMITTING THE BOOKING FORM
-    const submitForm = async (e) => {
+    const submitForm = async (e, stripe, elements) => {
         e.preventDefault();
 
         if (!selectedDate || !selectedSlot) {
@@ -232,6 +296,7 @@ const SingleDoctor = () => {
             return;
         }
 
+        const minimumFee = 5000; // ₹50 minimum
         const finalAppointment = {
             ...appointment,
             consultingDoctor: "Dr. " + doctor.name,
@@ -241,12 +306,12 @@ const SingleDoctor = () => {
             date: selectedDate,
             bookedSlot: selectedSlot,
             userid: user.userid,
-            amount: doctor.fee || 500 // Default fee if not specified
+            amount: Math.max(doctor.fee || minimumFee, minimumFee)
         };
 
         try {
-            // 1. Create a payment intent on your backend
-            const paymentIntentResponse = await fetch('https://consulto.onrender.com/create-payment-intent', {
+            // 1. Create payment intent
+            const paymentIntentResponse = await fetch('https://consulto.onrender.com/api/payments/create-payment-intent', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -258,53 +323,51 @@ const SingleDoctor = () => {
                 })
             });
 
+            if (!paymentIntentResponse.ok) {
+                const errorData = await paymentIntentResponse.json();
+                throw new Error(errorData.error || errorData.message || 'Payment failed');
+            }
+
             const { clientSecret } = await paymentIntentResponse.json();
 
-            // 2. Initialize Stripe
-            const stripe = await loadStripe('pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPBIN6QfGGP6QRdyCKuYVsRYFSJDtVQRQ0QpJKM5oWdBF000O8RdShCR');
-
-            // 3. Confirm the payment
-            const { error, paymentIntent } = await stripe.confirmPayment({
-                elements,
-                clientSecret,
-                confirmParams: {
-                    return_url: 'https://consulto-zeta.vercel.app/booking-success',
-                    receipt_email: finalAppointment.email,
+            // 2. Confirm payment
+            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement),
+                    billing_details: {
+                        name: finalAppointment.patientName || 'Patient',
+                        email: finalAppointment.email || 'patient@example.com',
+                    },
                 },
             });
 
-            if (error) {
-                toast.error(error.message, { position: "top-right" });
-                return;
-            }
+            if (error) throw error;
 
-            // 4. If payment successful, save appointment
+            // 3. Save appointment
             if (paymentIntent.status === 'succeeded') {
                 const response = await fetch('https://consulto.onrender.com/appointments', {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${user.userToken}`
                     },
                     body: JSON.stringify(finalAppointment)
                 });
 
-                if (response.ok) {
-                    toast.success("Appointment Booked Successfully", { position: "top-right" });
-                    setTimeout(() => {
-                        setShowModal(false);
-                        navigate('/booking-success');
-                    }, 2500);
-                }
+                if (!response.ok) throw new Error('Failed to save appointment');
+
+                toast.success("Appointment Booked Successfully", { position: "top-right" });
+                setTimeout(() => {
+                    setShowModal(false);
+                    navigate('/myappointments');
+                }, 2500);
             }
         } catch (error) {
-            console.error("Error:", error);
-            toast.error("Something went wrong. Please try again.", { position: "top-right" });
+            console.error("Payment error:", error);
+            throw error;
         }
     };
 
-    const handleChange = (e) => {
-        setApponitmentState({ ...appointment, [e.target.name]: e.target.value });
-    }
     return (
         <>
             <section className="doctorContainer">
@@ -322,7 +385,7 @@ const SingleDoctor = () => {
                             <span className="details">{doctor.about}</span>
                         </div>
                     </section>
-                    {/* Date Selector */}
+                    
                     <section className="bookingContainer">
                         <span className="slots">Select Date</span>
                         <div className="date-scroll">
@@ -339,7 +402,6 @@ const SingleDoctor = () => {
                         </div>
                     </section>
 
-                    {/* Time Slots */}
                     <section className="bookingContainer" id="timeSlots" style={{ display: "none" }}>
                         <span className="slots">Select Time</span>
                         <div className="time-grid">
@@ -349,7 +411,7 @@ const SingleDoctor = () => {
                                     key={index}
                                     className={`time-slot ${buttonStyle(time, index)}`}
                                     onClick={() => bookSlot(index)}
-                                    disabled={bookedSlots.indexOf(time) >= 0 ? true : false}
+                                    disabled={bookedSlots.includes(time.toLowerCase())}
                                 >
                                     {time}
                                 </button>
@@ -360,31 +422,18 @@ const SingleDoctor = () => {
                 </section>
             </section>
 
-            {/* Modal Form */}
             {showModal && (
-                <div className="modal-overlay">
-                    <div className="modalcontent">
-                        <span className="closebutton" onClick={closeForm}>&times;</span>
-                        <form className="patientsubmitForm formGrid" onSubmit={submitForm}>
-                            {FormsData?.patientForm?.fields?.map((ele, index) => {
-                                const label = FormsData?.patientForm?.label?.[index];
-                                return (
-                                    <div className="formgroup" key={index}>
-                                        <label htmlFor={ele.id}>{label}</label>
-                                        <input
-                                            type={ele.type}
-                                            placeholder={ele.placeholder}
-                                            id={ele.id}
-                                            name={ele.name}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                );
-                            })}
-                            <input type="submit" value='Book an Appointment' className="appointmentBtn" />
-                        </form>
-                    </div>
-                </div>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm 
+                        handleSubmit={submitForm}
+                        appointment={appointment}
+                        setAppointmentState={setAppointmentState}
+                        selectedDate={selectedDate}
+                        selectedSlot={selectedSlot}
+                        doctor={doctor}
+                        closeForm={closeForm}
+                    />
+                </Elements>
             )}
             <ToastContainer />
         </>

@@ -310,3 +310,83 @@
     width: 95%;
   }
 }
+
+/* Container that wraps the entire form */
+.formGrid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Left side: personal details */
+.formGrid .form-fields {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Right side: payment section */
+.formGrid .payment-section {
+  flex: 1;
+  min-width: 280px;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+/* Form fields layout in row */
+.form-fields .formgroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-fields .formgroup label {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-fields .formgroup input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.card-element {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.payment-summary p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.payment-amount {
+  font-weight: bold;
+  color: #1e90ff;
+}
+
+.appointmentBtn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.appointmentBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+

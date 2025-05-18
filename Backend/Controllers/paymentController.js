@@ -6,12 +6,24 @@ export const createPaymentIntent = async (req, res) => {
     try {
         const { amount, metadata } = req.body;
         
+        // Validate amount exists and is a number
         if (!amount || isNaN(amount)) {
             return res.status(400).json({ error: "Invalid amount" });
         }
 
+        // Convert amount to paise and validate minimum
+        const amountInPaise = Math.round(amount);
+        const minimumAmount = 5000; // ₹50.00 (5000 paise)
+        
+        if (amountInPaise < minimumAmount) {
+            return res.status(400).json({
+                error: "Amount too small",
+                details: `Minimum payment is ₹50.00 (received ₹${amount/100})`
+            });
+        }
+
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: Math.round(amount),
+            amount: amountInPaise,
             currency: 'inr',
             automatic_payment_methods: { enabled: true },
             metadata: {
