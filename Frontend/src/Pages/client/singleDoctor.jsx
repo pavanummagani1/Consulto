@@ -224,135 +224,83 @@ const SingleDoctor = () => {
 
 
     // SUBMITTING THE BOOKING FORM
-    // const submitForm = async (e) => {
-    //     e.preventDefault();
-
-    //     if (!selectedDate || !selectedSlot) {
-    //         toast.error("Please select date and slot", { position: "top-right" });
-    //         return;
-    //     }
-
-    //     const finalAppointment = {
-    //         ...appointment,
-    //         consultingDoctor: "Dr. " + doctor.name,
-    //         speciality: doctor.speciality,
-    //         image: doctor.image,
-    //         doctorId: doctor.doctorid,
-    //         date: selectedDate,
-    //         bookedSlot: selectedSlot,
-    //         userid: user.userid,
-    //         amount: doctor.fee || 500 // Default fee if not specified
-    //     };
-
-    //     try {
-    //         // 1. Create a payment intent on your backend
-    //         const paymentIntentResponse = await fetch('https://consulto.onrender.com/create-payment-intent', {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "Authorization": `Bearer ${user.userToken}`
-    //             },
-    //             body: JSON.stringify({
-    //                 amount: finalAppointment.amount * 100, // in cents/paisa
-    //                 metadata: finalAppointment
-    //             })
-    //         });
-
-    //         const { clientSecret } = await paymentIntentResponse.json();
-
-    //         // 2. Initialize Stripe
-    //         const stripe = await loadStripe('your_publishable_key_from_stripe');
-
-    //         // 3. Confirm the payment
-    //         const { error, paymentIntent } = await stripe.confirmPayment({
-    //             elements,
-    //             clientSecret,
-    //             confirmParams: {
-    //                 return_url: 'https://consulto-zeta.vercel.app/booking-success',
-    //                 receipt_email: finalAppointment.email,
-    //             },
-    //         });
-
-    //         if (error) {
-    //             toast.error(error.message, { position: "top-right" });
-    //             return;
-    //         }
-
-    //         // 4. If payment successful, save appointment
-    //         if (paymentIntent.status === 'succeeded') {
-    //             const response = await fetch('https://consulto.onrender.com/appointments', {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json"
-    //                 },
-    //                 body: JSON.stringify(finalAppointment)
-    //             });
-
-    //             if (response.ok) {
-    //                 toast.success("Appointment Booked Successfully", { position: "top-right" });
-    //                 setTimeout(() => {
-    //                     setShowModal(false);
-    //                     navigate('/booking-success');
-    //                 }, 2500);
-    //             }
-    //         }
-    //     } catch (error) {
-    //         console.error("Error:", error);
-    //         toast.error("Something went wrong. Please try again.", { position: "top-right" });
-    //     }
-    // };
-
     const submitForm = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    if (!selectedDate || !selectedSlot) {
-        toast.error("Please select date and slot", { position: "top-right" });
-        return;
-    }
-
-    const finalAppointment = {
-        ...appointment,
-        consultingDoctor: "Dr. " + doctor.name,
-        speciality: doctor.speciality,
-        image: doctor.image,
-        doctorId: doctor.doctorid,
-        date: selectedDate,
-        bookedSlot: selectedSlot,
-        userid: user.userid,
-        email: appointment.email,
-        amount: doctor.fee || 500
-    };
-
-    try {
-        const response = await fetch("https://consulto.onrender.com/create-checkout-session", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.userToken}`
-            },
-            body: JSON.stringify(finalAppointment)
-        });
-
-        const session = await response.json();
-
-        if (!session.id) {
-            toast.error("Failed to create Stripe session", { position: "top-right" });
+        if (!selectedDate || !selectedSlot) {
+            toast.error("Please select date and slot", { position: "top-right" });
             return;
         }
 
-        const stripe = await loadStripe("your_stripe_publishable_key");
+        const finalAppointment = {
+            ...appointment,
+            consultingDoctor: "Dr. " + doctor.name,
+            speciality: doctor.speciality,
+            image: doctor.image,
+            doctorId: doctor.doctorid,
+            date: selectedDate,
+            bookedSlot: selectedSlot,
+            userid: user.userid,
+            amount: doctor.fee || 500 // Default fee if not specified
+        };
 
-        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+        try {
+            // 1. Create a payment intent on your backend
+            const paymentIntentResponse = await fetch('https://consulto.onrender.com/create-payment-intent', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${user.userToken}`
+                },
+                body: JSON.stringify({
+                    amount: finalAppointment.amount,
+                    metadata: finalAppointment
+                })
+            });
 
-        if (result.error) {
-            toast.error(result.error.message, { position: "top-right" });
+            const { clientSecret } = await paymentIntentResponse.json();
+
+            // 2. Initialize Stripe
+            const stripe = await loadStripe('pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPBIN6QfGGP6QRdyCKuYVsRYFSJDtVQRQ0QpJKM5oWdBF000O8RdShCR');
+
+            // 3. Confirm the payment
+            const { error, paymentIntent } = await stripe.confirmPayment({
+                elements,
+                clientSecret,
+                confirmParams: {
+                    return_url: 'https://consulto-zeta.vercel.app/booking-success',
+                    receipt_email: finalAppointment.email,
+                },
+            });
+
+            if (error) {
+                toast.error(error.message, { position: "top-right" });
+                return;
+            }
+
+            // 4. If payment successful, save appointment
+            if (paymentIntent.status === 'succeeded') {
+                const response = await fetch('https://consulto.onrender.com/appointments', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(finalAppointment)
+                });
+
+                if (response.ok) {
+                    toast.success("Appointment Booked Successfully", { position: "top-right" });
+                    setTimeout(() => {
+                        setShowModal(false);
+                        navigate('/booking-success');
+                    }, 2500);
+                }
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            toast.error("Something went wrong. Please try again.", { position: "top-right" });
         }
-    } catch (error) {
-        console.error("Payment error:", error);
-        toast.error("Something went wrong. Please try again.", { position: "top-right" });
-    }
-};
-
+    };
 
     const handleChange = (e) => {
         setApponitmentState({ ...appointment, [e.target.name]: e.target.value });
