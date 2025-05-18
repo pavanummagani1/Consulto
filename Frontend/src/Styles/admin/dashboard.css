@@ -132,13 +132,12 @@
         width: 100%;
     }
 
-    .doctorsContainer {
+    /* .doctorsContainer {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-    }
+    } */
 }
 
-/* Phones/Tablets (481px–768px) */
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .adminSidebar {
         display: none !important;
@@ -161,7 +160,6 @@
     }
 }
 
-/* Tablets/Mini Laptops (769px–1023px) */
 @media screen and (min-width: 769px) and (max-width: 1023px) {
     .adminSidebar {
         display: none !important;
@@ -184,7 +182,7 @@
     }
 }
 
-/* Desktops (≥1024px) */
+
 @media (min-width: 1024px) {
     .adminSidebar {
         display: flex !important;

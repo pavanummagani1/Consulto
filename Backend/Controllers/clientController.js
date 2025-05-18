@@ -1,47 +1,11 @@
 import { v2 as cloudinary } from "cloudinary"
 import userModel from "../Models/userModel.js";
 import bcrypt from "bcryptjs";
-import dotenv from 'dotenv'
-import jwt from 'jsonwebtoken'
-// import twilio from 'twilio';
 import appointmentModel from "../Models/appointmentsModel.js";
 import reviewsModel from "../Models/reviewsModel.js";
-import { OAuth2Client } from 'google-auth-library';
 import nodemailer from 'nodemailer'
-dotenv.config()
+import { generateJWTToken, generateOtp } from "../utils/utility.js";
 
-// const twilioClient = twilio(
-//     process.env.TWILIO_ACCOUNT_SID,
-//     process.env.TWILIO_AUTH_TOKEN
-// );
-
-
-// JWT TOKEN for google
-const generateJWTToken = (user) => {
-    return jwt.sign(
-        {
-            id: user.userid,
-            email: user.email,
-            role: user.role || 'user',
-        },
-        process.env.LOGIN_SECRET_KEY,
-        { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
-    );
-};
-
-// OTP FOR MAIL
-const generateOtp = () => {
-    const otp = Math.floor(100000 + Math.random() * 900000);
-    return otp
-}
-
-// Appointment Id
-// const generateAppointmentId = async()=>{
-//         const appointmentCount = await appointmentModel.countDocuments();
-//         const nextIdNumber = appointmentCount + 1;
-//         const appointmentid = `appointment${String(nextIdNumber).padStart(3, '0')}`
-//         return appointmentid
-// }
 
 export const Register = async (req, res) => {
     try {
@@ -53,9 +17,8 @@ export const Register = async (req, res) => {
         const nextIdNumber = userCount + 1;
         const userid = `con${String(nextIdNumber).padStart(3, '0')}`
         const date = new Date()
-        //uploadImage to Cloudinary
-        // const imageUpload = await cloudinary.uploader.upload(userprofie.path, { resource_type: "image" })
-        // const image = imageUpload.secure_url
+
+
 
         const user = { ...userData, mobileNumber, userid, date }
         console.log(user)
@@ -83,7 +46,7 @@ export const Login = async (req, res) => {
             return res.status(401).json({ status: false, message: 'Invalid Credentials' });
         }
 
-        const token = jwt.sign(userData, process.env.LOGIN_SECRET_KEY);
+        const token = generateJWTToken(user);
 
         return res.status(200).json({
             status: true,
@@ -163,7 +126,7 @@ export const forgotpassword = async (req, res) => {
             to: email,
             subject: "Your OTP TO RESET PASSWORD",
             text: `HI,
-            ${otp} is your OTP for Verification
+            ${otp} is your OTP to Reset Password.
             Please Do not share it with anyone.
             Team CONSULTO`,
         };
@@ -321,7 +284,7 @@ export const updatedetails = async (req, res) => {
 export const appointmentStatus = async (req, res) => {
     try {
         const { appointmentid } = req.body;
-        console.log(appointmentid)
+        console.log(appointmentid) 
         if (!appointmentid) {
             return res.status(400).json({ error: "Appointment ID is required" });
         }

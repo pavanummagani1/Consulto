@@ -1,0 +1,1359 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "category": "General Physician",
+      "categoryImage": "https://cdn.apollohospitals.com/health-library-prod/2019/06/7-things-your-general-physician-wants-you-to-know.jpg"
+    },
+    {
+      "id": 2,
+      "category": "Gynecologist",
+      "categoryImage": "https://cdn.vectorstock.com/i/1000x1000/51/56/pregnant-woman-and-doctor-vector-33325156.webp"
+    },
+    {
+      "id": 3,
+      "category": "Dermatologist",
+      "categoryImage": "https://img.freepik.com/premium-vector/vector-design-dermatology-icon-style_822882-230020.jpg"
+    },
+    {
+      "id": 4,
+      "category": "Pediatrician",
+      "categoryImage": "https://cdn-icons-png.freepik.com/256/17941/17941963.png?semt=ais_hybrid"
+    },
+    {
+      "id": 5,
+      "category": "Neurologist",
+      "categoryImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e7b217222773663.Y3JvcCwxNTAwLDExNzMsMCwxNjM.jpg"
+    },
+    {
+      "id": 6,
+      "category": "Gastroenterologist",
+      "categoryImage": "https://cdn-icons-png.flaticon.com/512/846/846994.png"
+    },
+    {
+      "id": 7,
+      "category": "Cardiologist",
+      "categoryImage": "https://img.freepik.com/premium-vector/cardiologist-icon-vector-image-can-be-used-cardiology_120816-189805.jpg"
+    },
+    {
+      "id": 8,
+      "category": "Orthopedist",
+      "categoryImage": "https://cdn-icons-png.flaticon.com/512/9340/9340043.png"
+    }
+  ],
+  "doctors": [
+    {
+      "id": 1,
+      "doctorName": "Dr. Bhavitha Chowdary",
+      "email": "drbhavitha.chowdary1@medcare.com",
+      "password": "Doc@Bhavitha1",
+      "degree": "MBBS, MD (Cardiology), DM (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 101, Mumbai",
+      "doctorImage": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Interventional Cardiologist",
+      "yearsOfExperience": 26,
+      "department": "Cardiology",
+      "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Cardiology), DM (Cardiology) from AIIMS. Fellowship in Interventional Cardiology from Cleveland Clinic. Specializes in complex coronary interventions and structural heart diseases. Published over 50 research papers in international journals.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "05:00 pm"
+      ]
+    },
+    {
+      "id": 2,
+      "doctorName": "Dr. Rajesh Kumar",
+      "email": "drrajesh.kumar2@medcare.com",
+      "password": "Doc@Rajesh2",
+      "degree": "MBBS, MD (Medicine), DM (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 102, Mumbai",
+      "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Cardiac Electrophysiologist",
+      "yearsOfExperience": 12,
+      "department": "Cardiology",
+      "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Medicine), DM (Cardiology) from PGIMER. Advanced training in cardiac rhythm disorders. Expert in pacemaker implantation and cardiac ablation procedures.",
+      "fee": 1300,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "05:30 pm",
+        "06:30 pm",
+        "07:30 pm"
+      ]
+    },
+    {
+      "id": 3,
+      "doctorName": "Dr. Sarika Joshi",
+      "email": "drsarika.joshi3@medcare.com",
+      "password": "Doc@Sarika3",
+      "degree": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 103, Mumbai",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Cardiologist",
+      "yearsOfExperience": 10,
+      "department": "Cardiology",
+      "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pediatric Cardiology). Fellowship from Boston Children's Hospital. Specializes in congenital heart defects and pediatric heart surgeries.",
+      "fee": 1400,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "03:00 pm",
+        "05:00 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 4,
+      "doctorName": "Dr. Vikram Mehta",
+      "email": "drvikram.mehta4@medcare.com",
+      "password": "Doc@Vikram4",
+      "degree": "MBBS, MD (Cardiology)",
+      "address": "MedCare Hospital, Cardiology Wing, Room 104, Mumbai",
+      "doctorImage": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Preventive Cardiologist",
+      "yearsOfExperience": 8,
+      "department": "Cardiology",
+      "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Cardiology). Expert in preventive cardiology and cardiac rehabilitation. Focuses on lifestyle modifications and heart disease prevention.",
+      "fee": 1200,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm",
+        "08:30 pm"
+      ]
+    },
+    {
+      "id": 5,
+      "doctorName": "Dr. Leela Sharma",
+      "email": "drleela.sharma5@medcare.com",
+      "password": "Doc@Leela5",
+      "degree": "MBBS, MD, Fellowship in Nuclear Cardiology",
+      "address": "MedCare Hospital, Cardiology Wing, Room 105, Mumbai",
+      "doctorImage": "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Nuclear Cardiologist",
+      "yearsOfExperience": 14,
+      "department": "Cardiology",
+      "departmentImage": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD, Fellowship in Nuclear Cardiology. Expertise in cardiac imaging and stress testing. Pioneer in implementing new imaging technologies.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": [
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm",
+        "01:30 pm",
+        "02:00 pm",
+        "02:30 pm",
+        "03:00 pm",
+        "03:30 pm"
+      ]
+    },
+    {
+      "id": 6,
+      "doctorName": "Dr. Arun Sharma",
+      "email": "drarun.sharma6@medcare.com",
+      "password": "Doc@Arun6",
+      "degree": "MBBS, MD (Neurology), Fellowship in Movement Disorders",
+      "address": "MedCare Hospital, Neurology Wing, Room 106, Delhi",
+      "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Neurologist",
+      "yearsOfExperience": 20,
+      "department": "Neurology",
+      "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Neurology), Fellowship in Movement Disorders from UCL. Expert in Parkinson's disease and movement disorders. Research focus on neurodegenerative diseases.",
+      "fee": 1800,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 7,
+      "doctorName": "Dr. Esha Malhotra",
+      "email": "dresha.malhotra7@medcare.com",
+      "password": "Doc@Esha7",
+      "degree": "MBBS, MD (Pediatrics), DM (Neurology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 107, Delhi",
+      "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Neurologist",
+      "yearsOfExperience": 15,
+      "department": "Neurology",
+      "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), DM (Neurology). Specializes in pediatric epilepsy and neurodevelopmental disorders. Trained at Johns Hopkins.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
+    },
+    {
+      "id": 8,
+      "doctorName": "Dr. Mihir Choudhury",
+      "email": "drmihir.choudhury8@medcare.com",
+      "password": "Doc@Mihir8",
+      "degree": "MBBS, MD, DM (Neuro-oncology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 108, Delhi",
+      "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Neuro-oncologist",
+      "yearsOfExperience": 18,
+      "department": "Neurology",
+      "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD, DM (Neuro-oncology). Expert in brain tumors and neurological complications of cancer. Research published in leading oncology journals.",
+      "fee": 2000,
+      "isAvailable": true,
+      "availableSlots": [
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm",
+        "07:00 pm",
+        "07:30 pm",
+        "08:00 pm",
+        "08:30 pm"
+      ]
+    },
+    {
+      "id": 9,
+      "doctorName": "Dr. Priya Nair",
+      "email": "drpriya.nair9@medcare.com",
+      "password": "Doc@Priya9",
+      "degree": "MBBS, MD (Neurology)",
+      "address": "MedCare Hospital, Neurology Wing, Room 109, Delhi",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Stroke Specialist",
+      "yearsOfExperience": 12,
+      "department": "Neurology",
+      "departmentImage": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Neurology). Fellowship in Stroke Medicine. Pioneer in implementing acute stroke protocols and rehabilitation programs.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm"
+      ]
+    },
+    {
+      "id": 10,
+      "doctorName": "Dr. Suresh Reddy",
+      "email": "drsuresh.reddy10@medcare.com",
+      "password": "Doc@Suresh10",
+      "degree": "MBBS, MS (Ortho), Fellowship in Joint Replacement",
+      "address": "MedCare Hospital, Neurology Wing, Room 110, Delhi",
+      "doctorImage": "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Joint Replacement Surgeon",
+      "yearsOfExperience": 22,
+      "department": "Orthopedics",
+      "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Joint Replacement from Germany. Expert in minimally invasive joint replacement surgery. Over 5000 successful surgeries.",
+      "fee": 2000,
+      "isAvailable": false,
+      "availableSlots": []
+    },
+    {
+      "id": 11,
+      "doctorName": "Dr. Jhanvi Bhatia",
+      "email": "drjhanvi.bhatia11@medcare.com",
+      "password": "Doc@Jhanvi11",
+      "degree": "MBBS, MS (Ortho), Fellowship in Sports Medicine",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 111, Bangalore",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Sports Medicine Specialist",
+      "yearsOfExperience": 14,
+      "department": "Orthopedics",
+      "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Sports Medicine. Former team doctor for national sports teams. Expert in arthroscopic surgery and sports injuries.",
+      "fee": 1800,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 12,
+      "doctorName": "Dr. Ravi Menon",
+      "email": "drravi.menon12@medcare.com",
+      "password": "Doc@Ravi12",
+      "degree": "MBBS, MS (Ortho), Fellowship in Spine Surgery",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 112, Bangalore",
+      "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Spine Surgeon",
+      "yearsOfExperience": 16,
+      "department": "Orthopedics",
+      "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Spine Surgery. Specializes in complex spine surgeries and minimally invasive techniques. Pioneer in robotic spine surgery.",
+      "fee": 2200,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 13,
+      "doctorName": "Dr. Amrita Desai",
+      "email": "dramrita.desai13@medcare.com",
+      "password": "Doc@Amrita13",
+      "degree": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 113, Bangalore",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Orthopedist",
+      "yearsOfExperience": 12,
+      "department": "Orthopedics",
+      "departmentImage": "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ortho), Fellowship in Pediatric Orthopedics. Expert in treating congenital deformities and pediatric fractures.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "10:30 am",
+        "11:00 am",
+        "11:30 am",
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm"
+      ]
+    },
+    {
+      "id": 14,
+      "doctorName": "Dr. Neha Gupta",
+      "email": "drneha.gupta14@medcare.com",
+      "password": "Doc@Neha14",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 114, Bangalore",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Cosmetic Dermatologist",
+      "yearsOfExperience": 10,
+      "department": "Dermatology",
+      "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Cosmetic Dermatology from Paris. Expert in advanced skin treatments and anti-aging procedures.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm"
+      ]
+    },
+    {
+      "id": 15,
+      "doctorName": "Dr. Dev Verma",
+      "email": "drdev.verma15@medcare.com",
+      "password": "Doc@Dev15",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology",
+      "address": "MedCare Hospital, Orthopedics Wing, Room 115, Bangalore",
+      "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Dermatologist",
+      "yearsOfExperience": 15,
+      "department": "Dermatology",
+      "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Pediatric Dermatology. Specializes in childhood skin conditions and genetic skin disorders.",
+      "fee": 1400,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm",
+        "05:00 pm"
+      ]
+    },
+    {
+      "id": 16,
+      "doctorName": "Dr. Meera Patel",
+      "email": "drmeera.patel16@medcare.com",
+      "password": "Doc@Meera16",
+      "degree": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery",
+      "address": "MedCare Hospital, Dermatology Wing, Room 116, Chennai",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Surgical Dermatologist",
+      "yearsOfExperience": 12,
+      "department": "Dermatology",
+      "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Dermatology), Fellowship in Mohs Surgery. Expert in skin cancer treatment and reconstructive procedures.",
+      "fee": 1800,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:30 am",
+        "01:30 pm",
+        "03:30 pm",
+        "05:30 pm",
+        "07:30 pm"
+      ]
+    },
+    {
+      "id": 17,
+      "doctorName": "Dr. Jayant Thakur",
+      "email": "drjayant.thakur17@medcare.com",
+      "password": "Doc@Jayant17",
+      "degree": "MBBS, MD (Dermatology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 117, Chennai",
+      "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Clinical Dermatologist",
+      "yearsOfExperience": 8,
+      "department": "Dermatology",
+      "departmentImage": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Dermatology). Specializes in chronic skin conditions and allergic disorders. Research focus on autoimmune skin diseases.",
+      "fee": 1300,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "04:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 18,
+      "doctorName": "Dr. Praveena Sanjeev",
+      "email": "drpraveena.sanjeev18@medcare.com",
+      "password": "Doc@Praveena18",
+      "degree": "MBBS, MD (Pediatrics)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 118, Chennai",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "General Pediatrician",
+      "yearsOfExperience": 18,
+      "department": "Pediatrics",
+      "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics) from AIIMS. Expert in newborn care and childhood development. Established pediatric emergency protocols.",
+      "fee": 1200,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "10:30 am",
+        "11:00 am",
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "07:00 pm",
+        "07:30 pm"
+      ]
+    },
+    {
+      "id": 19,
+      "doctorName": "Dr. Rohit Chandra",
+      "email": "drrohit.chandra19@medcare.com",
+      "password": "Doc@Rohit19",
+      "degree": "MBBS, MD (Pediatrics), DM (Pulmonology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 119, Chennai",
+      "doctorImage": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Pulmonologist",
+      "yearsOfExperience": 14,
+      "department": "Pediatrics",
+      "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), DM (Pulmonology). Specializes in childhood asthma and respiratory disorders. Research in cystic fibrosis.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:30 am",
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "06:30 pm",
+        "07:30 pm"
+      ]
+    },
+    {
+      "id": 20,
+      "doctorName": "Dr. Anjali Desai",
+      "email": "dranjali.desai20@medcare.com",
+      "password": "Doc@Anjali20",
+      "degree": "MBBS, MD (Pediatrics), DM (Endocrinology)",
+      "address": "MedCare Hospital, Dermatology Wing, Room 120, Chennai",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Endocrinologist",
+      "yearsOfExperience": 12,
+      "department": "Pediatrics",
+      "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), DM (Endocrinology). Expert in childhood diabetes and growth disorders. Fellowship from Toronto.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "12:00 pm",
+        "12:30 pm",
+        "01:00 pm",
+        "01:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm"
+      ]
+    },
+    {
+      "id": 21,
+      "doctorName": "Dr. William Parker",
+      "email": "drwilliam.parker21@medcare.com",
+      "password": "Doc@William21",
+      "degree": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 121, Hyderabad",
+      "doctorImage": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Gastroenterologist",
+      "yearsOfExperience": 10,
+      "department": "Pediatrics",
+      "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Pediatric Gastroenterology. Specializes in childhood digestive disorders and nutrition.",
+      "fee": 1400,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:30 am",
+        "01:00 pm",
+        "02:30 pm",
+        "04:00 pm",
+        "05:30 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 22,
+      "doctorName": "Dr. Sanya Malhotra",
+      "email": "drsanya.malhotra22@medcare.com",
+      "password": "Doc@Sanya22",
+      "degree": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 122, Hyderabad",
+      "doctorImage": "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Developmental Pediatrician",
+      "yearsOfExperience": 15,
+      "department": "Pediatrics",
+      "departmentImage": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MD (Pediatrics), Fellowship in Developmental Pediatrics. Expert in autism spectrum disorders and ADHD.",
+      "fee": 1300,
+      "isAvailable": true,
+      "availableSlots": [
+        "12:30 pm",
+        "01:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
+    },
+    {
+      "id": 23,
+      "doctorName": "Dr. Rahul Verma",
+      "email": "drrahul.verma23@medcare.com",
+      "password": "Doc@Rahul23",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 123, Hyderabad",
+      "doctorImage": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Cataract Surgeon",
+      "yearsOfExperience": 20,
+      "department": "Ophthalmology",
+      "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Phacoemulsification. Pioneer in micro-incision cataract surgery. Over 10,000 successful surgeries.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "04:00 pm"
+      ]
+    },
+    {
+      "id": 24,
+      "doctorName": "Dr. Maria Rodriguez",
+      "email": "drmaria.rodriguez24@medcare.com",
+      "password": "Doc@Maria24",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 124, Hyderabad",
+      "doctorImage": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Retina Specialist",
+      "yearsOfExperience": 15,
+      "department": "Ophthalmology",
+      "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Vitreo-Retinal Surgery. Expert in diabetic retinopathy and macular degeneration.",
+      "fee": 1800,
+      "isAvailable": true,
+      "availableSlots": [
+        "03:00 pm",
+        "03:30 pm",
+        "04:00 pm",
+        "04:30 pm",
+        "05:00 pm",
+        "05:30 pm",
+        "06:00 pm",
+        "06:30 pm"
+      ]
+    },
+    {
+      "id": 25,
+      "doctorName": "Dr. Arjun Kapoor",
+      "email": "drarjun.kapoor25@medcare.com",
+      "password": "Doc@Arjun25",
+      "degree": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma",
+      "address": "MedCare Hospital, Pediatrics Wing, Room 125, Hyderabad",
+      "doctorImage": "https://t3.ftcdn.net/jpg/02/95/51/80/360_F_295518052_aO5d9CqRhPnjlNDTRDjKLZHNftqfsxzI.jpg",
+      "specialization": "Glaucoma Specialist",
+      "yearsOfExperience": 18,
+      "department": "Ophthalmology",
+      "departmentImage": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (Ophthalmology), Fellowship in Glaucoma. Pioneering work in minimally invasive glaucoma surgery.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": [
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "03:00 pm",
+        "06:00 pm",
+        "07:00 pm",
+        "08:00 pm"
+      ]
+    },
+    {
+      "id": 26,
+      "doctorName": "Dr. Pradeep Kumar",
+      "email": "drpradeep.kumar26@medcare.com",
+      "password": "Doc@Pradeep26",
+      "degree": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery",
+      "address": "MedCare Hospital, ENT Wing, Room 126, Kolkata",
+      "doctorImage": "https://t4.ftcdn.net/jpg/03/21/23/37/360_F_321233723_3nSdORPnL4nPOfGEocyCGVCI0RoXuRVo.jpg",
+      "specialization": "ENT Surgeon",
+      "yearsOfExperience": 22,
+      "department": "ENT",
+      "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (ENT), Fellowship in Head and Neck Surgery. Expert in complex ear surgeries and cochlear implants.",
+      "fee": 1400,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "11:00 am",
+        "12:00 pm",
+        "01:00 pm",
+        "02:00 pm",
+        "05:00 pm",
+        "06:00 pm",
+        "07:00 pm"
+      ]
+    },
+    {
+      "id": 27,
+      "doctorName": "Dr. Sophie Anderson",
+      "email": "drsophie.anderson27@medcare.com",
+      "password": "Doc@Sophie27",
+      "degree": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology",
+      "address": "MedCare Hospital, ENT Wing, Room 127, Kolkata",
+      "doctorImage": "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg",
+      "specialization": "Pediatric ENT",
+      "yearsOfExperience": 14,
+      "department": "ENT",
+      "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (ENT), Fellowship in Pediatric Otolaryngology. Specializes in childhood hearing disorders and airway problems.",
+      "fee": 1300,
+      "isAvailable": true,
+      "availableSlots": ["10:30 am","11:30 am","12:30 pm","01:30 pm","04:30 pm","05:30 pm","06:30 pm","07:30 pm"
+]
+    },
+    {
+      "id": 28,
+      "doctorName": "Dr. Vinod Shetty",
+      "email": "drvinod.shetty28@medcare.com",
+      "password": "Doc@Vinod28",
+      "degree": "MBBS, MS (ENT), Fellowship in Rhinology",
+      "address": "MedCare Hospital, ENT Wing, Room 128, Kolkata",
+      "doctorImage": "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+      "specialization": "Rhinologist",
+      "yearsOfExperience": 16,
+      "department": "ENT",
+      "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (ENT), Fellowship in Rhinology. Expert in endoscopic sinus surgery and skull base procedures.",
+      "fee": 1600,
+      "isAvailable": true,
+      "availableSlots": ["11:00 am","01:00 pm","03:00 pm","05:00 pm","07:00 pm"]
+    },
+    {
+      "id": 29,
+      "doctorName": "Dr. Pranathi Reddy",
+      "email": "drpranathi.reddy29@medcare.com",
+      "password": "Doc@Pranathi29",
+      "degree": "MBBS, MS (Ortho), Fellowship in Joint Replacement",
+      "address": "MedCare Hospital, ENT Wing, Room 129, Kolkata",
+      "doctorImage": "https://www.shutterstock.com/image-photo/confident-woman-doctor-wearing-medical-600nw-1670852902.jpg",
+      "specialization": "Joint Replacement Surgeon",
+      "yearsOfExperience": 12,
+      "department": "Orthopedics",
+      "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "Dr. Pranathi Reddy is a highly skilled Joint Replacement Surgeon with over 12 years of experience in the field of Orthopedics. She specializes in the diagnosis and treatment of joint disorders, including hip, knee, and shoulder replacements. With a focus on providing patients with the best care through advanced surgical techniques and personalized rehabilitation plans, Dr. Reddy is committed to improving the quality of life for those suffering from joint pain and mobility issues",
+      "fee": 1200,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:00 am",
+        "12:00 pm",
+        "02:00 pm",
+        "04:00 pm",
+        "06:00 pm",
+        "08:00 pm"
+      ]
+    },
+    {
+      "id": 30,
+      "doctorName": "Dr. Karthik Menon",
+      "email": "drkarthik.menon30@medcare.com",
+      "password": "Doc@Karthik30",
+      "degree": "MBBS, MS (ENT), Fellowship in Neurotology",
+      "address": "MedCare Hospital, ENT Wing, Room 130, Kolkata",
+      "doctorImage": "https://thumbs.dreamstime.com/b/african-male-doctor-happy-tablet-computer-34481166.jpg",
+      "specialization": "Neurotologist",
+      "yearsOfExperience": 18,
+      "department": "ENT",
+      "departmentImage": "https://images.unsplash.com/photo-1589279003513-467d320f47eb?auto=format&fit=crop&q=80&w=1000",
+      "aboutDoctor": "MBBS, MS (ENT), Fellowship in Neurotology. Expert in balance disorders and skull base surgery.",
+      "fee": 1500,
+      "isAvailable": true,
+      "availableSlots": [
+        "10:30 am",
+        "11:30 am",
+        "12:30 pm",
+        "02:30 pm",
+        "03:30 pm",
+        "04:30 pm",
+        "05:30 pm",
+        "06:30 pm"
+      ]
+    }
+  ],
+  "topDoctors": [
+    {
+      "id": 1,
+      "name": "Dr. Suresh Reddy",
+      "image": "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Joint Replacement Surgeon",
+      "experience": 22,
+      "department": "Orthopedics",
+      "fee": 2000
+    },
+    {
+      "id": 2,
+      "name": "Dr. Pradeep Kumar",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "ENT Surgeon",
+      "experience": 22,
+      "department": "ENT",
+      "fee": 1400
+    },
+    {
+      "id": 3,
+      "name": "Dr. Arun Sharma",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Neurologist",
+      "experience": 20,
+      "department": "Neurology",
+      "fee": 1800
+    },
+    {
+      "id": 4,
+      "name": "Dr. Rahul Verma",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Cataract Surgeon",
+      "experience": 20,
+      "department": "Ophthalmology",
+      "fee": 1500
+    },
+    {
+      "id": 5,
+      "name": "Dr. Kavita Sharma",
+      "image": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "General Pediatrician",
+      "experience": 18,
+      "department": "Pediatrics",
+      "fee": 1200
+    },
+    {
+      "id": 6,
+      "name": "Dr. Michael Chang",
+      "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Neuro-oncologist",
+      "experience": 18,
+      "department": "Neurology",
+      "fee": 2000
+    },
+    {
+      "id": 7,
+      "name": "Dr. Ravi Menon",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Spine Surgeon",
+      "experience": 16,
+      "department": "Orthopedics",
+      "fee": 2200
+    },
+    {
+      "id": 8,
+      "name": "Dr. David Wilson",
+      "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
+      "specialization": "Pediatric Dermatologist",
+      "experience": 15,
+      "department": "Dermatology",
+      "fee": 1400
+    }
+  ],
+  "patients": [
+    {
+      "patientId": 1,
+      "patientName": "Aarav Sharma",
+      "doctorId": 3,
+      "bookingDate": "2023-08-12",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 2,
+      "patientName": "Priya Reddy",
+      "doctorId": 25,
+      "bookingDate": "2024-01-05",
+      "bookingTime": "02:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 3,
+      "patientName": "Vikram Joshi",
+      "doctorId": 7,
+      "bookingDate": "2023-11-22",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 4,
+      "patientName": "Anjali Gupta",
+      "doctorId": 15,
+      "bookingDate": "2024-02-18",
+      "bookingTime": "11:15 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 5,
+      "patientName": "Rohan Malhotra",
+      "doctorId": 1,
+      "bookingDate": "2023-09-07",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 6,
+      "patientName": "Neha Srinivasan",
+      "doctorId": 28,
+      "bookingDate": "2023-12-25",
+      "bookingTime": "09:00 AM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 7,
+      "patientName": "Arjun Iyer",
+      "doctorId": 12,
+      "bookingDate": "2024-03-14",
+      "bookingTime": "03:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 8,
+      "patientName": "Kavita Nair",
+      "doctorId": 9,
+      "bookingDate": "2023-07-01",
+      "bookingTime": "01:20 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 9,
+      "patientName": "Rahul Bhatia",
+      "doctorId": 5,
+      "bookingDate": "2024-04-09",
+      "bookingTime": "05:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 10,
+      "patientName": "Shreya Chopra",
+      "doctorId": 18,
+      "bookingDate": "2023-10-31",
+      "bookingTime": "08:45 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 11,
+      "patientName": "Aditya Rao",
+      "doctorId": 23,
+      "bookingDate": "2024-05-22",
+      "bookingTime": "12:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 12,
+      "patientName": "Pooja Menon",
+      "doctorId": 6,
+      "bookingDate": "2023-06-15",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 13,
+      "patientName": "Nitin Verma",
+      "doctorId": 29,
+      "bookingDate": "2024-06-10",
+      "bookingTime": "10:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 14,
+      "patientName": "Divya Khanna",
+      "doctorId": 14,
+      "bookingDate": "2023-08-08",
+      "bookingTime": "02:30 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 15,
+      "patientName": "Siddharth Das",
+      "doctorId": 8,
+      "bookingDate": "2024-07-03",
+      "bookingTime": "11:00 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 16,
+      "patientName": "Tanvi Chatterjee",
+      "doctorId": 2,
+      "bookingDate": "2023-12-12",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 17,
+      "patientName": "Manoj Tiwari",
+      "doctorId": 27,
+      "bookingDate": "2024-08-19",
+      "bookingTime": "03:45 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 18,
+      "patientName": "Swati Dubey",
+      "doctorId": 19,
+      "bookingDate": "2023-11-11",
+      "bookingTime": "01:15 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 19,
+      "patientName": "Harish Yadav",
+      "doctorId": 4,
+      "bookingDate": "2024-09-28",
+      "bookingTime": "05:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 20,
+      "patientName": "Preeti Sengupta",
+      "doctorId": 30,
+      "bookingDate": "2023-10-05",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 21,
+      "patientName": "Girish Acharya",
+      "doctorId": 11,
+      "bookingDate": "2024-10-15",
+      "bookingTime": "02:20 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 22,
+      "patientName": "Jyoti Bakshi",
+      "doctorId": 24,
+      "bookingDate": "2023-09-09",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 23,
+      "patientName": "Naveen Choudhury",
+      "doctorId": 13,
+      "bookingDate": "2024-11-23",
+      "bookingTime": "12:00 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 24,
+      "patientName": "Ananya Dutta",
+      "doctorId": 16,
+      "bookingDate": "2023-07-17",
+      "bookingTime": "09:15 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 25,
+      "patientName": "Pranav Mishra",
+      "doctorId": 26,
+      "bookingDate": "2024-12-05",
+      "bookingTime": "01:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 26,
+      "patientName": "Shilpa Ranganathan",
+      "doctorId": 21,
+      "bookingDate": "2023-08-29",
+      "bookingTime": "03:00 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 27,
+      "patientName": "Rajiv Kapoor",
+      "doctorId": 17,
+      "bookingDate": "2024-01-14",
+      "bookingTime": "11:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 28,
+      "patientName": "Radhika Sinha",
+      "doctorId": 22,
+      "bookingDate": "2023-06-20",
+      "bookingTime": "02:10 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 29,
+      "patientName": "Sunil Nambiar",
+      "doctorId": 20,
+      "bookingDate": "2024-02-29",
+      "bookingTime": "04:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 30,
+      "patientName": "Esha Venkatesh",
+      "doctorId": 25,
+      "bookingDate": "2023-05-03",
+      "bookingTime": "10:15 AM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 31,
+      "patientName": "Vijay Balakrishnan",
+      "doctorId": 3,
+      "bookingDate": "2024-03-17",
+      "bookingTime": "12:45 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 32,
+      "patientName": "Madhu Ganesan",
+      "doctorId": 7,
+      "bookingDate": "2023-04-22",
+      "bookingTime": "05:15 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 33,
+      "patientName": "Kavya Iyengar",
+      "doctorId": 1,
+      "bookingDate": "2024-04-11",
+      "bookingTime": "09:45 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 34,
+      "patientName": "Rakesh Pillai",
+      "doctorId": 28,
+      "bookingDate": "2023-03-08",
+      "bookingTime": "02:00 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 35,
+      "patientName": "Sonal Mehra",
+      "doctorId": 12,
+      "bookingDate": "2024-05-19",
+      "bookingTime": "11:30 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 36,
+      "patientName": "Deepak Sundaram",
+      "doctorId": 5,
+      "bookingDate": "2023-02-14",
+      "bookingTime": "04:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 37,
+      "patientName": "Trisha Rajan",
+      "doctorId": 9,
+      "bookingDate": "2024-06-21",
+      "bookingTime": "10:00 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 38,
+      "patientName": "Sameer Krishnan",
+      "doctorId": 15,
+      "bookingDate": "2023-01-09",
+      "bookingTime": "01:20 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 39,
+      "patientName": "Asha Natarajan",
+      "doctorId": 23,
+      "bookingDate": "2024-07-07",
+      "bookingTime": "03:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 40,
+      "patientName": "Yashwant Chauhan",
+      "doctorId": 6,
+      "bookingDate": "2023-12-30",
+      "bookingTime": "09:15 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 41,
+      "patientName": "Bhavna Rastogi",
+      "doctorId": 29,
+      "bookingDate": "2024-08-08",
+      "bookingTime": "12:45 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 42,
+      "patientName": "Chitra Varma",
+      "doctorId": 14,
+      "bookingDate": "2023-11-18",
+      "bookingTime": "05:00 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 43,
+      "patientName": "Dinesh Prabhu",
+      "doctorId": 8,
+      "bookingDate": "2024-09-01",
+      "bookingTime": "02:30 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 44,
+      "patientName": "Eshwar Prasad",
+      "doctorId": 2,
+      "bookingDate": "2023-10-23",
+      "bookingTime": "11:45 AM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 45,
+      "patientName": "Falguni Saxena",
+      "doctorId": 27,
+      "bookingDate": "2024-10-12",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 46,
+      "patientName": "Gautam Bannerjee",
+      "doctorId": 19,
+      "bookingDate": "2023-09-06",
+      "bookingTime": "10:30 AM",
+      "bookingStatus": "No Show"
+    },
+    {
+      "patientId": 47,
+      "patientName": "Hema Rangan",
+      "doctorId": 4,
+      "bookingDate": "2024-11-17",
+      "bookingTime": "01:00 PM",
+      "bookingStatus": "Rescheduled"
+    },
+    {
+      "patientId": 48,
+      "patientName": "Ishan Grover",
+      "doctorId": 30,
+      "bookingDate": "2023-08-04",
+      "bookingTime": "03:45 PM",
+      "bookingStatus": "Completed"
+    },
+    {
+      "patientId": 49,
+      "patientName": "Jaya Srinivas",
+      "doctorId": 11,
+      "bookingDate": "2024-12-24",
+      "bookingTime": "09:30 AM",
+      "bookingStatus": "Confirmed"
+    },
+    {
+      "patientId": 50,
+      "patientName": "Kiran Venkatraman",
+      "doctorId": 24,
+      "bookingDate": "2023-07-19",
+      "bookingTime": "05:15 PM",
+      "bookingStatus": "Cancelled"
+    },
+    {
+      "patientId": 345,
+      "patientName": "shiva Venkatraman",
+      "doctorId": 24,
+      "bookingDate": "2023-07-07",
+      "bookingTime": "04:15 PM",
+      "bookingStatus": "Confirmed"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "adminId": "Admin1",
+      "password": "Admin1@123"
+    },
+    {
+      "id": 2,
+      "adminId": "Admin2",
+      "password": "Admin2@123"
+    },
+    {
+      "id": 3,
+      "adminId": "Admin3",
+      "password": "Admin3@123"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "patientName": "Aarohi Sharma",
+      "patientImg": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+      "review": "Dr. Miller was incredibly thorough and took the time to explain my condition in detail. The physical therapy exercises have helped tremendously with my lower back pain.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "patientName": "Rohan Mehta",
+      "patientImg": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg",
+      "review": "The care I received after my knee surgery was excellent. The staff was attentive and the follow-up appointments were always on time.",
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "patientName": "Ishita Nair",
+      "patientImg": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
+      "review": "I've been seeing Dr. Williams for over 3 years now. She always listens to my concerns and provides practical advice.",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "patientName": "Arjun Patel",
+      "patientImg": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+      "review": "After my heart attack, I was terrified. Dr. Patel took excellent care of me and explained everything in a way that made me feel comfortable.",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "patientName": "Priya Reddy",
+      "patientImg": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
+      "review": "My pregnancy journey at Memorial Hospital was mostly positive. The delivery team was amazing during a complicated birth.",
+      "rating": 4
+    },
+    {
+      "id": 6,
+      "patientName": "Aditya Deshmukh",
+      "patientImg": "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg",
+      "review": "The wait times for appointments can be frustrating. Although Dr. Kim is excellent when you finally see her.",
+      "rating": 3
+    },
+    {
+      "id": 7,
+      "patientName": "Sanya Kapoor",
+      "patientImg": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg",
+      "review": "I've been struggling with eczema for years, and Dr. Singh is the first dermatologist who's given me a treatment plan that actually works.",
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "patientName": "Vikram Joshi",
+      "patientImg": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg",
+      "review": "As someone with multiple health issues, I appreciate how Dr. Martinez coordinates with my other specialists.",
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "patientName": "Kritika Menon",
+      "patientImg": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+      "review": "I was hesitant to seek therapy, but Dr. Washington created such a safe, judgment-free environment.",
+      "rating": 4
+    },
+    {
+      "id": 10,
+      "patientName": "Manav Iyer",
+      "patientImg": "https://img.freepik.com/free-photo/indian-man-portrait-temple_53876-14535.jpg?semt=ais_hybrid&w=740",
+      "review": "My experience with this dental practice has been disappointing. The hygienist was rough during my cleaning.",
+      "rating": 2
+    }
+  ]
+
+}

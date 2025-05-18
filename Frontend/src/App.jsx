@@ -21,12 +21,13 @@ import Careers from './Pages/client/Careers'
 import AuthenticatedRoute from './Components/AuthenticatedRoute'
 import DoctorLogin from './Pages/doctor/login'
 import AdminDashboard from './Pages/admin/dashboard'
+import DoctorDashboard from './Pages/doctor/DoctorDashboard'
 
 
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword", '/doctorlogin'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword", '/doctorlogin', '/doctordashboard'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
 
@@ -95,6 +96,9 @@ const Layout = () => {
         <Route path='/doctorlogin' element={
           <PublicRoute> <DoctorLogin /> </PublicRoute>
         } />
+        <Route path = '/doctordashboard' element={
+          <PublicRoute> <DoctorDashboard/> </PublicRoute>
+        }/>
       </Routes>
       {!shouldHideLayout && <Footer />}
     </>

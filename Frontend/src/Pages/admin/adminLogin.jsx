@@ -38,7 +38,6 @@ const AdminLogin = () => {
     }
   }
   const handleChange = (e) => {
-    // console.log("Changing:", e.target.name, e.target.value);
     setAdminState({ ...state, [e.target.name]: e.target.value });
   };
   return (

@@ -12,7 +12,7 @@ const Appointments = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await fetch(`http://localhost:3201/appointments/${userid}`);
+            const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
             const data = await response.json();
             console.log(data)
             setAppointments(data);
@@ -26,7 +26,7 @@ const Appointments = () => {
     }, [userid]);
 
 const handleStatus = async (appointment) => {
-    let response = await fetch('http://localhost:3201/updatestatus', {
+    let response = await fetch('https://consulto.onrender.com/updatestatus', {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -48,14 +48,15 @@ const handleStatus = async (appointment) => {
     };
 
     // Helper function to get badge color
-    const getStatusClass = (status) => {
-        switch (status.toLowerCase()) {
-            case "upcoming": return "status-badge yellow";
-            case "cancelled": return "status-badge red";
-            case "completed": return "status-badge green";
-            default: return "status-badge";
-        }
-    };
+const getStatusClass = (status) => {
+    switch (status.toLowerCase()) {
+        case "upcoming": return "status-badge yellow";
+        case "cancelled": return "status-badge red";
+        case "completed": return "status-badge green";
+        default: return "status-badge";
+    }
+};
+
 
     return (
         <div className="appointments-wrapper">
@@ -117,12 +118,12 @@ const handleStatus = async (appointment) => {
 
                             {/* Hide cancel button only if already cancelled */}
                             {appointment.appointmentStatus.toLowerCase() !== "cancelled" && (
-                                <button
+                                <span
                                     className="action-btn cancel"
                                     onClick={() => handleStatus(appointment)}
                                 >
                                     Cancel appointment
-                                </button>
+                                </span>
                             )}
                         </div>
 

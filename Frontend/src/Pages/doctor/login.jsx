@@ -1,55 +1,112 @@
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, IconButton, InputAdornment } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import '../../Styles/client/login.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DoctorLogin = () => {
-  const [state, setAdminState] = useState({})
-  const submitAdminForm = async (e) => {
+  const [state, setState] = useState({ email: '', password: '' });
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const submitDoctorForm = async (e) => {
     e.preventDefault();
+
     try {
-      let data = await fetch('https://consulto.onrender.com/doctor/login', {
-        "method": "POST",
-        "headers": {
-          "Content-Type": "application/json"
+      const response = await fetch('http://localhost:3201/doctor/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(state)
       });
-      if (!data.ok) return new Error('Failed to Login')
-      let response = await data.json()
-      console.log(response)
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data.message || "Login failed");
+      } else {
+        const doctor = {
+          doctorId:data.doctorId,
+          doctorToken:data.token
+        }
+        console.log(doctor)
+        toast.success(data.message);
+        localStorage.setItem("Doctor", JSON.stringify(doctor));
+        navigate('/doctordashboard')
+
+      }
+
     } catch (error) {
-      console.log(error)
-    } finally {
-      setAdminState({});
-      e.target.reset();
+      console.error("Login error:", error);
+      toast.error("Something went wrong. Please try again later.");
     }
-  }
-  const handleChange = (e) => {
-    setAdminState({ ...state, [e.target.name]: e.target.value })
-  }
+  };
+
   return (
     <div className='admin'>
       <div className="top-buttons">
-        <Button variant="outlined" className="top-btn"> <Link className='link' to="/adminLogin">Admin</Link> </Button>
-        <Button variant="outlined" className="top-btn"> <Link className='link' to="/">Back to User</Link> </Button>
+        <Button variant="outlined" className="top-btn">
+          <Link className='link' to="/adminLogin">Admin</Link>
+        </Button>
+        <Button variant="outlined" className="top-btn">
+          <Link className='link' to="/">Back to User</Link>
+        </Button>
       </div>
 
       <div className="mainContainer">
-        <h1>HELLO,DoCTOR</h1>
+        <h1>HELLO, DoCTOR</h1>
         <div className="authWrapper">
           <div className="logo">
             <img src="/Consulto_Logo.png" className="Image" alt="Consulto Logo" />
           </div>
           <div className="loginContainer">
-            <form id='loginForm' onSubmit={submitAdminForm}>
-              <TextField required label="Email" type='text' name='email' onChange={handleChange} />
-              <TextField label="Password" type="password" autoComplete="current-password" name='password' onChange={handleChange} />
-              <Button variant="contained" type='submit'>Login Now</Button>
+            <form id='loginForm' onSubmit={submitDoctorForm}>
+              <TextField
+                required
+                label="Email"
+                type="email"
+                name="email"
+                fullWidth
+                margin="normal"
+                onChange={handleChange}
+              />
+              <TextField
+                required
+                label="Password"
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                fullWidth
+                margin="normal"
+                onChange={handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={togglePasswordVisibility} edge="end">
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
+                Login Now
+              </Button>
             </form>
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

@@ -1,66 +1,83 @@
-import { Button } from "@mui/material"
-import AdminHeader from "../../Components/AdminHeader"
-import "../../Styles/admin/dashboard.css"
-import { useEffect, useState } from "react"
-import Table from "../../common/table"
-import { AdminDoctorsCards } from "../../Components/AdminDoctorCards"
-import AddDoctor from "../../Components/AddDoctor"
-
+import { Button } from "@mui/material";
+import AdminHeader from "../../Components/AdminHeader";
+import "../../Styles/admin/dashboard.css";
+import { useEffect, useState } from "react";
+import Table from "../../common/table";
+import { AdminDoctorsCards } from "../../Components/AdminDoctorCards";
+import AddDoctor from "../../Components/AddDoctor";
 
 const AdminDashboard = () => {
-    const [adminDoctors, setAdminDoctors] = useState([])
-    const [appointments, setAppointments] = useState([])
-    const [showDoctors, setShowDoctors] = useState(true)
-    const [showAppointments, setShowAppointments] = useState(false)
+    const [adminDoctors, setAdminDoctors] = useState([]);
+    const [appointments, setAppointments] = useState([]);
+    const [showDoctors, setShowDoctors] = useState(true);
+    const [showAppointments, setShowAppointments] = useState(false);
     const [showAddForm, setShowAddForm] = useState(false);
+
+    const appointmentColumns = [
+        'patientName',
+        'patientAge',
+        'mobileNumber',
+        'consultingDoctor',
+        'email',
+        'date',
+        'bookedSlot',
+        'bookingStatus',
+        'paymentType',
+        'paymentStatus',
+    ];
 
     const displayAppointments = () => {
         setShowAppointments(true);
         setShowDoctors(false);
         setShowAddForm(false);
-    }
+    };
+
     const displayDoctors = () => {
         setShowAppointments(false);
         setShowDoctors(true);
         setShowAddForm(false);
-    }
+    };
+
     const displayAddFrom = () => {
         setShowAppointments(false);
         setShowDoctors(false);
         setShowAddForm(true);
-    }
+    };
+
     const fetchAdminDoctors = async () => {
         try {
-            let response = await fetch('https://consulto.onrender.com/admin/doctors');
-            if (!response.ok) {
-                throw new Error('Failed to fetch')
-            }
-            let data = await response.json()
-            setAdminDoctors(data)
-            console.log("Doctors",data)
+            const response = await fetch('https://consulto.onrender.com/admin/doctors');
+            if (!response.ok) throw new Error('Failed to fetch doctors');
+            const data = await response.json();
+            setAdminDoctors(data);
+            console.log("Doctors", data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
-    useEffect(() => { fetchAdminDoctors() }, [])
     const fetchAppointments = async () => {
         try {
-            let response = await fetch('https://consulto.onrender.com/admin/appointments');
-            if (!response.ok) {
-                throw new Error('Failed to fetch')
-            }
-            let data = await response.json()
-            setAppointments(data)
+            const response = await fetch('https://consulto.onrender.com/admin/appointments');
+            if (!response.ok) throw new Error('Failed to fetch appointments');
+            const data = await response.json();
+
+            // Optionally filter dataset to include only selected keys
+            const filtered = data.map(item => {
+                const allowedKeys = new Set(appointmentColumns);
+                return Object.fromEntries(
+                    Object.entries(item).filter(([key]) => allowedKeys.has(key))
+                );
+            });
+
+            setAppointments(filtered);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
-    useEffect(() => { fetchAppointments() }, [])
-
-    // const doctorsColumns = adminDoctors.length > 0 ? Object.keys(adminDoctors[0]) : []
-    const appointmentColumns = appointments.length > 0 ? Object.keys(appointments[0]) : []
+    useEffect(() => { fetchAdminDoctors(); }, []);
+    useEffect(() => { fetchAppointments(); }, []);
 
     return (
         <>
@@ -80,29 +97,37 @@ const AdminDashboard = () => {
                         <span className="sidebarDetails">ADD DOCTORS</span>
                     </div>
                 </div>
+
                 <div className="dataDashboard">
                     <div className="BtnContainer">
                         <Button variant="outlined" className="dashborardBtns" onClick={displayDoctors}>DOCTORS</Button>
-                        <Button variant="outlined" className="dashborardBtns" onClick={displayAppointments}>APPOINTEMTS</Button>
+                        <Button variant="outlined" className="dashborardBtns" onClick={displayAppointments}>APPOINTMENTS</Button>
                         <Button variant="outlined" className="dashborardBtns" onClick={displayAddFrom}>ADD DOCTORS</Button>
                     </div>
+
                     <div className="dataContainer">
-                        {!showAppointments && !showAddForm && (<div>
-                            <span className="text">ALL DOCTORS</span>
-                            {/* <Table columns = {doctorsColumns} dataset = {adminDoctors}/> */}
-                            <div className="doctorsContainer">
-                                <AdminDoctorsCards doctors={adminDoctors} />
+                        {!showAppointments && !showAddForm && (
+                            <div>
+                                <span className="text">ALL DOCTORS</span>
+                                <div className="doctorsContainer">
+                                    <AdminDoctorsCards doctors={adminDoctors} />
+                                </div>
                             </div>
-                        </div>)}
-                        {!showDoctors && !showAddForm && (<div>
-                            <span className="text">ALL APPOINTMENTS</span>
-                            <Table columns={appointmentColumns} dataset={appointments} />
-                        </div>)}
-                        {showAddForm && (<AddDoctor />)}
+                        )}
+
+                        {!showDoctors && !showAddForm && (
+                            <div>
+                                <span className="text">ALL APPOINTMENTS</span>
+                                <Table columns={appointmentColumns} dataset={appointments} />
+                            </div>
+                        )}
+
+                        {showAddForm && <AddDoctor />}
                     </div>
                 </div>
             </div>
         </>
-    )
-}
-export default AdminDashboard
+    );
+};
+
+export default AdminDashboard;

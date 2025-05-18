@@ -4,6 +4,7 @@ import '../../Styles/client/singleDoctor.css';
 import FormsData from '../../data/inputsData.js';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { fetchDoctorById } from "../../Services/services.js";
 
 const SingleDoctor = () => {
     const [doctor, setDoctor] = useState({});
@@ -111,20 +112,34 @@ const SingleDoctor = () => {
         return months[parseInt(monthNum) - 1];
     };
 
+    // const fetchDoctor = async () => {
+    //     try {
+    //         const response = await fetch(`https://consulto.onrender.com/doctors/${id}`);
+    //         if (!response.ok) throw new Error('Failed to fetch doctor');
+    //         const data = await response.json();
+    //         data.length > 0 ? setDoctor(data[0]) : alert('Doctor not found');
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
+
+useEffect(() => {
     const fetchDoctor = async () => {
         try {
-            const response = await fetch(`https://consulto.onrender.com/doctors/${id}`);
-            if (!response.ok) throw new Error('Failed to fetch doctor');
-            const data = await response.json();
-            data.length > 0 ? setDoctor(data[0]) : alert('Doctor not found');
+            const doctor = await fetchDoctorById(id);
+            if (doctor) {
+                setDoctor(doctor);
+            } else {
+                alert('Doctor not found');
+            }
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
-    useEffect(() => {
-        if (id) fetchDoctor();
-    }, [id]);
+    if (id) fetchDoctor();
+}, [id]);
+
 
     const openForm = () => {
         let jwtToken = localStorage.getItem('user')
@@ -179,7 +194,7 @@ const SingleDoctor = () => {
         console.log(finalAppointmnet)
     
         try {
-            const response = await fetch('http://localhost:3201/appointments', {
+            const response = await fetch('https://consulto.onrender.com/appointments', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

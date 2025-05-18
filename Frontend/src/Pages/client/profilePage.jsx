@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:3201/userdetails/${userid}`);
+      const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`);
       const data = await response.json();
       console.log(data)
       if (Array.isArray(data) && data.length > 0) {
@@ -56,7 +56,7 @@ const ProfilePage = () => {
         formDataToSend.append('image', selectedImage);
       }
 
-      const response = await fetch(`http://localhost:3201/userdetails/${userid}`, {
+      const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`, {
         method: 'PATCH',
         body: formDataToSend,
       });

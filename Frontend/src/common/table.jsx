@@ -1,19 +1,42 @@
-const Table = ({columns = [], dataset = []}) => {
+import React, { useState } from 'react';
+import { Table as AntTable, Input } from 'antd';
+
+const Table = ({ columns = [], dataset = [] }) => {
+    const [searchText, setSearchText] = useState('');
+
+    // Ant Design column definitions
+    const antColumns = columns.map(col => ({
+        title: col,
+        dataIndex: col,
+        key: col,
+        align: 'center',
+        render: (text) => text || 'N/A',
+    }));
+
+    // Global search filter
+    const filteredData = dataset.filter((record) =>
+        columns.some((col) =>
+            String(record[col]).toLowerCase().includes(searchText.toLowerCase())
+        )
+    );
+
     return (
-        <table border={1} cellSpacing={0} className="styled-table">
-            <thead>
-                <tr>
-                {columns.map(ele=><th style={{'textAlign':'center'}}>{ele}</th>)}
-                </tr>
-            </thead>
-            <tbody>
-                {dataset.map(object=>(
-                    <tr key={object.id}>
-                        {columns.map((ele,index)=>(<td key={index} style={{'textAlign':'center'}}>{object[ele]?object[ele]:"N/A"}</td>))}
-                    </tr>
-))}
-            </tbody>
-        </table>
-    )
-}
-export default Table
+        <div>
+            <Input
+                placeholder="Search..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                style={{ marginBottom: 16, width: 300 }}
+            />
+            <AntTable
+                columns={antColumns}
+                dataSource={filteredData}
+                pagination={{ pageSize: 5 }}
+                rowKey="id"
+                bordered
+            />
+        </div>
+    );
+};
+
+export default Table;
