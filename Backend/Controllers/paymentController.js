@@ -1,21 +1,18 @@
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const createPaymentIntent = async (req, res) => {
+export const createPaymentIntent = async (req, res) => {
     try {
         const { amount, metadata } = req.body;
         
-        // Validate input
         if (!amount || isNaN(amount)) {
             return res.status(400).json({ error: "Invalid amount" });
         }
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: Math.round(amount), 
+            amount: Math.round(amount),
             currency: 'inr',
-            automatic_payment_methods: {
-                enabled: true,
-            },
+            automatic_payment_methods: { enabled: true },
             metadata: {
                 userId: req.user?.userid || 'guest',
                 ...metadata
@@ -34,5 +31,3 @@ const createPaymentIntent = async (req, res) => {
         });
     }
 };
-
-export default createPaymentIntent;

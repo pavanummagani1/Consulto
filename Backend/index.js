@@ -25,9 +25,14 @@ app.use('/doctor',doctorRoute)
 app.use('/api/payments', paymentRouter);
 
 
-connectDB().then(()=>{
+connectDB()
+  .then(() => {
     app.listen(port, () => {
-        console.log(`server started sucessfully at http://localhost:${port}`)
-    })
-})
+      console.log(`Server started successfully at http://localhost:${port}`);
+    });
+  })
+  .catch(err => {
+    console.error("Database connection failed", err);
+    process.exit(1);
+  });
 connectCloudinary()
