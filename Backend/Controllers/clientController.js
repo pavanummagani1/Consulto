@@ -180,19 +180,33 @@ export const Appointment = async (req, res) => {
             return res.status(404).json({ status: false, message: "User not found" });
         }
 
-        const appointmentDate = new Date(patientData.date);
+        const appointmentDate = new Date(date);
         const today = new Date();
         const isToday =
             appointmentDate.getFullYear() === today.getFullYear() &&
             appointmentDate.getMonth() === today.getMonth() &&
             appointmentDate.getDate() === today.getDate();
 
-        const appointmentStatus = isToday ? "Today" : "Upcomming";
+        const appointmentStatus = isToday ? "Today" : "Upcoming";
+
+        // Generate Jitsi Meet link with secure room name
+        const meetRoomName = `consulto-${appointmentid}-${Date.now()}`;
+        const meetUrl = `https://meet.jit.si/${meetRoomName}`;
+        
+        // Calculate end time (45 minutes after appointment time)
+        const [hours, minutes] = bookedSlot.split(':');
+        const startDateTime = new Date(appointmentDate);
+        startDateTime.setHours(parseInt(hours), parseInt(minutes));
+        const endDateTime = new Date(startDateTime.getTime() + 45 * 60000); // 45 minutes
 
         const completeAppointmentData = {
             ...patientData,
             appointmentid,
-            appointmentStatus
+            appointmentStatus,
+            meetUrl,
+            meetRoomName,
+            appointmentStartTime: startDateTime,
+            appointmentEndTime: endDateTime
         };
 
         if (!Array.isArray(user.appointdetails)) {
@@ -205,7 +219,6 @@ export const Appointment = async (req, res) => {
         const newAppointment = new appointmentModel(completeAppointmentData);
         await newAppointment.save();
 
-        
         const transporter = nodemailer.createTransport({
             service: "Gmail", 
             auth: {
@@ -217,17 +230,27 @@ export const Appointment = async (req, res) => {
         const mailOptions = {
             from: "your_email@gmail.com",
             to: email,
-            subject: "Appointment Confirmation",
+            subject: "Appointment Confirmation - Consulto Telemedicine",
             html: `
                 <h2>Appointment Confirmation</h2>
                 <p>Hi <strong>${patientName}</strong>,</p>
-                <p>Your appointment has been confirmed with <strong>${consultingDoctor}</strong>.</p>
-                <p><strong>Date:</strong> ${new Date(date).toDateString()}</p>
-                <p><strong>Time:</strong> ${bookedSlot}</p>
+                <p>Your telemedicine appointment has been confirmed with <strong>${consultingDoctor}</strong>.</p>
+                <p><strong>Date:</strong> ${appointmentDate.toDateString()}</p>
+                <p><strong>Time:</strong> ${bookedSlot} (duration: 45 minutes)</p>
                 <p><strong>Appointment ID:</strong> ${appointmentid}</p>
                 <br />
-                <p>Thank you for choosing our service!</p>
+                <h3>Join Your Consultation:</h3>
+                <p>At your appointment time, click this link to join your secure video session:</p>
+                <a href="${meetUrl}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 10px 0;">
+                    Join Video Consultation
+                </a>
+                <p><small>Note: This link will only be active at your scheduled time.</small></p>
+                <br />
+                <p>Thank you for choosing Consulto!</p>
                 <img src="https://res.cloudinary.com/djzdih0ni/image/upload/v1747478982/Consulto_Logo_da2ib2.png" alt="Consulto Logo" width="200"/>
+                <p style="font-size: 12px; color: #666;">
+                    <strong>Technical Requirements:</strong> Chrome/Firefox/Safari browser with camera and microphone access.
+                </p>
             `
         };
 
@@ -235,7 +258,9 @@ export const Appointment = async (req, res) => {
 
         return res.status(200).json({
             status: true,
-            message: "Appointment Booked Successfully. Email confirmation sent."
+            message: "Appointment Booked Successfully. Email confirmation with video link sent.",
+            appointmentId: appointmentid,
+            meetUrl: meetUrl // Optional: return meetUrl in API response if needed
         });
 
     } catch (error) {

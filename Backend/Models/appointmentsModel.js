@@ -39,7 +39,8 @@ const appointmentSchema = new mongoose.Schema({
     },
     bookingStatus: {
         type: String,
-        default: "Confrimed"
+        default: "Confirmed",
+        enum: ["Confirmed", "Cancelled", "Completed"]
     },
     paymentType: {
         type: String,
@@ -47,28 +48,74 @@ const appointmentSchema = new mongoose.Schema({
     },
     paymentStatus: {
         type: String,
-        default: 'Sucess'
+        default: 'Success'
     },
-    speciality:{
-        type:String
+    speciality: {
+        type: String
     },
-    image:{
-        type:String
+    image: {
+        type: String
     },
-    appointmentStatus:{
-        type:String,
-        default:'Upcomming'
+    appointmentStatus: {
+        type: String,
+        default: 'Upcoming',
+        enum: ["Upcoming", "Today", "Completed", "Cancelled"]
     },
-    doctorId:{
-        type:String,
-        required:true
+    doctorId: {
+        type: String,
+        required: true
     },
-    appointmentid:{
-        type:String,
-        required:true
+    appointmentid: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    // New fields for telemedicine integration
+    meetUrl: {
+        type: String,
+        required: function() {
+            return this.bookingStatus === "Confirmed";
+        }
+    },
+    meetRoomName: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    appointmentStartTime: {
+        type: Date,
+        required: true
+    },
+    appointmentEndTime: {
+        type: Date,
+        required: true
+    },
+    consultationDuration: {
+        type: Number,
+        default: 45, // minutes
+        min: 30,
+        max: 60
+    },
+    joinInstructions: {
+        type: String,
+        default: "Click the meet link at your scheduled time. Ensure you have a stable internet connection, microphone, and camera ready."
+    },
+    recordingConsent: {
+        type: Boolean,
+        default: false
+    },
+    recordingUrl: {
+        type: String
     }
-}, { minimize: false })
+}, { 
+    minimize: false,
+    timestamps: true 
+});
 
-const appointmentModel = mongoose.models.appointments || mongoose.model('appointments', appointmentSchema)
+// Add index for better query performance
+appointmentSchema.index({ appointmentStartTime: 1 });
+appointmentSchema.index({ meetRoomName: 1 }, { unique: true });
+
+const appointmentModel = mongoose.models.appointments || mongoose.model('appointments', appointmentSchema);
 
 export default appointmentModel;
