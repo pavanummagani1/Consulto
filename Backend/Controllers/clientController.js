@@ -278,7 +278,9 @@ export const Appointment = async (req, res) => {
 
 
 
-export const userAppointments = async (req, res) => {
+export const userAppointments = async (req, res) => { 
+    const d = new Date()
+    console.log(d)
     try {
         const { userid } = req.params;
         const appointments = await appointmentModel.find({ userid });
@@ -288,6 +290,8 @@ export const userAppointments = async (req, res) => {
         res.status(500).json({ message: "Failed to fetch appointments" });
     }
 };
+
+
 
 export const userDetails = async (req, res) => {
     try {

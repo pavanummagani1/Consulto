@@ -1,19 +1,31 @@
 import cron from 'node-cron';
-import appointmentModel from '../Models/appointmentsModel.js'; 
+import appointmentModel from '../Models/appointmentsModel.js';
 
-cron.schedule('*/5 * * * *', async () => {
+console.log("hello...");
+console.log("Scheduling cron job...");
+
+cron.schedule('*/1 * * * *', async () => {
     const now = new Date();
-    try {
-        const result = await appointmentModel.updateMany(
-            {
-                appointmentStatus: { $ne: 'Completed' },
-                appointmentEndTime: { $lt: now }
-            },
-            { $set: { appointmentStatus: 'Completed' } }
-        );
+    console.log("[CRON] Cron task started...");
 
-        if (result.modifiedCount > 0) {
-            console.log(`[CRON] ${result.modifiedCount} appointments marked as Completed.`);
+    try {
+        const expiredAppointments = await appointmentModel.find({
+            appointmentStatus: { $ne: 'Completed' },
+            appointmentEndTime: { $lt: now }
+        });
+
+        console.log(`[CRON] Found ${expiredAppointments.length} expired appointments`);
+
+        if (expiredAppointments.length > 0) {
+            const result = await appointmentModel.updateMany(
+                {
+                    appointmentStatus: { $ne: 'Completed' },
+                    appointmentEndTime: { $lt: now }
+                },
+                { $set: { appointmentStatus: 'Completed' } }
+            );
+
+            console.log(`[CRON] Modified: ${result.modifiedCount}`);
         }
     } catch (error) {
         console.error('[CRON ERROR] Failed to update appointment statuses:', error);
