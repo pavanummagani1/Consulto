@@ -27,7 +27,7 @@ import DoctorDashboard from './Pages/doctor/DoctorDashboard'
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword", '/doctorlogin', '/doctordashboard'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminlogin', "/forgotpassword", '/doctorlogin', '/doctordashboard'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
 
@@ -83,7 +83,7 @@ const Layout = () => {
         } />
 
         <Route path='/adminlogin' element={
-          <AuthenticatedRoute><AdminLogin /></AuthenticatedRoute>
+          <RestrictedRoute><AdminLogin /></RestrictedRoute>
         } />
 
         <Route path='/dashboard' element={
@@ -94,10 +94,10 @@ const Layout = () => {
           <AuthenticatedRoute><Appointments /></AuthenticatedRoute>
         } />
         <Route path='/doctorlogin' element={
-          <PublicRoute> <DoctorLogin /> </PublicRoute>
+          <RestrictedRoute> <DoctorLogin /> </RestrictedRoute>
         } />
         <Route path = '/doctordashboard' element={
-          <PublicRoute> <DoctorDashboard/> </PublicRoute>
+          <AuthenticatedRoute> <DoctorDashboard/> </AuthenticatedRoute>
         }/>
       </Routes>
       {!shouldHideLayout && <Footer />}

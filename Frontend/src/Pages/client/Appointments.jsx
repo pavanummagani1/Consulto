@@ -3,6 +3,7 @@ import "../../Styles/client/appointments.css";
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaVideo } from 'react-icons/fa';
 
 const Appointments = () => {
     const navigate = useNavigate();
@@ -14,8 +15,14 @@ const Appointments = () => {
         try {
             const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
             const data = await response.json();
-            console.log(data)
-            setAppointments(data);
+            const appointmentsWithStatus = data.map(app => ({
+                ...app,
+                isActive: isAppointmentActive(app),
+                isUpcoming: isAppointmentUpcoming(app),
+                canJoin: app.paymentStatus === "Success" &&
+                    (isAppointmentActive(app) || isAppointmentUpcoming(app))
+            }));
+            setAppointments(appointmentsWithStatus);
         } catch (error) {
             console.error("Error fetching appointments:", error);
         }
@@ -25,38 +32,57 @@ const Appointments = () => {
         if (userid) fetchAppointments();
     }, [userid]);
 
-const handleStatus = async (appointment) => {
-    let response = await fetch('https://consulto.onrender.com/updatestatus', {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(appointment)
-    });
+    const isAppointmentActive = (appointment) => {
+        const now = new Date();
+        const start = new Date(appointment.appointmentStartTime);
+        const end = new Date(appointment.appointmentEndTime);
+        return now >= start && now <= end;
+    };
 
-    if (response.ok) {
-        toast.success("Appointment cancelled successfully");
-        fetchAppointments();
-    } else {
-        toast.error("Failed to cancel the appointment");
-    }
-};
+    const isAppointmentUpcoming = (appointment) => {
+        const now = new Date();
+        const start = new Date(appointment.appointmentStartTime);
+        return now < start;
+    };
 
+    const handleJoinMeeting = (meetUrl) => {
+        window.open(meetUrl, '_blank', 'noopener,noreferrer');
+    };
+
+    const handleStatus = async (appointment) => {
+        let response = await fetch('https://consulto.onrender.com/updatestatus', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(appointment)
+        });
+
+        if (response.ok) {
+            toast.success("Appointment cancelled successfully");
+            fetchAppointments();
+        } else {
+            toast.error("Failed to cancel the appointment");
+        }
+    };
 
     const handleBookNew = () => {
         navigate('/alldoctors');
     };
 
-    // Helper function to get badge color
-const getStatusClass = (status) => {
-    switch (status.toLowerCase()) {
-        case "upcoming": return "status-badge yellow";
-        case "cancelled": return "status-badge red";
-        case "completed": return "status-badge green";
-        default: return "status-badge";
-    }
-};
+    const getStatusClass = (status) => {
+        switch (status.toLowerCase()) {
+            case "upcoming": return "status-badge yellow";
+            case "cancelled": return "status-badge red";
+            case "completed": return "status-badge green";
+            default: return "status-badge";
+        }
+    };
 
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    };
 
     return (
         <div className="appointments-wrapper">
@@ -101,7 +127,7 @@ const getStatusClass = (status) => {
                                 </p>
                                 <p>
                                     <strong>Date & Time:</strong>{" "}
-                                    {appointment.date} | {appointment.bookedSlot}
+                                    {formatDate(appointment.date)} | {appointment.bookedSlot}
                                 </p>
                                 <p>
                                     <strong>Appointment Status:</strong>{" "}
@@ -109,28 +135,38 @@ const getStatusClass = (status) => {
                                         {appointment.appointmentStatus}
                                     </span>
                                 </p>
+
                             </div>
                         </div>
                         <div className="right-section">
-                            <button className="action-btn">
+                            <button className={`action-btn ${appointment.paymentStatus === "Success" ? "payment-success" : "payment-pending"
+                                }`}>
                                 Payment: {appointment.paymentStatus}
                             </button>
 
-                            {/* Hide cancel button only if already cancelled */}
-                            {appointment.appointmentStatus.toLowerCase() !== "cancelled" && (
-                                <span
-                                    className="action-btn cancel"
-                                    onClick={() => handleStatus(appointment)}
+                            {appointment.canJoin && (
+                                <button
+                                    className="action-btn join-meet"
+                                    onClick={() => handleJoinMeeting(appointment.meetUrl)}
                                 >
-                                    Cancel appointment
-                                </span>
+                                    <FaVideo /> Join Meet
+                                </button>
                             )}
-                        </div>
 
+                            {appointment.appointmentStatus.toLowerCase() !== "cancelled" &&
+                                appointment.appointmentStatus.toLowerCase() !== "completed" && (
+                                    <button
+                                        className="action-btn cancel"
+                                        onClick={() => handleStatus(appointment)}
+                                    >
+                                        Cancel appointment
+                                    </button>
+                                )}
+                        </div>
                     </div>
                 ))
             )}
-            <ToastContainer position="top-right" autoClose={3000}/>
+            <ToastContainer position="top-right" autoClose={3000} />
         </div>
     );
 };

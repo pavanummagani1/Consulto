@@ -156,6 +156,18 @@
   display: none;
 }
 
+.visible-meet-btn {
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media (max-width: 768px) {
   .doctorDashboard {

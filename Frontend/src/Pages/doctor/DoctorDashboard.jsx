@@ -17,6 +17,7 @@ const DoctorDashboard = () => {
         try {
             const response = await fetch(`https://consulto.onrender.com/doctor/appointments/${doctorId}`);
             const data = await response.json();
+            console.log(data)
             setAppointments(data);
         } catch (err) {
             console.error(err);
@@ -52,10 +53,12 @@ const DoctorDashboard = () => {
     const appointmentColumns = [
         'patientName',
         'patientAge',
-        'email',
         'date',
         'bookedSlot',
-        'bookingStatus',
+        'appointmentStatus',
+        'meetUrl',
+        'meetRoomName'
+
     ];
 
     const today = new Date().toISOString().split('T')[0];
