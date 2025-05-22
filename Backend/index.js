@@ -7,7 +7,6 @@ import adminRouter from "./routes/adminRoute.js"
 import clientRouter from "./routes/clientRoute.js"
 import doctorRoute from "./routes/doctorRoute.js"
 import paymentRouter from "./routes/paymentRoute.js"
-import './utils/statusUpdater.js' 
 
 const app = express()
 dotenv.config()

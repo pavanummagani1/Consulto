@@ -279,17 +279,28 @@ export const Appointment = async (req, res) => {
 
 
 export const userAppointments = async (req, res) => { 
-    const d = new Date()
-    console.log(d)
     try {
         const { userid } = req.params;
         const appointments = await appointmentModel.find({ userid });
-        res.status(200).json(appointments);
+
+        const updatedAppointments = await Promise.all(
+            appointments.map(async (appointment) => {
+                const appointmentDateTime = new Date(`${appointment.date}T${appointment.time}`);
+                if (appointmentDateTime < now && appointment.status !== 'Completed') {
+                    appointment.status = 'Completed';
+                    await appointment.save();
+                }
+                return appointment;
+            })
+        );
+
+        res.status(200).json({ updatedAppointments, now });
     } catch (error) {
         console.error("Error fetching appointments:", error);
         res.status(500).json({ message: "Failed to fetch appointments" });
     }
 };
+
 
 
 
