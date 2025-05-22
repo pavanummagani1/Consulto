@@ -279,6 +279,7 @@ export const Appointment = async (req, res) => {
 
 
 export const userAppointments = async (req, res) => { 
+    const now = new Date();
     try {
         const { userid } = req.params;
         const appointments = await appointmentModel.find({ userid });

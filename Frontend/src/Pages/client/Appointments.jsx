@@ -10,7 +10,7 @@ const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));
     const userid = user?.userid;
-
+    console.log(userid)
     const fetchAppointments = async () => {
         try {
             const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
