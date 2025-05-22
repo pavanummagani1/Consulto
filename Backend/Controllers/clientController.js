@@ -280,13 +280,15 @@ export const Appointment = async (req, res) => {
 
 export const userAppointments = async (req, res) => { 
     const now = new Date();
+    console.log(now)
     try {
         const { userid } = req.params;
         const appointments = await appointmentModel.find({ userid });
+        console.log(appointments[0].bookedSlot)
 
         const updatedAppointments = await Promise.all(
             appointments.map(async (appointment) => {
-                const appointmentDateTime = new Date(`${appointment.date}T${appointment.time}`);
+                const appointmentDateTime = new Date(`${appointment.date}T${appointment.bookedSlot}`);
                 if (appointmentDateTime < now && appointment.status !== 'Completed') {
                     appointment.status = 'Completed';
                     await appointment.save();

@@ -10,7 +10,6 @@ const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));
     const userid = user?.userid;
-    console.log(userid)
     const fetchAppointments = async () => {
         try {
             const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
@@ -31,6 +30,7 @@ const Appointments = () => {
     useEffect(() => {
         if (userid) fetchAppointments();
     }, [userid]);
+    console.log(appointments)
 
     const isAppointmentActive = (appointment) => {
         const now = new Date();

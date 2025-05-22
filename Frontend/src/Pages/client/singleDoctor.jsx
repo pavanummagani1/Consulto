@@ -220,62 +220,69 @@ const SingleDoctor = () => {
         if (id) fetchDoctor();
     }, [id]);
 
-    const openForm = () => {
-        let jwtToken = localStorage.getItem('user');
+const openForm = () => {
+    let jwtToken = localStorage.getItem('user');
 
-        if (!selectedDate || selectedTimeIndex === null) {
-            toast.error("Please select a date and slot before booking", { position: "top-right" });
-            return;
+    if (!selectedDate || selectedTimeIndex === null) {
+        toast.error("Please select a date and slot before booking", { position: "top-right" });
+        return;
+    }
+
+    const today = new Date();
+    const selected = new Date(selectedDate);
+
+    const isToday =
+        today.getDate() === selected.getDate() &&
+        today.getMonth() === selected.getMonth() &&
+        today.getFullYear() === selected.getFullYear();
+
+    if (isToday) {
+        const currentTime = today.getHours() * 60 + today.getMinutes();
+
+        // Parse 12-hour format time string (e.g., "02:30 PM")
+        const selectedTimeStr = doctor.avaliableslots[selectedTimeIndex];
+        const [timePart, meridiem] = selectedTimeStr.trim().split(" ");
+        let [hours, minutes] = timePart.split(":").map(Number);
+
+        // Convert to 24-hour format
+        if (meridiem.toUpperCase() === "PM" && hours !== 12) {
+            hours += 12;
+        } else if (meridiem.toUpperCase() === "AM" && hours === 12) {
+            hours = 0;
         }
 
-        const today = new Date();
-        const selected = new Date(selectedDate);
+        const selectedTimeInMins = hours * 60 + minutes;
 
-        const isToday =
-            today.getDate() === selected.getDate() &&
-            today.getMonth() === selected.getMonth() &&
-            today.getFullYear() === selected.getFullYear();
-
-        if (isToday) {
-            const currentTime = today.getHours() * 60 + today.getMinutes();
-            const selectedTimeStr = doctor.avaliableslots[selectedTimeIndex];
-            const [time, modifier] = selectedTimeStr.split(" ");
-            let [hours, minutes] = time.split(":").map(Number);
-
-            if (modifier === "PM" && hours !== 12) hours += 12;
-            if (modifier === "AM" && hours === 12) hours = 0;
-
-            const selectedTimeInMins = hours * 60 + minutes;
-
-            if (selectedTimeInMins <= currentTime) {
-                toast.warning("This time slot has already passed for today.", {
-                    position: "top-right",
-                });
-                return;
-            }
-        }
-
-        if (!jwtToken) {
-            toast.error("Please Login to Book an Appointment", { position: "top-right" });
-            setTimeout(() => navigate('/login'), 5000);
-            return;
-        }
-
-        const hasUpcomingAppointment = appointmentsData.some(app =>
-            app.userid === user.userid &&
-            app.doctorId === doctor.doctorid &&
-            app.appointmentStatus?.toLowerCase() === "upcomming"
-        );
-
-        if (hasUpcomingAppointment) {
-            toast.warning("You already have an upcoming appointment with this doctor.", {
-                position: "top-right"
+        if (selectedTimeInMins <= currentTime) {
+            toast.warning("This time slot has already passed for today.", {
+                position: "top-right",
             });
             return;
         }
+    }
 
-        setShowModal(true);
-    };
+    if (!jwtToken) {
+        toast.error("Please Login to Book an Appointment", { position: "top-right" });
+        setTimeout(() => navigate('/login'), 5000);
+        return;
+    }
+
+    const hasUpcomingAppointment = appointmentsData.some(app =>
+        app.userid === user.userid &&
+        app.doctorId === doctor.doctorid &&
+        app.appointmentStatus?.toLowerCase() === "upcomming"
+    );
+
+    if (hasUpcomingAppointment) {
+        toast.warning("You already have an upcoming appointment with this doctor.", {
+            position: "top-right"
+        });
+        return;
+    }
+
+    setShowModal(true);
+};
+
 
     const buttonStyle = (time, index) => {
         if (index === selectedTimeIndex && !bookedSlots.includes(time.toLowerCase())) {
