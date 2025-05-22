@@ -295,7 +295,7 @@ export const userAppointments = async (req, res) => {
             })
         );
 
-        res.status(200).json({ updatedAppointments, now });
+        res.status(200).json(updatedAppointments);
     } catch (error) {
         console.error("Error fetching appointments:", error);
         res.status(500).json({ message: "Failed to fetch appointments" });
