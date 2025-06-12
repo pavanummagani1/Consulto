@@ -11,7 +11,7 @@ import paymentRouter from "./routes/paymentRoute.js"
 const app = express()
 dotenv.config()
 app.use(cors({
-    origin: ['https://consulto-zeta.vercel.app','http://localhost:5173'],
+    origin: ['https://consulto-zeta.vercel.app','https://consulto-ar.vercel.app/s', 'http://localhost:5173'],
     credentials: true
 }))
 const port = process.env.PORT || 3200

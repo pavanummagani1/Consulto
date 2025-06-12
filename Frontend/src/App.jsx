@@ -27,7 +27,7 @@ import DoctorDashboard from './Pages/doctor/DoctorDashboard'
 
 const Layout = () => {
   const location = useLocation();
-  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminlogin', "/forgotpassword", '/doctorlogin', '/doctordashboard'];
+  const hideLayoutRoutes = ['/login', '/register', '/admin', '/adminLogin', "/forgotpassword", '/doctorlogin', '/doctordashboard'];
 
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
 

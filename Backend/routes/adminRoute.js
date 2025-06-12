@@ -6,10 +6,10 @@ import { email, name, password } from "../Middleware/validations.js";
 const adminRouter = express.Router()
 
 adminRouter.post('/adddoctor',upload.single("image"),name,email,addDoctor)
-adminRouter.get('/doctors',doctors)
-adminRouter.get('/categories',categories)
-adminRouter.post('/login',adminLogin)
-adminRouter.delete('/deletedoctor', deletedoctor)
-adminRouter.get('/appointments', appointments)
+adminRouter.get('/doctors',doctors);
+adminRouter.get('/categories',categories);
+adminRouter.post('/login',adminLogin);
+adminRouter.delete('/deletedoctor', deletedoctor);
+adminRouter.get('/appointments', appointments);
 
 export default adminRouter
