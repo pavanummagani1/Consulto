@@ -390,3 +390,130 @@
   cursor: not-allowed;
 }
 
+/* ---------- Small Mobiles (<= 480px) ---------- */
+@media screen and (max-width: 480px) {
+  .modalcontent {
+    width: 95%;
+    padding: 1rem;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .closebutton {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .patientsubmitForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .formgroup label {
+    font-size: 0.95rem;
+  }
+
+  .formgroup input {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .appointmentBtn {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .payment-section h4 {
+    font-size: 1rem;
+  }
+
+  .payment-summary p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Mobiles & Small Tablets (481px - 768px) ---------- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .modalcontent {
+    width: 90%;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .patientsubmitForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .formgroup input {
+    font-size: 1rem;
+  }
+
+  .appointmentBtn {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .payment-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .payment-summary p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Laptops (769px - 1024px) ---------- */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .modalcontent {
+    width: 80%;
+    padding: 2rem;
+  }
+
+  .patientsubmitForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .formgroup {
+    flex: 1;
+  }
+
+  .formgroup input {
+    font-size: 1rem;
+  }
+
+  .appointmentBtn {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Desktops (>= 1025px) ---------- */
+@media screen and (min-width: 1025px) {
+  .modalcontent {
+    width: 600px;
+    padding: 2rem;
+  }
+
+  .patientsubmitForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .formgroup input {
+    font-size: 1rem;
+  }
+
+  .appointmentBtn {
+    font-size: 1.05rem;
+    padding: 0.9rem;
+  }
+}
