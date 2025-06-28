@@ -92,7 +92,7 @@ const CheckoutForm = ({
               <p>Doctor: Dr. {doctor.name}</p>
               <p>Date: {selectedDate}</p>
               <p>Time: {selectedSlot}</p>
-              <p className="payment-amount">Amount: ₹{Math.max(doctor.fee || 5000, 5000)/100}</p>
+              <p className="payment-amount">Amount: ₹{Math.max(doctor.fee || 500000, 5000)/100}</p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ const CheckoutForm = ({
             className="appointmentBtn" 
             disabled={isProcessing}
           >
-            {isProcessing ? 'Processing Payment...' : `Pay ₹${Math.max(doctor.fee || 5000, 5000)/100}`}
+            {isProcessing ? 'Processing Payment...' : `Pay ₹${Math.max(doctor.fee || 500000, 5000)/100}`}
           </button>
         </form>
       </div>
@@ -303,7 +303,7 @@ const openForm = () => {
             return;
         }
 
-        const minimumFee = 5000; // ₹50 minimum
+        const minimumFee = 50000; // ₹50 minimum
         const finalAppointment = {
             ...appointment,
             consultingDoctor: "Dr. " + doctor.name,

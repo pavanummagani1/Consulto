@@ -30,7 +30,6 @@ export const AdminDoctorsCards = (props) => {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} />
       {doctors.map(doctor => (
         <div className="doctorCard" key={doctor.doctorid}>
           <img src={doctor.image} className="doctorImage" />
@@ -46,6 +45,7 @@ export const AdminDoctorsCards = (props) => {
           </button>
         </div>
       ))}
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 };
