@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../Styles/client/profilePage.css';
 
 const ProfilePage = () => {
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({});
@@ -14,9 +15,8 @@ const ProfilePage = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`);
+      const response = await fetch(`${API_BASE_URL}/userdetails/${userid}`);
       const data = await response.json();
-      console.log(data)
       if (Array.isArray(data) && data.length > 0) {
         setUser(data[0]);
       } else {
@@ -56,7 +56,7 @@ const ProfilePage = () => {
         formDataToSend.append('image', selectedImage);
       }
 
-      const response = await fetch(`https://consulto.onrender.com/userdetails/${userid}`, {
+      const response = await fetch(`${API_BASE_URL}/userdetails/${userid}`, {
         method: 'PATCH',
         body: formDataToSend,
       });

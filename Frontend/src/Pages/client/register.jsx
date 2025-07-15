@@ -1,22 +1,23 @@
 import { TextField, Button, Radio, FormLabel, FormControlLabel, RadioGroup } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../Styles/client/register.css'
+import '../../Styles/client/register.css';
 import { useState } from 'react';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const [state, setRegisterState] = useState({})
-    const navigate = useNavigate()
+    const API_BASE_URL = import.meta.env.VITE_BASE_URL; // ✅ Use env variable
+    const [state, setRegisterState] = useState({});
+    const navigate = useNavigate();
 
     const validateForm = () => {
         const requiredFields = ['name', 'email', 'password', 'gender', 'mobileNumber', 'age'];
-        
+
         for (let field of requiredFields) {
             const value = state[field];
-            
+
             if (
-                value === undefined || 
+                value === undefined ||
                 value === null ||
                 (typeof value === 'string' && value.trim() === '') ||
                 (field === 'age' && (isNaN(value) || Number(value) <= 0))
@@ -29,22 +30,23 @@ const Register = () => {
 
     const submitRegisterForm = async (e) => {
         e.preventDefault();
+
         if (!validateForm()) {
             toast.error("Please fill all required fields!", { position: "top-right" });
             return;
         }
-        
+
         try {
-            const response = await fetch('https://consulto.onrender.com/register', {
+            const response = await fetch(`${API_BASE_URL}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(state)
             });
-            
+
             const data = await response.json();
-            
+
             if (response.ok && data.success) {
                 toast.success(data.message || "User registered successfully!", { position: "top-right" });
                 setTimeout(() => navigate('/login'), 5000);
@@ -55,18 +57,18 @@ const Register = () => {
             toast.error("Network error. Please try again.", { position: "top-right" });
             console.error(error);
         }
-    }
+    };
 
     const handleChange = (e) => {
-        const value = e.target.name === 'age' 
+        const value = e.target.name === 'age'
             ? Number(e.target.value)
             : e.target.value;
-            
-        setRegisterState({ 
-            ...state, 
-            [e.target.name]: value 
+
+        setRegisterState({
+            ...state,
+            [e.target.name]: value
         });
-    }
+    };
 
     return (
         <div className="register-wrapper">

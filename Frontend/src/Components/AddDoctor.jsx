@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 export const AddDoctor = () => {
-  
   const [loading, setLoading] = useState(false); 
   const [doctorDetails, setDoctorDetails] = useState({
     image: '',
@@ -22,6 +21,9 @@ export const AddDoctor = () => {
     avaliable: true,
     experience: 0
   });
+
+  // Assign base URL to a variable
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const validateForm = () => {
     const requiredFields = ['image', 'name', 'email', 'password', 'fees', 'speciality', 'degree', 'address', 'about', 'department', 'avaliableslots', 'experience'];
@@ -62,7 +64,7 @@ export const AddDoctor = () => {
       formData.append('avaliable', doctorDetails.avaliable);
       formData.append('experience', doctorDetails.experience);
 
-      const response = await fetch('https://consulto.onrender.com/admin/adddoctor', {
+      const response = await fetch(`${API_BASE_URL}/admin/adddoctor`, {
         method: "POST",
         body: formData
       });

@@ -6,45 +6,62 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AdminLogin = () => {
-  const navigate = useNavigate()
-  const [state, setAdminState] = useState({})
+  const navigate = useNavigate();
+  const [state, setAdminState] = useState({});
+  const [loading, setLoading] = useState(false);
+  
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
+
   const submitAdminForm = async (e) => {
     e.preventDefault();
-    console.log(state)
+    setLoading(true);
+    
     try {
-      let data = await fetch('https://consulto.onrender.com/admin/login', {
-        "method": "POST",
-        "headers": {
+      const response = await fetch(`${API_BASE_URL}/admin/login`, {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(state)
       });
-      if (!data.ok) return new Error('Failed to Register')
-      let response = await data.json()
-    const admin = {
-      adminToken: response.token
-    }
-    if(response.sucess){
-      toast.success(response.message || "Login Sucessfull")
-      localStorage.setItem("Admin", JSON.stringify(admin))
-      setTimeout(()=>{navigate('/admin')},1500)
-    }
-      console.log(response)
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      if (data.success) {
+        toast.success(data.message || "Login Successful");
+        localStorage.setItem("Admin", JSON.stringify({
+          adminToken: data.token
+        }));
+        setTimeout(() => navigate('/admin'), 1500);
+      } else {
+        toast.error(data.message || "Authentication failed");
+      }
     } catch (error) {
-      console.log(error)
+      console.error("Login error:", error);
+      toast.error(error.message || "An error occurred during login");
     } finally {
-      setAdminState({});
+      setLoading(false);
       e.target.reset();
     }
-  }
+  };
+
   const handleChange = (e) => {
     setAdminState({ ...state, [e.target.name]: e.target.value });
   };
+
   return (
     <div className='admin'>
       <div className="top-buttons">
-        <Button variant="outlined" className="top-btn"> <Link className='link' to = "/doctorlogin">Doc Login</Link> </Button>
-        <Button variant="outlined" className="top-btn"> <Link className='link' to = "/">Back to User</Link> </Button>
+        <Button variant="outlined" className="top-btn">
+          <Link className='link' to="/doctorlogin">Doc Login</Link>
+        </Button>
+        <Button variant="outlined" className="top-btn">
+          <Link className='link' to="/">Back to User</Link>
+        </Button>
       </div>
       <div className="mainContainer">
         <h1>WELCOME BACK, ADMIN</h1>
@@ -54,14 +71,39 @@ const AdminLogin = () => {
           </div>
           <div className="loginContainer">
             <form id='loginForm' onSubmit={submitAdminForm}>
-              <TextField required label="Email/UserName" type='text' name='adminid' onChange={handleChange} />
-              <TextField label="Password" type="password" autoComplete="current-password" name='adminPassword' onChange={handleChange} />
-              <Button variant="contained" type='submit'>Login Now</Button>
+              <TextField 
+                required 
+                fullWidth
+                margin="normal"
+                label="Email/Username" 
+                type='text' 
+                name='adminid' 
+                onChange={handleChange} 
+              />
+              <TextField 
+                required
+                fullWidth
+                margin="normal"
+                label="Password" 
+                type="password" 
+                autoComplete="current-password" 
+                name='adminPassword' 
+                onChange={handleChange} 
+              />
+              <Button 
+                variant="contained" 
+                type='submit'
+                disabled={loading}
+                fullWidth
+                sx={{ mt: 2 }}
+              >
+                {loading ? 'Logging in...' : 'Login Now'}
+              </Button>
             </form>
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

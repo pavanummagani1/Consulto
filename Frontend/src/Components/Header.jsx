@@ -6,7 +6,7 @@ import Profile from "../Components/profile";
 const Navbar = () => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
   const [isProfileOpened, setIsProfileOpened] = useState(false);
-  const [loginType, setLoginType] = useState(""); // State for selected login type
+  const [loginType, setLoginType] = useState("");
   const profileRef = useRef(null);
   const navigate = useNavigate();
 

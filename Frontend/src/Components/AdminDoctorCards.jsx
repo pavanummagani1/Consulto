@@ -2,11 +2,13 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const AdminDoctorsCards = (props) => {
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
   const { doctors } = props;
+
 
   const removeDoctor = async (doctor) => {
     try {
-      const response = await fetch('https://consulto.onrender.com/admin/deletedoctor', {
+      const response = await fetch(`${API_BASE_URL}/admin/deletedoctor`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"

@@ -10,6 +10,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Login = () => {
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
   const navigate = useNavigate();
   const [state, setLoginState] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -17,16 +18,9 @@ const Login = () => {
 
   const validateForm = () => {
     const requiredFields = ['email', 'password'];
-
     for (let field of requiredFields) {
       const value = state[field];
-      if (
-        value === undefined ||
-        value === null ||
-        (typeof value === 'string' && value.trim() === '')
-      ) {
-        return false;
-      }
+      if (!value || value.trim() === '') return false;
     }
     return true;
   };
@@ -37,11 +31,11 @@ const Login = () => {
       toast.error("Please fill all required fields!", { position: "top-right" });
       return;
     }
-    
+
     setLoadingButton('login');
-    
+
     try {
-      let response = await fetch('https://consulto.onrender.com/login', {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -51,7 +45,7 @@ const Login = () => {
 
       if (!response.ok) throw new Error('Login failed');
 
-      let data = await response.json();
+      const data = await response.json();
       const user = {
         userToken: data.token,
         userid: data.userid
@@ -88,7 +82,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      const res = await fetch('https://consulto.onrender.com/auth/google', {
+      const res = await fetch(`${API_BASE_URL}/auth/google`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -123,31 +117,23 @@ const Login = () => {
   const handleGuestLogin = async () => {
     try {
       setLoadingButton('guest');
-      
-      // Sign in anonymously with Firebase
       const result = await signInAnonymously(auth);
       const user = result.user;
 
-      // Create guest user data
       const guestUser = {
         uid: user.uid,
         isGuest: true,
         createdAt: new Date().toISOString()
       };
 
-      // Optionally send to your backend
-      const res = await fetch('https://consulto.onrender.com/auth/guest', {
+      const res = await fetch(`${API_BASE_URL}/auth/guest`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(guestUser)
       });
 
-      let responseData = {};
-      if (res.ok) {
-        responseData = await res.json();
-      }
+      const responseData = res.ok ? await res.json() : {};
 
-      // Store in localStorage
       localStorage.setItem('user', JSON.stringify({
         userToken: responseData.token || 'guest-token',
         userid: responseData.userid || user.uid,
@@ -166,7 +152,6 @@ const Login = () => {
 
   return (
     <div className="mainContainer">
-      {/* <h1>WELCOME BACK</h1> */}
       <div className="authWrapper">
         <div className="logo">
           <img src="/Consulto_Logo.png" className="Image" alt="Consulto Logo" />
@@ -181,7 +166,6 @@ const Login = () => {
               fullWidth
               margin="normal"
             />
-
             <TextField
               label="Password"
               name="password"
@@ -200,20 +184,15 @@ const Login = () => {
                 ),
               }}
             />
-
             <div id='forgotPassword'><Link to="/forgotpassword">Forgot Password?</Link></div>
-            <Button 
-              variant="contained" 
-              type='submit' 
+            <Button
+              variant="contained"
+              type='submit'
               fullWidth
               disabled={loadingButton !== null}
               style={{ marginBottom: '16px' }}
             >
-              {loadingButton === 'login' ? (
-                <CircularProgress size={24} color="inherit" />
-              ) : (
-                "Login Now"
-              )}
+              {loadingButton === 'login' ? <CircularProgress size={24} color="inherit" /> : "Login Now"}
             </Button>
           </form>
 
@@ -225,11 +204,7 @@ const Login = () => {
                 disabled={loadingButton !== null}
                 className="auth-button"
               >
-                {loadingButton === 'guest' ? (
-                  <CircularProgress size={24} color="inherit" />
-                ) : (
-                  "Guest Login"
-                )}
+                {loadingButton === 'guest' ? <CircularProgress size={24} color="inherit" /> : "Guest Login"}
               </Button>
 
               <Button
@@ -244,8 +219,8 @@ const Login = () => {
             </div>
 
             <div className="button-row">
-              <button 
-                className="google-login-btn" 
+              <button
+                className="google-login-btn"
                 onClick={handleGoogleSignUp}
                 disabled={loadingButton !== null}
               >

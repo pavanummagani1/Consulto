@@ -6,22 +6,39 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaVideo } from 'react-icons/fa';
 
 const Appointments = () => {
+    const API_BASE_URL = import.meta.env.VITE_BASE_URL
     const navigate = useNavigate();
     const [appointments, setAppointments] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));
     const userid = user?.userid;
+
     const fetchAppointments = async () => {
         try {
             const response = await fetch(`https://consulto.onrender.com/appointments/${userid}`);
             const data = await response.json();
-            const appointmentsWithStatus = data.map(app => ({
-                ...app,
-                isActive: isAppointmentActive(app),
-                isUpcoming: isAppointmentUpcoming(app),
-                canJoin: app.paymentStatus === "Success" &&
-                    (isAppointmentActive(app) || isAppointmentUpcoming(app))
-            }));
-            setAppointments(appointmentsWithStatus);
+            
+            // Process appointments to determine their current status
+            const processedAppointments = data.map(app => {
+                const now = new Date();
+                const endTime = new Date(app.appointmentEndTime);
+                let status = app.appointmentStatus;
+                
+                // If appointment end time has passed and it's not already completed or cancelled
+                if (now > endTime && status !== "Completed" && status !== "Cancelled") {
+                    status = "Completed";
+                }
+                
+                return {
+                    ...app,
+                    appointmentStatus: status,
+                    isActive: isAppointmentActive(app),
+                    isUpcoming: isAppointmentUpcoming(app),
+                    canJoin: app.paymentStatus === "Success" &&
+                        (isAppointmentActive(app) || isAppointmentUpcoming(app))
+                };
+            });
+            
+            setAppointments(processedAppointments);
         } catch (error) {
             console.error("Error fetching appointments:", error);
         }
@@ -30,7 +47,6 @@ const Appointments = () => {
     useEffect(() => {
         if (userid) fetchAppointments();
     }, [userid]);
-    console.log(appointments)
 
     const isAppointmentActive = (appointment) => {
         const now = new Date();
@@ -50,12 +66,17 @@ const Appointments = () => {
     };
 
     const handleStatus = async (appointment) => {
+        const updatedAppointment = {
+            ...appointment,
+            appointmentStatus: "Cancelled"
+        };
+
         let response = await fetch('https://consulto.onrender.com/updatestatus', {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(appointment)
+            body: JSON.stringify(updatedAppointment)
         });
 
         if (response.ok) {
@@ -135,12 +156,13 @@ const Appointments = () => {
                                         {appointment.appointmentStatus}
                                     </span>
                                 </p>
-
                             </div>
                         </div>
                         <div className="right-section">
-                            <button className={`action-btn ${appointment.paymentStatus === "Success" ? "payment-success" : "payment-pending"
-                                }`}>
+                            <button 
+                                className={`action-btn ${appointment.paymentStatus === "Success" ? "payment-success" : "payment-pending"}`}
+                                style={{ backgroundColor: appointment.paymentStatus === "Success" ? "#4CAF50" : "" }}
+                            >
                                 Payment: {appointment.paymentStatus}
                             </button>
 

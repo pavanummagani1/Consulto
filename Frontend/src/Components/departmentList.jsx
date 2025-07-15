@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
 const List = ({ onCategoryClick }) => {
+      const API_BASE_URL = import.meta.env.VITE_BASE_URL;
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://consulto.onrender.com/categories");
+                const response = await fetch(`${API_BASE_URL}/categories`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch Categories");
                 }

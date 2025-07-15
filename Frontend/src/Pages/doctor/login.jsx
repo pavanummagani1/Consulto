@@ -2,11 +2,14 @@ import { TextField, Button, IconButton, InputAdornment } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import '../../Styles/client/login.css';
 import { useState } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const DoctorLogin = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
   const [state, setState] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const DoctorLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://consulto.onrender.com/doctor/login', {
+      const response = await fetch(`${BASE_URL}/doctor/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -37,14 +40,13 @@ const DoctorLogin = () => {
         toast.error(data.message || "Login failed");
       } else {
         const doctor = {
-          doctorId:data.doctorId,
-          doctorToken:data.token
-        }
-        console.log(doctor)
+          doctorId: data.doctorId,
+          doctorToken: data.token
+        };
+        console.log(doctor);
         toast.success(data.message);
         localStorage.setItem("Doctor", JSON.stringify(doctor));
-        navigate('/doctordashboard')
-
+        navigate('/doctordashboard');
       }
 
     } catch (error) {
@@ -99,7 +101,6 @@ const DoctorLogin = () => {
                   ),
                 }}
               />
-              {/* <div id='forgotPassword'><Link to="/forgotpassword">Forgot Password?</Link></div> */}
               <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
                 Login Now
               </Button>

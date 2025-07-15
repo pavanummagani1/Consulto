@@ -164,3 +164,21 @@
         height: 80px;
     }
 }
+.payment-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-badge.yellow {
+    background-color: #FFC107;
+}
+
+.status-badge.red {
+    background-color: #F44336;
+    color: white;
+}
+
+.status-badge.green {
+    background-color: #4CAF50;
+    color: white;
+}

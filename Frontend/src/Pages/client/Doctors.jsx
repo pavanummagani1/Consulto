@@ -6,6 +6,7 @@ import '../../Styles/client/allDoctors.css';
 import "../../Styles/client/landing.css";
 
 const Doctors = () => {
+    const API_BASE_URL = import.meta.env.VITE_BASE_URL;
     const [doctors, setDoctors] = useState([]);
     const [filteredDoctors, setFilteredDoctors] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -20,7 +21,7 @@ const Doctors = () => {
 
     const fetchDoctors = async () => {
         try {
-            const response = await fetch('https://consulto.onrender.com/doctors');
+            const response = await fetch(`${API_BASE_URL}/doctors`);
             if (!response.ok) throw new Error('Failed to fetch users');
             const data = await response.json();
             setDoctors(data);

@@ -7,6 +7,7 @@ import { AdminDoctorsCards } from "../../Components/AdminDoctorCards";
 import AddDoctor from "../../Components/AddDoctor";
 
 const AdminDashboard = () => {
+    const API_BASE_URL = import.meta.env.VITE_BASE_URL
     const [adminDoctors, setAdminDoctors] = useState([]);
     const [appointments, setAppointments] = useState([]);
     const [showDoctors, setShowDoctors] = useState(true);

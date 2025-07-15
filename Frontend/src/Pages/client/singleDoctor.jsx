@@ -8,10 +8,14 @@ import '../../Styles/client/singleDoctor.css';
 import FormsData from '../../data/inputsData.js';
 import { fetchDoctorById } from "../../Services/services.js";
 
-// Stripe configuration
-const stripePromise = loadStripe('pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPBIN6QfGGP6QRdyCKuYVsRYFSJDtVQRQ0QpJKM5oWdBF000O8RdShCR');
 
-// Payment Form Component
+const STRIPE_PUBLIC_KEY ='pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPBIN6QfGGP6QRdyCKuYVsRYFSJDtVQRQ0QpJKM5oWdBF000O8RdShCR';
+const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
+
+
+const API_BASE_URL = import.meta.env.VITE_BASE_URL || 'https://consulto.onrender.com';
+
+
 const CheckoutForm = ({ 
   handleSubmit, 
   appointment, 
@@ -120,6 +124,11 @@ const SingleDoctor = () => {
     const [appointmentsData, setAppointmentsData] = useState([]);
     const [bookedSlots, setBookedSlots] = useState([]);
     const [appointment, setAppointmentState] = useState({});
+    const [isLoading, setIsLoading] = useState({
+      doctor: false,
+      appointments: false,
+      payment: false
+    });
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -127,8 +136,10 @@ const SingleDoctor = () => {
 
     useEffect(() => {
         const fetchAppointments = async () => {
+            setIsLoading(prev => ({...prev, appointments: true}));
             try {
-                const res = await fetch(`https://consulto.onrender.com/doctor/doctor/${id}`);
+                const res = await fetch(`${API_BASE_URL}/doctor/doctor/${id}`);
+                if (!res.ok) throw new Error('Failed to fetch appointments');
                 const data = await res.json();
                 const alteredData = data.map(appointment => {
                     appointment.date = appointment.date.split('T')[0];
@@ -137,6 +148,9 @@ const SingleDoctor = () => {
                 setAppointmentsData(alteredData);
             } catch (err) {
                 console.error("Error fetching appointments:", err);
+                toast.error("Failed to load appointment data");
+            } finally {
+                setIsLoading(prev => ({...prev, appointments: false}));
             }
         };
         fetchAppointments();
@@ -206,6 +220,7 @@ const SingleDoctor = () => {
 
     useEffect(() => {
         const fetchDoctor = async () => {
+            setIsLoading(prev => ({...prev, doctor: true}));
             try {
                 const doctor = await fetchDoctorById(id);
                 if (doctor) {
@@ -215,74 +230,76 @@ const SingleDoctor = () => {
                 }
             } catch (err) {
                 console.error(err);
+                toast.error('Failed to load doctor details');
+            } finally {
+                setIsLoading(prev => ({...prev, doctor: false}));
             }
         };
         if (id) fetchDoctor();
     }, [id]);
 
-const openForm = () => {
-    let jwtToken = localStorage.getItem('user');
+    const openForm = () => {
+        let jwtToken = localStorage.getItem('user');
 
-    if (!selectedDate || selectedTimeIndex === null) {
-        toast.error("Please select a date and slot before booking", { position: "top-right" });
-        return;
-    }
-
-    const today = new Date();
-    const selected = new Date(selectedDate);
-
-    const isToday =
-        today.getDate() === selected.getDate() &&
-        today.getMonth() === selected.getMonth() &&
-        today.getFullYear() === selected.getFullYear();
-
-    if (isToday) {
-        const currentTime = today.getHours() * 60 + today.getMinutes();
-
-        // Parse 12-hour format time string (e.g., "02:30 PM")
-        const selectedTimeStr = doctor.avaliableslots[selectedTimeIndex];
-        const [timePart, meridiem] = selectedTimeStr.trim().split(" ");
-        let [hours, minutes] = timePart.split(":").map(Number);
-
-        // Convert to 24-hour format
-        if (meridiem.toUpperCase() === "PM" && hours !== 12) {
-            hours += 12;
-        } else if (meridiem.toUpperCase() === "AM" && hours === 12) {
-            hours = 0;
+        if (!selectedDate || selectedTimeIndex === null) {
+            toast.error("Please select a date and slot before booking", { position: "top-right" });
+            return;
         }
 
-        const selectedTimeInMins = hours * 60 + minutes;
+        const today = new Date();
+        const selected = new Date(selectedDate);
 
-        if (selectedTimeInMins <= currentTime) {
-            toast.warning("This time slot has already passed for today.", {
-                position: "top-right",
+        const isToday =
+            today.getDate() === selected.getDate() &&
+            today.getMonth() === selected.getMonth() &&
+            today.getFullYear() === selected.getFullYear();
+
+        if (isToday) {
+            const currentTime = today.getHours() * 60 + today.getMinutes();
+
+            // Parse 12-hour format time string (e.g., "02:30 PM")
+            const selectedTimeStr = doctor.avaliableslots[selectedTimeIndex];
+            const [timePart, meridiem] = selectedTimeStr.trim().split(" ");
+            let [hours, minutes] = timePart.split(":").map(Number);
+
+            // Convert to 24-hour format
+            if (meridiem.toUpperCase() === "PM" && hours !== 12) {
+                hours += 12;
+            } else if (meridiem.toUpperCase() === "AM" && hours === 12) {
+                hours = 0;
+            }
+
+            const selectedTimeInMins = hours * 60 + minutes;
+
+            if (selectedTimeInMins <= currentTime) {
+                toast.warning("This time slot has already passed for today.", {
+                    position: "top-right",
+                });
+                return;
+            }
+        }
+
+        if (!jwtToken) {
+            toast.error("Please Login to Book an Appointment", { position: "top-right" });
+            setTimeout(() => navigate('/login'), 5000);
+            return;
+        }
+
+        const hasUpcomingAppointment = appointmentsData.some(app =>
+            app.userid === user.userid &&
+            app.doctorId === doctor.doctorid &&
+            app.appointmentStatus?.toLowerCase() === "upcomming"
+        );
+
+        if (hasUpcomingAppointment) {
+            toast.warning("You already have an upcoming appointment with this doctor.", {
+                position: "top-right"
             });
             return;
         }
-    }
 
-    if (!jwtToken) {
-        toast.error("Please Login to Book an Appointment", { position: "top-right" });
-        setTimeout(() => navigate('/login'), 5000);
-        return;
-    }
-
-    const hasUpcomingAppointment = appointmentsData.some(app =>
-        app.userid === user.userid &&
-        app.doctorId === doctor.doctorid &&
-        app.appointmentStatus?.toLowerCase() === "upcomming"
-    );
-
-    if (hasUpcomingAppointment) {
-        toast.warning("You already have an upcoming appointment with this doctor.", {
-            position: "top-right"
-        });
-        return;
-    }
-
-    setShowModal(true);
-};
-
+        setShowModal(true);
+    };
 
     const buttonStyle = (time, index) => {
         if (index === selectedTimeIndex && !bookedSlots.includes(time.toLowerCase())) {
@@ -297,13 +314,15 @@ const openForm = () => {
 
     const submitForm = async (e, stripe, elements) => {
         e.preventDefault();
+        setIsLoading(prev => ({...prev, payment: true}));
 
         if (!selectedDate || !selectedSlot) {
             toast.error("Please select date and slot", { position: "top-right" });
+            setIsLoading(prev => ({...prev, payment: false}));
             return;
         }
 
-        const minimumFee = 50000; // ₹50 minimum
+        const minimumFee = 5000; 
         const finalAppointment = {
             ...appointment,
             consultingDoctor: "Dr. " + doctor.name,
@@ -318,7 +337,7 @@ const openForm = () => {
 
         try { 
             // 1. Create payment intent
-            const paymentIntentResponse = await fetch('https://consulto.onrender.com/api/payments/create-payment-intent', {
+            const paymentIntentResponse = await fetch(`${API_BASE_URL}/api/payments/create-payment-intent`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -352,7 +371,7 @@ const openForm = () => {
 
             // 3. Save appointment
             if (paymentIntent.status === 'succeeded') {
-                const response = await fetch('https://consulto.onrender.com/appointments', {
+                const response = await fetch(`${API_BASE_URL}/appointments`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -371,62 +390,93 @@ const openForm = () => {
             }
         } catch (error) {
             console.error("Payment error:", error);
+            toast.error(error.message || "Payment processing failed");
             throw error;
+        } finally {
+            setIsLoading(prev => ({...prev, payment: false}));
         }
     };
 
     return (
         <>
             <section className="doctorContainer">
-                <section className="doctorImageContainer">
-                    <img src={doctor.image} alt='doctor' className="doctorImage" />
-                </section>
-                <section className="details-bookingContainer">
-                    <section className="detailsContainer">
-                        <h2 className="docName">DR.{doctor.name}</h2>
-                        <p className="department">Department: {doctor.department}</p>
-                        <p className="specialization">Specialization: {doctor.speciality}</p>
-                        <p className="experience">Experience: {doctor.experience} Years</p>
-                        <div className="aboutDoctor">
-                            <span className="about">About Doctor</span>
-                            <span className="details">{doctor.about}</span>
-                        </div>
-                    </section>
-                    
-                    <section className="bookingContainer">
-                        <span className="slots">Select Date</span>
-                        <div className="date-scroll">
-                            {dateArray.map((d, index) => (
-                                <div
-                                    key={index}
-                                    className={`date-item ${index === selectedDateIndex ? 'selected' : ''}`}
-                                    onClick={() => showSlots(index, d.formattedDate)}
-                                >
-                                    <div className="date-top">{d.short}</div>
-                                    <div className="date-bottom">{d.day}</div>
+                {isLoading.doctor ? (
+                    <div className="loading-container">
+                        <div className="loading-spinner"></div>
+                        <p>Loading doctor details...</p>
+                    </div>
+                ) : (
+                    <>
+                        <section className="doctorImageContainer">
+                            <img 
+                                src={doctor.image} 
+                                alt={`Dr. ${doctor.name}`} 
+                                className="doctorImage" 
+                                onError={(e) => {
+                                    e.target.src = '/default-doctor.png';
+                                }}
+                            />
+                        </section>
+                        <section className="details-bookingContainer">
+                            <section className="detailsContainer">
+                                <h2 className="docName">DR.{doctor.name}</h2>
+                                <p className="department">Department: {doctor.department}</p>
+                                <p className="specialization">Specialization: {doctor.speciality}</p>
+                                <p className="experience">Experience: {doctor.experience} Years</p>
+                                <div className="aboutDoctor">
+                                    <span className="about">About Doctor</span>
+                                    <span className="details">{doctor.about}</span>
                                 </div>
-                            ))}
-                        </div>
-                    </section>
+                            </section>
+                            
+                            <section className="bookingContainer">
+                                <span className="slots">Select Date</span>
+                                <div className="date-scroll">
+                                    {dateArray.map((d, index) => (
+                                        <div
+                                            key={index}
+                                            className={`date-item ${index === selectedDateIndex ? 'selected' : ''}`}
+                                            onClick={() => showSlots(index, d.formattedDate)}
+                                        >
+                                            <div className="date-top">{d.short}</div>
+                                            <div className="date-bottom">{d.day}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
 
-                    <section className="bookingContainer" id="timeSlots" style={{ display: "none" }}>
-                        <span className="slots">Select Time</span>
-                        <div className="time-grid">
-                            {doctor.avaliableslots?.map((time, index) => (
-                                <button
-                                    type="button"
-                                    key={index}
-                                    className={`time-slot ${buttonStyle(time, index)}`}
-                                    onClick={() => bookSlot(index)}
-                                    disabled={bookedSlots.includes(time.toLowerCase())}
-                                >
-                                    {time}
-                                </button>
-                            ))}
-                        </div>
-                    </section>
-                    <button className="booknowBtn" onClick={openForm}>BOOK APPOINTMENT</button>
-                </section>
+                            <section className="bookingContainer" id="timeSlots" style={{ display: "none" }}>
+                                <span className="slots">Select Time</span>
+                                {isLoading.appointments ? (
+                                    <div className="loading-timeslots">
+                                        <div className="loading-spinner small"></div>
+                                    </div>
+                                ) : (
+                                    <div className="time-grid">
+                                        {doctor.avaliableslots?.map((time, index) => (
+                                            <button
+                                                type="button"
+                                                key={index}
+                                                className={`time-slot ${buttonStyle(time, index)}`}
+                                                onClick={() => bookSlot(index)}
+                                                disabled={bookedSlots.includes(time.toLowerCase())}
+                                            >
+                                                {time}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </section>
+                            <button 
+                                className="booknowBtn" 
+                                onClick={openForm}
+                                disabled={isLoading.doctor || isLoading.appointments}
+                            >
+                                {isLoading.doctor || isLoading.appointments ? 'Loading...' : 'BOOK APPOINTMENT'}
+                            </button>
+                        </section>
+                    </>
+                )}
             </section>
 
             {showModal && (
@@ -442,7 +492,17 @@ const openForm = () => {
                     />
                 </Elements>
             )}
-            <ToastContainer />
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };

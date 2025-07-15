@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { TextField, IconButton, InputAdornment,Button,Box,} from "@mui/material";
+import {
+  TextField,
+  IconButton,
+  InputAdornment,
+  Button,
+  Box,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../Styles/client/forgot.css";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 
 export const ResetPassword = () => {
-  const navigate = useNavigate()
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
@@ -32,7 +40,7 @@ export const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3201/forgotpassword", {
+      const response = await fetch(`${BASE_URL}/forgotpassword`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -53,7 +61,7 @@ export const ResetPassword = () => {
     }
 
     try {
-      // Simulate success:
+      // Simulate OTP verification
       toast.success("OTP verified successfully!");
       setIsOtpVerified(true);
     } catch (err) {
@@ -61,43 +69,42 @@ export const ResetPassword = () => {
     }
   };
 
-const handlePasswordReset = async () => {
-  if (!newPassword || !confirmPassword) {
-    toast.error("Both password fields are required.");
-    return;
-  }
-
-  if (newPassword !== confirmPassword) {
-    toast.error("Passwords do not match.");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:3201/updatepassword", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, newPassword })
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to reset password.");
+  const handlePasswordReset = async () => {
+    if (!newPassword || !confirmPassword) {
+      toast.error("Both password fields are required.");
+      return;
     }
 
-    const data = await response.json();
-    console.log(data);
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
 
-    toast.success("Password reset successfully!");
-    setTimeout(()=>{
-      navigate('/login')
-    },5000)
-  } catch (error) {
-    console.error(error);
-    toast.error("Something went wrong. Please try again.");
-  }
-};
+    try {
+      const response = await fetch(`${BASE_URL}/updatepassword`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, newPassword }),
+      });
 
+      if (!response.ok) {
+        throw new Error("Failed to reset password.");
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      toast.success("Password reset successfully!");
+      setTimeout(() => {
+        navigate('/login');
+      }, 5000);
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <div className="forgot">

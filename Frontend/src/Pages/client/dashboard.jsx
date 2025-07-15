@@ -8,6 +8,7 @@ import Reviews from "./reviews";
 import "../../Styles/client/reviews.css";
 
 const Dashboard = () => {
+  const API_BASE_URL = import.meta.env.VITE_BASE_URL;
   const [categories, setCategories] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://consulto.onrender.com/categories');
+        const response = await fetch(`${API_BASE_URL}/categories`);
         if (!response.ok) {
           throw new Error('Failed to fetch Categories');
         }
@@ -27,12 +28,12 @@ const Dashboard = () => {
       }
     };
     fetchCategories();
-  }, []);
+  }, [API_BASE_URL]);
 
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('https://consulto.onrender.com/doctors');
+        const response = await fetch(`${API_BASE_URL}/doctors`);
         if (!response.ok) {
           throw new Error('Failed to fetch Doctors');
         }
@@ -43,12 +44,12 @@ const Dashboard = () => {
       }
     };
     fetchDoctors();
-  }, []);
+  }, [API_BASE_URL]);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('https://consulto.onrender.com/reviews');
+        const response = await fetch(`${API_BASE_URL}/reviews`);
         if (!response.ok) {
           throw new Error('Failed to fetch Reviews');
         }
@@ -59,7 +60,7 @@ const Dashboard = () => {
       }
     };
     fetchReviews();
-  }, []);
+  }, [API_BASE_URL]);
 
   return (
     <>
