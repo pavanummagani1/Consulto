@@ -13,8 +13,14 @@ const STRIPE_PUBLIC_KEY ='pk_test_51RQ5vFDswYzrBk2CF3ebfkNIb1xqhXDQGiU93JbIo9qPB
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 
-const API_BASE_URL = import.meta.env.VITE_BASE_URL || 'https://consulto.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_BASE_URL;
 
+
+import { 
+  CardNumberElement, 
+  CardExpiryElement, 
+  CardCvcElement 
+} from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({ 
   handleSubmit, 
@@ -38,7 +44,19 @@ const CheckoutForm = ({
 
     setIsProcessing(true);
     try {
-      await handleSubmit(e, stripe, elements);
+      const cardNumberElement = elements.getElement(CardNumberElement);
+      const cardExpiryElement = elements.getElement(CardExpiryElement);
+      const cardCvcElement = elements.getElement(CardCvcElement);
+
+      if (!cardNumberElement || !cardExpiryElement || !cardCvcElement) {
+        throw new Error("Payment elements not properly initialized");
+      }
+
+      await handleSubmit(e, stripe, elements, {
+        cardNumberElement,
+        cardExpiryElement,
+        cardCvcElement
+      });
     } catch (error) {
       console.error("Payment error:", error);
       toast.error(error.message || "Payment processing failed");
@@ -47,72 +65,150 @@ const CheckoutForm = ({
     }
   };
 
+  const CARD_ELEMENT_OPTIONS = {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#424770',
+        '::placeholder': {
+          color: '#aab7c4',
+        },
+        padding: '10px 12px',
+      },
+      invalid: {
+        color: '#9e2146',
+        iconColor: '#9e2146',
+      },
+    },
+    showIcon: true,
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modalcontent">
         <span className="closebutton" onClick={closeForm}>&times;</span>
-        <form className="patientsubmitForm formGrid" onSubmit={handleFormSubmit}>
-          {FormsData?.patientForm?.fields?.map((ele, index) => {
-            const label = FormsData?.patientForm?.label?.[index];
-            return (
-              <div className="formgroup" key={index}>
-                <label htmlFor={ele.id}>{label}</label>
-                <input
-                  type={ele.type}
-                  placeholder={ele.placeholder}
-                  id={ele.id}
-                  name={ele.name}
-                  required
-                  onChange={(e) => setAppointmentState(prev => ({ 
-                    ...prev, 
-                    [e.target.name]: e.target.value 
-                  }))}
+        <form className="split-layout-form" onSubmit={handleFormSubmit}>
+          {/* Left Side - Appointment Details */}
+          <div className="appointment-details">
+            <h3>Appointment Details</h3>
+            
+            <div className="doctor-summary">
+              <div className="doctor-image-container">
+                <img 
+                  src={doctor.image} 
+                  alt={`Dr. ${doctor.name}`}
+                  onError={(e) => e.target.src = '/default-doctor.png'}
                 />
               </div>
-            );
-          })}
-          
-          <div className="payment-section">
-            <h4>Payment Details</h4>
-            <div className="card-element">
-              <CardElement 
-                options={{
-                  style: {
-                    base: {
-                      fontSize: '16px',
-                      color: '#424770',
-                      '::placeholder': {
-                        color: '#aab7c4',
-                      },
-                    },
-                    invalid: {
-                      color: '#9e2146',
-                    },
-                  },
-                }} 
-              />
+              <div className="doctor-info">
+                <h4>Dr. {doctor.name}</h4>
+                <p>{doctor.speciality}</p>
+                <p>{doctor.department}</p>
+              </div>
             </div>
-            <div className="payment-summary">
-              <p>Doctor: Dr. {doctor.name}</p>
-              <p>Date: {selectedDate}</p>
-              <p>Time: {selectedSlot}</p>
-              <p className="payment-amount">Amount: ₹{Math.max(doctor.fee || 500000, 5000)/100}</p>
+
+            <div className="appointment-info">
+              <div className="info-row">
+                <span className="label">Date:</span>
+                <span className="value">{selectedDate}</span>
+              </div>
+              <div className="info-row">
+                <span className="label">Time:</span>
+                <span className="value">{selectedSlot}</span>
+              </div>
+              <div className="info-row">
+                <span className="label">Fee:</span>
+                <span className="value">₹{Math.max(doctor.fee || 500000, 5000)/100}</span>
+              </div>
+            </div>
+
+            <div className="patient-form">
+              <h4>Your Information</h4>
+              {FormsData?.patientForm?.fields?.map((ele, index) => {
+                const label = FormsData?.patientForm?.label?.[index];
+                return (
+                  <div className="formgroup" key={index}>
+                    <label htmlFor={ele.id}>{label}</label>
+                    <input
+                      type={ele.type}
+                      placeholder={ele.placeholder}
+                      id={ele.id}
+                      name={ele.name}
+                      required
+                      onChange={(e) => setAppointmentState(prev => ({ 
+                        ...prev, 
+                        [e.target.name]: e.target.value 
+                      }))}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <button 
-            type="submit" 
-            className="appointmentBtn" 
-            disabled={isProcessing}
-          >
-            {isProcessing ? 'Processing Payment...' : `Pay ₹${Math.max(doctor.fee || 500000, 5000)/100}`}
-          </button>
+          {/* Right Side - Payment Details */}
+          <div className="payment-details">
+            <h3>Payment Details</h3>
+            
+            <div className="stripe-card-element">
+              <div className="stripe-row">
+                <div className="stripe-field full-width">
+                  <label>Card Number</label>
+                  <CardNumberElement 
+                    options={{
+                      ...CARD_ELEMENT_OPTIONS,
+                      placeholder: '1234 1234 1234 1234'
+                    }} 
+                  />
+                </div>
+              </div>
+              
+              <div className="stripe-row">
+                <div className="stripe-field half-width">
+                  <label>Expiry Date</label>
+                  <CardExpiryElement 
+                    options={{
+                      ...CARD_ELEMENT_OPTIONS,
+                      placeholder: 'MM/YY'
+                    }} 
+                  />
+                </div>
+                <div className="stripe-field half-width">
+                  <label>Security Code</label>
+                  <CardCvcElement 
+                    options={{
+                      ...CARD_ELEMENT_OPTIONS,
+                      placeholder: 'CVC'
+                    }} 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="payment-summary">
+              <div className="summary-row">
+                <span>Consultation Fee:</span>
+                <span>₹{Math.max(doctor.fee || 50000, 500)/100}</span>
+              </div>
+              <div className="summary-row total">
+                <span>Total Amount:</span>
+                <span>₹{Math.max(doctor.fee || 50000, 500)/100}</span>
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              className="payment-btn" 
+              disabled={isProcessing}
+            >
+              {isProcessing ? 'Processing Payment...' : `Pay ₹${Math.max(doctor.fee || 50000, 500)/100}`}
+            </button>
+          </div>
         </form>
       </div>
     </div>
   );
 };
-
 const SingleDoctor = () => {
     const [doctor, setDoctor] = useState({});
     const [showModal, setShowModal] = useState(false);
